@@ -29,9 +29,9 @@ namespace WindPowerSystemV2
 			var builder = new ContainerBuilder();
 			services.AddMvc();
 
-			//from WPS
 			// Add EntityFramework support for SqlServer.
 			services.AddEntityFrameworkSqlServer();
+
 			// Add ApplicationDbContext.
 			services.AddDbContext<Context>(options =>
 				options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))
@@ -69,13 +69,15 @@ namespace WindPowerSystemV2
 					defaults: new { controller = "Home", action = "Index" });
 			});
 
-			//Create a service scope to get an ApplicationDbContext instance using DI
+			//Create a service scope to get an Context instance using DI
 			using (var serviceScope =
 				app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
 			{
 				var dbContext = serviceScope.ServiceProvider.GetService<Context>();
+				
 				// Create the Db if it doesn't exist and applies any pending migration.
 				dbContext.Database.Migrate();
+
 				// Seed the Db.
 				DbSeeder.Seed(dbContext);
 			}
