@@ -6,14 +6,14 @@ namespace WindPowerSystemV2.Repositories.Models
 	{
 		public TurbineType() { }
 
-		[Key]
-		[Required]
-		public int Id { get; set; }
+		//[Key]
+		//[Required]
+		public virtual int Id { get; set; }
 
-		[Required]
-		public string Model { get; set; }
+		//[Required]
+		public virtual string Model { get; set; }
 
-		[Required]
-		public float Capacity { get; set; }
+		//[Required]
+		public virtual float Capacity { get; set; }
 	}
 }
