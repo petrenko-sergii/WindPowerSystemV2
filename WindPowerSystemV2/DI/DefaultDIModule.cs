@@ -3,6 +3,8 @@ using System.Reflection;
 using WindPowerSystemV2.Services;
 using WindPowerSystemV2.Services.Interfaces;
 using Module = Autofac.Module;
+using NHibernate;
+using NHibernate.Cfg;
 
 namespace WindPowerSystemV2.DI
 {
@@ -20,6 +22,15 @@ namespace WindPowerSystemV2.DI
 
 			//Registration Services
 			builder.RegisterType<TurbineTypeService>().As<ITurbineTypeService>().PropertiesAutowired();
+
+			//Registration NHibernate (connected to Oracle DB) 
+			var cfg = (Configuration)builder.Properties["NHibCfg"];
+
+			builder.Register(c => cfg.BuildSessionFactory())
+				.As<ISessionFactory>()
+				.SingleInstance();
+
+			builder.Register(c => c.Resolve<ISessionFactory>().OpenSession());
 		}
 	}
 }

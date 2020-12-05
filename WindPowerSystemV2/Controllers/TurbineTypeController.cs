@@ -37,13 +37,13 @@ namespace WindPowerSystemV2.Controllers
 		//}
 
 		// GET: api/TurbineType/5
-		[HttpGet("{id}", Name = "Get")]
-		public IActionResult Get(int id)
-		{
-			var turbineTypeDto = _turbineTypeService.GetTurbineTypeById(id);
+		//[HttpGet("{id}", Name = "Get")]
+		//public IActionResult Get(int id)
+		//{
+		//	var turbineTypeDto = _turbineTypeService.GetTurbineTypeById(id);
 
-			return new JsonResult(turbineTypeDto, JsonSettings);
-		}
+		//	return new JsonResult(turbineTypeDto, JsonSettings);
+		//}
 
 		// use for .NET Core 2.1 (and above) -- use ActionResult<TurbineTypeDto>
 		//public ActionResult<TurbineTypeDto> Get(int id)
@@ -52,17 +52,17 @@ namespace WindPowerSystemV2.Controllers
 		//}
 
 		// POST: api/TurbineType
-		[HttpPost]
-		public IActionResult Post([FromBody] TurbineTypeDto dto)
-		{
-			return new JsonResult(_turbineTypeService.Create(dto), JsonSettings);
-		}
+		//[HttpPost]
+		//public IActionResult Post([FromBody] TurbineTypeDto dto)
+		//{
+		//	return new JsonResult(_turbineTypeService.Create(dto), JsonSettings);
+		//}
 
 		// PUT: api/TurbineType/5
 		[HttpPut("{id}")]
 		public void Put(int id, [FromBody] TurbineTypeDto dto)
 		{
-			_turbineTypeService.UpdateTurbineType(id, dto);
+			//_turbineTypeService.UpdateTurbineType(id, dto);
 		}
 
 		// DELETE: api/ApiWithActions/5

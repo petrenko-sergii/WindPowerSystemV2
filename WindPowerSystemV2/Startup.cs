@@ -4,12 +4,13 @@ using Autofac.Extensions.DependencyInjection;
 using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using WindPowerSystemV2.DI;
-using WindPowerSystemV2.Repositories;
-
+using NHibernate.Cfg;
+using NHibernate.Dialect;
+using NHibernate.Driver;
+using System.Reflection;
 
 namespace WindPowerSystemV2
 {
@@ -29,17 +30,12 @@ namespace WindPowerSystemV2
 			var builder = new ContainerBuilder();
 			services.AddMvc();
 
-			// Add EntityFramework support for SqlServer.
-			services.AddEntityFrameworkSqlServer();
-
-			// Add ApplicationDbContext.
-			services.AddDbContext<Context>(options =>
-				options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))
-			);
 			services.AddAutoMapper(typeof(Startup));
 
 			builder.RegisterModule<DefaultDIModule>();
 			builder.Populate(services);
+
+			AddNHibConfigurationToBuilder(builder);
 
 			Container = builder.Build();
 
@@ -68,19 +64,26 @@ namespace WindPowerSystemV2
 					name: "spa-fallback",
 					defaults: new { controller = "Home", action = "Index" });
 			});
+		}
 
-			//Create a service scope to get an Context instance using DI
-			using (var serviceScope =
-				app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
+		private void AddNHibConfigurationToBuilder(ContainerBuilder builder)
+		{
+			string oraConnection = Configuration.GetConnectionString("DefaultOraConnection");
+
+			var cfg = new Configuration();
+
+			cfg.DataBaseIntegration(x =>
 			{
-				var dbContext = serviceScope.ServiceProvider.GetService<Context>();
-				
-				// Create the Db if it doesn't exist and applies any pending migration.
-				dbContext.Database.Migrate();
+				x.ConnectionString = oraConnection;
+				x.Driver<OracleManagedDataClientDriver>();
+				x.Dialect<Oracle12cDialect>();
+			});
 
-				// Seed the Db.
-				DbSeeder.Seed(dbContext);
-			}
+			var assembly = Assembly.GetExecutingAssembly();
+
+			cfg.AddAssembly(assembly);
+
+			builder.Properties.Add("NHibCfg", cfg);
 		}
 	}
 }
