@@ -1,11 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
-using NHibernate;
-using System;
-using System.Collections.Generic;
+﻿using NHibernate;
 using System.Linq;
-using System.Linq.Expressions;
 using WindPowerSystemV2.Repositories.Interfaces;
-using WindPowerSystemV2.Repositories.Models;
 
 namespace WindPowerSystemV2.Repositories
 {
