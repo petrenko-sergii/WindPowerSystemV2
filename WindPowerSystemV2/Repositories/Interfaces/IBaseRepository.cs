@@ -10,9 +10,9 @@ namespace WindPowerSystemV2.Repositories.Interfaces
 		//IQueryable<T> GetAll(Expression<Func<T, bool>> predicate);
 		//IQueryable<T> Get(Expression<Func<T, bool>> predicate);
 
-		//T FindById(int id);
+		T FindById(int id);
 
-		//void Create(T item);
+		void Create(T item);
 		//void Update(T item);
 		//void Remove(T item);
 	}

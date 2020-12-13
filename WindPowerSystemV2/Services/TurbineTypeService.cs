@@ -53,13 +53,14 @@ namespace WindPowerSystemV2.Services
 		//		turbineType.Capacity = dto.Capacity;
 		//}
 
-		//public TurbineTypeDto Create(TurbineTypeDto dto)
-		//{
-		//	var turbineType = Mapper.Map<TurbineTypeDto, TurbineType>(dto);
 
-		//	_turbineTypeRepository.Create(turbineType);
+		public TurbineTypeDto Create(TurbineTypeDto dto)
+		{
+			var turbineType = Mapper.Map<TurbineTypeDto, TurbineType>(dto);
 
-		//	return Mapper.Map<TurbineType, TurbineTypeDto>(_turbineTypeRepository.FindById(turbineType.Id));
-		//}
+			_turbineTypeRepository.Create(turbineType);
+
+			return Mapper.Map<TurbineType, TurbineTypeDto>(_turbineTypeRepository.FindById(turbineType.Id));
+		}
 	}
 }
