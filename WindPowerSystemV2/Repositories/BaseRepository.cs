@@ -24,12 +24,7 @@ namespace WindPowerSystemV2.Repositories
 		{
 			using (var session = _sessionFactory.OpenSession())
 			{
-				using (var transaction = session.BeginTransaction())
-				{
-					dbSet = session.CreateCriteria<T>().List<T>().AsQueryable();
-
-					transaction.Commit();
-				}
+				dbSet = session.CreateCriteria<T>().List<T>().AsQueryable();
 			}
 
 			return dbSet;
