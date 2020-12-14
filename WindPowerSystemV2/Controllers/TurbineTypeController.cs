@@ -10,7 +10,7 @@ using WindPowerSystemV2.Services.Interfaces;
 namespace WindPowerSystemV2.Controllers
 {
     [Route("api/TurbineType")]
-    public class TurbineTypeController : BaseApiController
+    public class TurbineTypeController
 	{
 		private readonly ITurbineTypeService _turbineTypeService;
 
@@ -29,19 +29,11 @@ namespace WindPowerSystemV2.Controllers
 		}
 
 		// GET: api/TurbineType/5
-		//[HttpGet("{id}", Name = "Get")]
-		//public IActionResult Get(int id)
-		//{
-		//	var turbineTypeDto = _turbineTypeService.GetTurbineTypeById(id);
-
-		//	return new JsonResult(turbineTypeDto, JsonSettings);
-		//}
-
-		// use for .NET Core 2.1 (and above) -- use ActionResult<TurbineTypeDto>
-		//public ActionResult<TurbineTypeDto> Get(int id)
-		//{
-		//	return _turbineTypeService.GetTurbineTypeById(id);
-		//}
+		[HttpGet("{id}", Name = "Get")]
+		public ActionResult<TurbineTypeDto> Get(int id)
+		{
+			return _turbineTypeService.GetTurbineTypeById(id);
+		}
 
 		//POST: api/TurbineType
 		[HttpPost]
