@@ -38,7 +38,7 @@ namespace WindPowerSystemV2.Controllers
 		//POST: api/TurbineType
 		[HttpPost]
 		//[ProducesResponseType(typeof(TurbineTypeDto), StatusCodes.Status201Created)]
-		public ActionResult<TurbineTypeDto> Post([FromBody] TurbineTypeDto dto)
+		public ActionResult<TurbineTypeDto> Post([FromBody] TurbineTypeDto dto) //TODO: create and use UpdateTurbineTypeDto without Id-property
 		{
 			return _turbineTypeService.Create(dto);
 		}
@@ -47,7 +47,7 @@ namespace WindPowerSystemV2.Controllers
 		[HttpPut("{id}")]
 		public void Put(int id, [FromBody] TurbineTypeDto dto)
 		{
-			//_turbineTypeService.UpdateTurbineType(id, dto);
+			_turbineTypeService.UpdateTurbineType(id, dto);
 		}
 
 		// DELETE: api/ApiWithActions/5

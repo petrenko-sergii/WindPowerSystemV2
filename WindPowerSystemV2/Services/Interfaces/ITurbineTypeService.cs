@@ -7,7 +7,7 @@ namespace WindPowerSystemV2.Services.Interfaces
 	{
 		IEnumerable<TurbineTypeDto> GetAllTurbineTypes();
 		TurbineTypeDto GetTurbineTypeById(int id);
-		//void UpdateTurbineType(int id, TurbineTypeDto dto);
+		void UpdateTurbineType(int id, TurbineTypeDto dto);
 		TurbineTypeDto Create(TurbineTypeDto dto);
 	}
 }

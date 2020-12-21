@@ -13,7 +13,7 @@ namespace WindPowerSystemV2.Repositories.Interfaces
 		T FindById(int id);
 
 		void Create(T item);
-		//void Update(T item);
+		void Update(T item);
 		//void Remove(T item);
 	}
 }

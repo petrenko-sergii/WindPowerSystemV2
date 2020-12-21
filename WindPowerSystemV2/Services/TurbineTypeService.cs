@@ -39,19 +39,21 @@ namespace WindPowerSystemV2.Services
 			return Mapper.Map<TurbineType, TurbineTypeDto>(turbineType);
 		}
 
-		//public void UpdateTurbineType(int id, TurbineTypeDto dto)
-		//{
-		//	var turbineType = _turbineTypeRepository.FindById(id);
+		public void UpdateTurbineType(int id, TurbineTypeDto dto)
+		{
+			var turbineType = _turbineTypeRepository.FindById(id);
 
-		//	if (turbineType == null)
-		//		throw new Exception("TurbineType was not found");
+			if (turbineType == null)
+				throw new Exception("TurbineType was not found");
 
-		//	if (dto.Model != null)
-		//		turbineType.Model = dto.Model;
+			if (dto.Model != null)
+				turbineType.Model = dto.Model;
 
-		//	if (dto.Capacity != 0)
-		//		turbineType.Capacity = dto.Capacity;
-		//}
+			if (dto.Capacity != 0)
+				turbineType.Capacity = dto.Capacity;
+
+			_turbineTypeRepository.Update(turbineType);
+		}
 
 
 		public TurbineTypeDto Create(TurbineTypeDto dto)
