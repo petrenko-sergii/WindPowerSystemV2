@@ -53,6 +53,15 @@ namespace WindPowerSystemV2.Services
 			if (dto.Capacity != 0)
 				turbineType.Capacity = dto.Capacity;
 
+			if(dto.TowerHeight != 0)
+				turbineType.TowerHeight = dto.TowerHeight;
+
+			if (dto.RotorDiameter != 0)
+				turbineType.RotorDiameter = dto.RotorDiameter;
+
+			if (dto.SweptArea != 0)
+				turbineType.SweptArea = dto.SweptArea;
+
 			_turbineTypeRepository.Update(turbineType, session);
 		}
 

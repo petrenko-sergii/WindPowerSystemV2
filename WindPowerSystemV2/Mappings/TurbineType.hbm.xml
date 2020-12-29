@@ -13,6 +13,9 @@
 
 		<property name = "Model"/>
 		<property name = "Capacity"/>
+		<property name = "TowerHeight"/>
+		<property name = "RotorDiameter"/>
+		<property name = "SweptArea"/>
 	</class>
 
 </hibernate-mapping>
