@@ -15,6 +15,6 @@ namespace WindPowerSystemV2.Repositories.Interfaces
 
 		void Create(T item, ISession session);
 		void Update(T item, ISession session);
-		//void Remove(T item);
+		void Remove(T item, ISession session);
 	}
 }

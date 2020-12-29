@@ -61,10 +61,13 @@ namespace WindPowerSystemV2.Repositories
 			}
 		}
 
-		//public virtual void Remove(T item)
-		//{
-		//	dbSet.Remove(item);
-		//	dbContext.SaveChanges();
-		//}
+		public virtual void Remove(T item, ISession session)
+		{
+			using (var transaction = session.BeginTransaction())
+			{
+				session.Delete(item);
+				transaction.Commit();
+			}
+		}
 	}
 }

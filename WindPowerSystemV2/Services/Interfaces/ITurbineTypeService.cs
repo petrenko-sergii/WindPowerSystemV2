@@ -10,5 +10,6 @@ namespace WindPowerSystemV2.Services.Interfaces
 		TurbineTypeDto GetTurbineTypeById(int id, ISession session);
 		void UpdateTurbineType(int id, TurbineTypeDto dto, ISession session);
 		TurbineTypeDto Create(TurbineTypeDto dto, ISession session);
+		void Remove(int id, ISession session);
 	}
 }

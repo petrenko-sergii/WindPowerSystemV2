@@ -67,11 +67,14 @@ namespace WindPowerSystemV2.Controllers
 			}
 		}
 
-		// DELETE: api/ApiWithActions/5
+		// DELETE: api/TurbineType/5
 		[HttpDelete("{id}")]
 		public void Delete(int id)
 		{
-			// TO DO
+			using (var session = _sessionFactory.OpenSession())
+			{
+				_turbineTypeService.Remove(id, session);
+			}
 		}
 	}
 }

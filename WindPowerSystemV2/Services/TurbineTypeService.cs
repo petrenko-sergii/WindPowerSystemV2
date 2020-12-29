@@ -65,5 +65,15 @@ namespace WindPowerSystemV2.Services
 
 			return Mapper.Map<TurbineType, TurbineTypeDto>(_turbineTypeRepository.FindById(turbineType.Id, session));
 		}
+
+		public void Remove(int id, ISession session)
+		{
+			var turbineType = _turbineTypeRepository.FindById(id, session);
+
+			if (turbineType == null)
+				throw new Exception("TurbineType was not found");
+
+			_turbineTypeRepository.Remove(turbineType, session);
+		}
 	}
 }
