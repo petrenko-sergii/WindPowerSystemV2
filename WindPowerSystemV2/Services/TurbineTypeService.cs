@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NHibernate;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using WindPowerSystemV2.DTOs;
@@ -17,9 +18,9 @@ namespace WindPowerSystemV2.Services
 			this._turbineTypeRepository = turbineTypeRepository;
 		}
 
-		public IEnumerable<TurbineTypeDto> GetAllTurbineTypes()
+		public IEnumerable<TurbineTypeDto> GetAllTurbineTypes(ISession session)
 		{
-			var turbineTypes = _turbineTypeRepository.GetAll();
+			var turbineTypes = _turbineTypeRepository.GetAll(session);
 
 			var turbineTypeDtoList = new List<TurbineTypeDto>();
 
@@ -29,9 +30,9 @@ namespace WindPowerSystemV2.Services
 			return turbineTypeDtoList;
 		}
 
-		public TurbineTypeDto GetTurbineTypeById(int id)
+		public TurbineTypeDto GetTurbineTypeById(int id, ISession session)
 		{
-			var turbineType = _turbineTypeRepository.FindById(id);
+			var turbineType = _turbineTypeRepository.FindById(id, session);
 
 			if (turbineType == null)
 				throw new Exception("TurbineType was not found");
@@ -39,9 +40,9 @@ namespace WindPowerSystemV2.Services
 			return Mapper.Map<TurbineType, TurbineTypeDto>(turbineType);
 		}
 
-		public void UpdateTurbineType(int id, TurbineTypeDto dto)
+		public void UpdateTurbineType(int id, TurbineTypeDto dto, ISession session)
 		{
-			var turbineType = _turbineTypeRepository.FindById(id);
+			var turbineType = _turbineTypeRepository.FindById(id, session);
 
 			if (turbineType == null)
 				throw new Exception("TurbineType was not found");
@@ -52,17 +53,17 @@ namespace WindPowerSystemV2.Services
 			if (dto.Capacity != 0)
 				turbineType.Capacity = dto.Capacity;
 
-			_turbineTypeRepository.Update(turbineType);
+			_turbineTypeRepository.Update(turbineType, session);
 		}
 
 
-		public TurbineTypeDto Create(TurbineTypeDto dto)
+		public TurbineTypeDto Create(TurbineTypeDto dto, ISession session)
 		{
 			var turbineType = Mapper.Map<TurbineTypeDto, TurbineType>(dto);
 
-			_turbineTypeRepository.Create(turbineType);
+			_turbineTypeRepository.Create(turbineType, session);
 
-			return Mapper.Map<TurbineType, TurbineTypeDto>(_turbineTypeRepository.FindById(turbineType.Id));
+			return Mapper.Map<TurbineType, TurbineTypeDto>(_turbineTypeRepository.FindById(turbineType.Id, session));
 		}
 	}
 }

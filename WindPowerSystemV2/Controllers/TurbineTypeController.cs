@@ -4,18 +4,22 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using NHibernate;
 using WindPowerSystemV2.DTOs;
 using WindPowerSystemV2.Services.Interfaces;
+using ISession = NHibernate.ISession;
 
 namespace WindPowerSystemV2.Controllers
 {
     [Route("api/TurbineType")]
     public class TurbineTypeController
 	{
+		private readonly ISessionFactory _sessionFactory;
 		private readonly ITurbineTypeService _turbineTypeService;
 
-		public TurbineTypeController(ITurbineTypeService turbineTypeService)
+		public TurbineTypeController(ISessionFactory sessionFactory, ITurbineTypeService turbineTypeService)
 		{
+			_sessionFactory = sessionFactory;
 			_turbineTypeService = turbineTypeService;
 		}
 
@@ -23,16 +27,22 @@ namespace WindPowerSystemV2.Controllers
 		[HttpGet]
 		public ActionResult<IEnumerable<TurbineTypeDto>> Get()
 		{
-			var turbineTypeDtos = _turbineTypeService.GetAllTurbineTypes();
+			using (var session = _sessionFactory.OpenSession())
+			{
+				var turbineTypeDtos = _turbineTypeService.GetAllTurbineTypes(session);
 
-			return turbineTypeDtos.ToList();
+				return turbineTypeDtos.ToList();
+			}
 		}
 
 		// GET: api/TurbineType/5
 		[HttpGet("{id}", Name = "Get")]
 		public ActionResult<TurbineTypeDto> Get(int id)
 		{
-			return _turbineTypeService.GetTurbineTypeById(id);
+			using (var session = _sessionFactory.OpenSession())
+			{
+				return _turbineTypeService.GetTurbineTypeById(id, session);
+			}
 		}
 
 		//POST: api/TurbineType
@@ -40,14 +50,21 @@ namespace WindPowerSystemV2.Controllers
 		//[ProducesResponseType(typeof(TurbineTypeDto), StatusCodes.Status201Created)]
 		public ActionResult<TurbineTypeDto> Post([FromBody] TurbineTypeDto dto) //TODO: create and use UpdateTurbineTypeDto without Id-property
 		{
-			return _turbineTypeService.Create(dto);
+			using (var session = _sessionFactory.OpenSession())
+			{
+				return _turbineTypeService.Create(dto, session);
+			}
+				
 		}
 
 		// PUT: api/TurbineType/5
 		[HttpPut("{id}")]
 		public void Put(int id, [FromBody] TurbineTypeDto dto)
 		{
-			_turbineTypeService.UpdateTurbineType(id, dto);
+			using (var session = _sessionFactory.OpenSession())
+			{
+				_turbineTypeService.UpdateTurbineType(id, dto, session);
+			}
 		}
 
 		// DELETE: api/ApiWithActions/5
