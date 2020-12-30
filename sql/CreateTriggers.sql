@@ -13,7 +13,21 @@ begin
 end;
 /
 
+------------------------------------- Create trigger for TURBINE ---------------------------------------
+create or replace trigger trg_turbine
+   before insert on turbine for each row
+declare
+   v_id number;
+begin
+   if (:new.id is null or :new.id = 0) then
+      select turbine_seq.nextval into v_id from dual;
+      :new.id := v_id;
+   end if;
+end;
+/
+
 ---------------------------------------------------- Commit -----------------------------------------------
+
 commit;
 
 -------------------------------------------- Print the log-message ----------------------------------------

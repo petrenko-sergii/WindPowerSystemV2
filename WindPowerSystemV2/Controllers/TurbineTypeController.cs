@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using NHibernate;
 using WindPowerSystemV2.DTOs;
 using WindPowerSystemV2.Services.Interfaces;
-using ISession = NHibernate.ISession;
 
 namespace WindPowerSystemV2.Controllers
 {
@@ -54,7 +50,6 @@ namespace WindPowerSystemV2.Controllers
 			{
 				return _turbineTypeService.Create(dto, session);
 			}
-				
 		}
 
 		// PUT: api/TurbineType/5

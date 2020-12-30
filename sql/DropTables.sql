@@ -27,8 +27,30 @@ EXCEPTION
 END;
 /
 
+------------------------------- Drop table, sequence for table: TURBINE ---------------------------------
+
+BEGIN
+   EXECUTE IMMEDIATE 'DROP TABLE ' || 'TURBINE';
+EXCEPTION
+   WHEN OTHERS THEN
+      IF SQLCODE != -942 THEN
+         RAISE;
+      END IF;
+END;
+/
+
+BEGIN
+  EXECUTE IMMEDIATE 'DROP SEQUENCE ' || 'TURBINE_SEQ';
+EXCEPTION
+  WHEN OTHERS THEN
+    IF SQLCODE != -2289 THEN
+      RAISE;
+    END IF;
+END;
+/
 
 ----------------------------------------------- Commit ------------------------------------------------
+
 commit;
 
 ------------------------------- Print the log-message ---------------------------------
