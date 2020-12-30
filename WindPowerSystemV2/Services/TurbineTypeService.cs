@@ -1,5 +1,4 @@
-﻿using NHibernate;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using WindPowerSystemV2.DTOs;
@@ -18,21 +17,21 @@ namespace WindPowerSystemV2.Services
 			this._turbineTypeRepository = turbineTypeRepository;
 		}
 
-		public IEnumerable<TurbineTypeDto> GetAllTurbineTypes(ISession session)
+		public IEnumerable<TurbineTypeDto> GetAllTurbineTypes()
 		{
-			var turbineTypes = _turbineTypeRepository.GetAll(session);
+			var turbineTypes = _turbineTypeRepository.GetAll();
 
 			var turbineTypeDtoList = new List<TurbineTypeDto>();
 
 			turbineTypes.ToList().ForEach(t =>
 				turbineTypeDtoList.Add(Mapper.Map<TurbineType, TurbineTypeDto>(t)));
 
-			return turbineTypeDtoList;
+			return turbineTypeDtoList.OrderBy(t=>t.Id);
 		}
 
-		public TurbineTypeDto GetTurbineTypeById(int id, ISession session)
+		public TurbineTypeDto GetTurbineTypeById(int id)
 		{
-			var turbineType = _turbineTypeRepository.FindById(id, session);
+			var turbineType = _turbineTypeRepository.FindById(id);
 
 			if (turbineType == null)
 				throw new Exception("TurbineType was not found");
@@ -40,9 +39,18 @@ namespace WindPowerSystemV2.Services
 			return Mapper.Map<TurbineType, TurbineTypeDto>(turbineType);
 		}
 
-		public void Update(int id, TurbineTypeDto dto, ISession session)
+		public TurbineTypeDto Create(TurbineTypeDto dto)
 		{
-			var turbineType = _turbineTypeRepository.FindById(id, session);
+			var turbineType = Mapper.Map<TurbineTypeDto, TurbineType>(dto);
+
+			_turbineTypeRepository.Create(turbineType);
+
+			return Mapper.Map<TurbineType, TurbineTypeDto>(_turbineTypeRepository.FindById(turbineType.Id));
+		}
+
+		public void Update(int id, TurbineTypeDto dto)
+		{
+			var turbineType = _turbineTypeRepository.FindById(id);
 
 			if (turbineType == null)
 				throw new Exception("TurbineType was not found");
@@ -53,7 +61,7 @@ namespace WindPowerSystemV2.Services
 			if (dto.Capacity != 0)
 				turbineType.Capacity = dto.Capacity;
 
-			if(dto.TowerHeight != 0)
+			if (dto.TowerHeight != 0)
 				turbineType.TowerHeight = dto.TowerHeight;
 
 			if (dto.RotorDiameter != 0)
@@ -62,27 +70,17 @@ namespace WindPowerSystemV2.Services
 			if (dto.SweptArea != 0)
 				turbineType.SweptArea = dto.SweptArea;
 
-			_turbineTypeRepository.Update(turbineType, session);
+			_turbineTypeRepository.Update(turbineType);
 		}
 
-
-		public TurbineTypeDto Create(TurbineTypeDto dto, ISession session)
+		public void Remove(int id)
 		{
-			var turbineType = Mapper.Map<TurbineTypeDto, TurbineType>(dto);
-
-			_turbineTypeRepository.Create(turbineType, session);
-
-			return Mapper.Map<TurbineType, TurbineTypeDto>(_turbineTypeRepository.FindById(turbineType.Id, session));
-		}
-
-		public void Remove(int id, ISession session)
-		{
-			var turbineType = _turbineTypeRepository.FindById(id, session);
+			var turbineType = _turbineTypeRepository.FindById(id);
 
 			if (turbineType == null)
 				throw new Exception("TurbineType was not found");
 
-			_turbineTypeRepository.Remove(turbineType, session);
+			_turbineTypeRepository.Remove(turbineType);
 		}
 	}
 }

@@ -6,7 +6,7 @@ namespace WindPowerSystemV2.Repositories
 {
 	public class TurbineTypeRepository : BaseRepository<TurbineType>, ITurbineTypeRepository
 	{
-		public TurbineTypeRepository(ISessionFactory sessionFactory) : base(sessionFactory)
+		public TurbineTypeRepository(ISession session) : base(session)
 		{
 		}
 	}

@@ -1,5 +1,4 @@
-﻿using NHibernate;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using WindPowerSystemV2.DTOs;
@@ -18,21 +17,21 @@ namespace WindPowerSystemV2.Services
 			this._turbineRepository = turbineRepository;
 		}
 
-		public IEnumerable<TurbineDto> GetAllTurbines(ISession session)
+		public IEnumerable<TurbineDto> GetAllTurbines()
 		{
-			var turbines = _turbineRepository.GetAll(session);
+			var turbines = _turbineRepository.GetAll();
 
 			var turbineDtoList = new List<TurbineDto>();
 
 			turbines.ToList().ForEach(t =>
 				turbineDtoList.Add(Mapper.Map<Turbine, TurbineDto>(t)));
 
-			return turbineDtoList;
+			return turbineDtoList.OrderBy(t => t.Id);
 		}
 
-		public TurbineDto GetTurbineById(int id, ISession session)
+		public TurbineDto GetTurbineById(int id)
 		{
-			var turbine = _turbineRepository.FindById(id, session);
+			var turbine = _turbineRepository.FindById(id);
 
 			if (turbine == null)
 				throw new Exception("TurbineType was not found");
@@ -40,9 +39,18 @@ namespace WindPowerSystemV2.Services
 			return Mapper.Map<Turbine, TurbineDto>(turbine);
 		}
 
-		public void Update(int id, TurbineDto dto, ISession session)
+		public TurbineDto Create(TurbineDto dto)
 		{
-			var turbine = _turbineRepository.FindById(id, session);
+			var turbine = Mapper.Map<TurbineDto, Turbine>(dto);
+
+			_turbineRepository.Create(turbine);
+
+			return Mapper.Map<Turbine, TurbineDto>(_turbineRepository.FindById(turbine.Id));
+		}
+
+		public void Update(int id, TurbineDto dto)
+		{
+			var turbine = _turbineRepository.FindById(id);
 
 			if (turbine == null)
 				throw new Exception("Turbine was not found");
@@ -53,27 +61,17 @@ namespace WindPowerSystemV2.Services
 			if (dto.ProdMW != 0)
 				turbine.ProdMW = dto.ProdMW;
 
-			_turbineRepository.Update(turbine, session);
+			_turbineRepository.Update(turbine);
 		}
 
-
-		public TurbineDto Create(TurbineDto dto, ISession session)
+		public void Remove(int id)
 		{
-			var turbine = Mapper.Map<TurbineDto, Turbine>(dto);
-
-			_turbineRepository.Create(turbine, session);
-
-			return Mapper.Map<Turbine, TurbineDto>(_turbineRepository.FindById(turbine.Id, session));
-		}
-
-		public void Remove(int id, ISession session)
-		{
-			var turbine = _turbineRepository.FindById(id, session);
+			var turbine = _turbineRepository.FindById(id);
 
 			if (turbine == null)
 				throw new Exception("Turbine was not found");
 
-			_turbineRepository.Remove(turbine, session);
+			_turbineRepository.Remove(turbine);
 		}
 	}
 }

@@ -11,16 +11,17 @@ namespace WindPowerSystemV2.Repositories
 {
 	public class BaseRepository<T> : IBaseRepository<T> where T : class
 	{
+		protected readonly ISession _session;
 		protected IQueryable<T> dbSet;
 
-		protected BaseRepository(ISessionFactory sessionFactory)
+		protected BaseRepository(ISession session)
 		{
-			dbSet = Enumerable.Empty<T>().AsQueryable();
+			_session = session;
 		}
 
-		public virtual IQueryable<T> GetAll(ISession session)
+		public virtual IQueryable<T> GetAll()
 		{
-			dbSet = session.CreateCriteria<T>().List<T>().AsQueryable();
+			dbSet = _session.CreateCriteria<T>().List<T>().AsQueryable();
 
 			return dbSet;
 		}
@@ -35,37 +36,37 @@ namespace WindPowerSystemV2.Repositories
 		//	return dbSet.Where(predicate);
 		//}
 
-		public virtual T FindById(int id, ISession session)
+		public virtual T FindById(int id)
 		{
-			T dbItem = session.CreateCriteria(typeof(T))
+			T dbItem = _session.CreateCriteria(typeof(T))
 				.Add(Restrictions.Eq("Id", id)).UniqueResult<T>();
 
 			return dbItem;
 		}
 
-		public virtual void Create(T item, ISession session)
+		public virtual void Create(T item)
 		{
-			using (var transaction = session.BeginTransaction())
+			using (var transaction = _session.BeginTransaction())
 			{
-				session.Save(item);
+				_session.Save(item);
 				transaction.Commit();
 			}
 		}
 
-		public virtual void Update(T item, ISession session)
+		public virtual void Update(T item)
 		{
-			using (var transaction = session.BeginTransaction())
+			using (var transaction = _session.BeginTransaction())
 			{
-				session.Update(item);
+				_session.Update(item);
 				transaction.Commit();
 			}
 		}
 
-		public virtual void Remove(T item, ISession session)
+		public virtual void Remove(T item)
 		{
-			using (var transaction = session.BeginTransaction())
+			using (var transaction = _session.BeginTransaction())
 			{
-				session.Delete(item);
+				_session.Delete(item);
 				transaction.Commit();
 			}
 		}

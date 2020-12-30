@@ -28,11 +28,8 @@ namespace WindPowerSystemV2.DI
 			//Registration NHibernate (connected to Oracle DB) 
 			var cfg = (Configuration)builder.Properties[Constants.NHibernateConfiguration];
 
-			builder.Register(c => cfg.BuildSessionFactory())
-				.As<ISessionFactory>()
-				.SingleInstance();
-
-			builder.Register(c => c.Resolve<ISessionFactory>().OpenSession());
+			builder.Register(c => cfg.BuildSessionFactory()).As<ISessionFactory>().SingleInstance();
+			builder.Register(c => c.Resolve<ISessionFactory>().OpenSession()).As<ISession>().InstancePerLifetimeScope();
 		}
 	}
 }
