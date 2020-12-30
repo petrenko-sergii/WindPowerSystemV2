@@ -11,6 +11,7 @@ using NHibernate.Cfg;
 using NHibernate.Dialect;
 using NHibernate.Driver;
 using System.Reflection;
+using WindPowerSystemV2.Helpers;
 
 namespace WindPowerSystemV2
 {
@@ -83,7 +84,7 @@ namespace WindPowerSystemV2
 
 			cfg.AddAssembly(assembly);
 
-			builder.Properties.Add("NHibCfg", cfg);
+			builder.Properties.Add(Constants.NHibernateConfiguration, cfg);
 		}
 	}
 }

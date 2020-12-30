@@ -5,6 +5,7 @@ using WindPowerSystemV2.Services.Interfaces;
 using Module = Autofac.Module;
 using NHibernate;
 using NHibernate.Cfg;
+using WindPowerSystemV2.Helpers;
 
 namespace WindPowerSystemV2.DI
 {
@@ -14,7 +15,7 @@ namespace WindPowerSystemV2.DI
 		{
 			//Registration All repositories 
 			builder.RegisterAssemblyTypes(Assembly.GetExecutingAssembly())
-				.Where(t => t.Name.EndsWith("Repository"))
+				.Where(t => t.Name.EndsWith(Constants.Repository))
 				.AsImplementedInterfaces();
 
 			//Registration Base Functionality
@@ -25,7 +26,7 @@ namespace WindPowerSystemV2.DI
 			builder.RegisterType<TurbineService>().As<ITurbineService>().PropertiesAutowired();
 
 			//Registration NHibernate (connected to Oracle DB) 
-			var cfg = (Configuration)builder.Properties["NHibCfg"];
+			var cfg = (Configuration)builder.Properties[Constants.NHibernateConfiguration];
 
 			builder.Register(c => cfg.BuildSessionFactory())
 				.As<ISessionFactory>()

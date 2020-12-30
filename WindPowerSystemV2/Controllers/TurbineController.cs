@@ -57,7 +57,7 @@ namespace WindPowerSystemV2.Controllers
 		{
 			using (var session = _sessionFactory.OpenSession())
 			{
-				_turbineService.UpdateTurbine(id, dto, session);
+				_turbineService.Update(id, dto, session);
 			}
 		}
 

@@ -8,7 +8,7 @@ namespace WindPowerSystemV2.Services.Interfaces
 	{
 		IEnumerable<TurbineDto> GetAllTurbines(ISession session);
 		TurbineDto GetTurbineById(int id, ISession session);
-		void UpdateTurbine(int id, TurbineDto dto, ISession session);
+		void Update(int id, TurbineDto dto, ISession session);
 		TurbineDto Create(TurbineDto dto, ISession session);
 		void Remove(int id, ISession session);
 	}

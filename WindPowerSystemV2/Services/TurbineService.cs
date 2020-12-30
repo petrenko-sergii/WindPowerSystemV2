@@ -40,7 +40,7 @@ namespace WindPowerSystemV2.Services
 			return Mapper.Map<Turbine, TurbineDto>(turbine);
 		}
 
-		public void UpdateTurbine(int id, TurbineDto dto, ISession session)
+		public void Update(int id, TurbineDto dto, ISession session)
 		{
 			var turbine = _turbineRepository.FindById(id, session);
 
