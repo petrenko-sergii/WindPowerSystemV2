@@ -13,6 +13,7 @@
 
 		<property name = "SerialNum"/>
 		<property name = "ProdMW"/>
+		<many-to-one name="TurbineType" column="TurbineTypeId"/>
 	</class>
 
 </hibernate-mapping>

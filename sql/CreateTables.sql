@@ -41,7 +41,8 @@ create table TURBINE
 (
    id         		NUMBER not null,
    serialnum        VARCHAR2(40 CHAR),
-   prodmw       	NUMBER not null
+   prodmw       	NUMBER not null,
+   turbinetypeid    NUMBER not null
 );
 
 -- Add comment to the table 
@@ -51,12 +52,16 @@ comment on table TURBINE is 'Wind turbine table';
 comment on column TURBINE.id is 'Id';
 comment on column TURBINE.serialnum is 'Serial number';
 comment on column TURBINE.prodmw is 'Produced energy (MW)';
+comment on column TURBINE.turbinetypeid is 'Type id';
 
 -- Create primary, unique and foreign key constraints 
 create unique index pk_turbine on turbine (id);
 
 alter table turbine 
   add constraint pk_turbine primary key (id) using index pk_turbine;
+  
+alter table turbine
+  add constraint fk_turbine_turbinetype foreign key (turbinetypeid) references turbinetype (id);
 
 --------------------------------------- Commit ---------------------------------------
 

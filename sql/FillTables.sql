@@ -8,11 +8,10 @@ insert into turbinetype (model, capacity, towerheight, rotordiameter, sweptarea)
 insert into turbinetype (model, capacity, towerheight, rotordiameter, sweptarea) values ('test4', 400, 401, 402, 403);
 
 ------------------------------------- Fill table TURBINE ---------------------------------
-insert into turbine (serialnum, prodmw) values ('ser#-1', 100);
-insert into turbine (serialnum, prodmw) values ('ser#-2', 200);
-insert into turbine (serialnum, prodmw) values ('ser#-3', 300);
-insert into turbine (serialnum, prodmw) values ('ser#-4', 400);
-
+insert into turbine (serialnum, prodmw, turbinetypeid) values ('ser#-1', 100, 1);
+insert into turbine (serialnum, prodmw, turbinetypeid) values ('ser#-2', 200, 2);
+insert into turbine (serialnum, prodmw, turbinetypeid) values ('ser#-3', 300, 2);
+insert into turbine (serialnum, prodmw, turbinetypeid) values ('ser#-4', 400, 4);
 
 -------------------------------------------- Commit ------------------------------------------------
 commit;

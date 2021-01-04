@@ -1,11 +1,7 @@
 ﻿using NHibernate;
 using NHibernate.Criterion;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
 using WindPowerSystemV2.Repositories.Interfaces;
-using WindPowerSystemV2.Repositories.Models;
 
 namespace WindPowerSystemV2.Repositories
 {
