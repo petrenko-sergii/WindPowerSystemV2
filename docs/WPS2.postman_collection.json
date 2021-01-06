@@ -1,0 +1,368 @@
+{
+	"info": {
+		"_postman_id": "099ac181-87c8-4b41-8bcd-390d7a7c7fcd",
+		"name": "WPS2 (Core, Oracle, NHibernate, Autofac)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "TurbineType",
+			"item": [
+				{
+					"name": "GetAllTurbineTypes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/turbinetype",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"turbinetype"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetTurbineTypeById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/turbinetype/2",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"turbinetype",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateTurbineType",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Model\": \"Test5\",\r\n    \"Capacity\": 500,\r\n    \"TowerHeight\": 501,\r\n    \"RotorDiameter\": 502,\r\n    \"SweptArea\": 503\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/turbinetype",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"turbinetype"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateTurbineType",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Model\": \"Test111\",\r\n    \"Capacity\": 111\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/turbinetype/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"turbinetype",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteTurbineType",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/turbinetype/5",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"turbinetype",
+								"5"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Turbine",
+			"item": [
+				{
+					"name": "GetAllTurbines",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/turbine",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"turbine"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetTurbineById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/turbine/3",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"turbine",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateTurbine",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"SerialNum\": \"Ser#-5\",\r\n    \"ProdMW\": 500,\r\n    \"TurbineType\" : {\r\n        \"Id\":4\r\n    }  \r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/turbine",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"turbine"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateTurbine",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"SerialNum\": \"Ser#-111\",\r\n    \"ProdMW\": 122    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/turbine/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"turbine",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteTurbine",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/turbine/5",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"turbine",
+								"5"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Share",
+			"item": [
+				{
+					"name": "GetAllShares",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/share",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"share"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetShareById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/share/5",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"share",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateShare",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"SerialNum\": \"Ser#-7\",\r\n    \"Percent\": 50,\r\n    \"Price\": 5000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/share",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"share"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateShare",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"SerialNum\": \"Ser#-5\",\r\n    \"Percent\": 3,\r\n    \"Price\": 300\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/share/5",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"share",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteShare",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/share/7",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"share",
+								"7"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:54037/api"
+		}
+	]
+}
