@@ -70,7 +70,8 @@ create table STOCKSHARE
    id         		NUMBER not null, 
    serialnum        VARCHAR2(40 CHAR) not null,
    percent      	NUMBER(10) not null,
-   price        	NUMBER not null
+   price        	NUMBER not null,
+   turbineid   		NUMBER
 );                                                                                                          
                                                                                                            
 -- Add comment to the table                                                                                
@@ -80,7 +81,8 @@ comment on table STOCKSHARE is 'Share table (stores data about turbine/farm shar
 comment on column STOCKSHARE.id is 'Id'; 
 comment on column STOCKSHARE.serialnum is 'Serial number';                                                                   
 comment on column STOCKSHARE.percent is 'Share percent(%)';                                                                   
-comment on column STOCKSHARE.price is 'Price (euro)';                                                                   
+comment on column STOCKSHARE.price is 'Price (euro)';      
+comment on column STOCKSHARE.turbineid is 'Turbine id';                                                              
                                                                                                            
 -- Create primary, unique and foreign key constraints                                                      
 create unique index pk_stockshare on stockshare (id);  
@@ -89,7 +91,10 @@ alter table stockshare
     add constraint uk_stockshare_serialnum unique (serialnum);                                           
                                                                                                        
 alter table stockshare                                                                                
-  add constraint pk_stockshare primary key (id) using index pk_stockshare;                            
+  add constraint pk_stockshare primary key (id) using index pk_stockshare;   
+
+alter table stockshare
+  add constraint fk_stockshare_turbine foreign key (turbineid) references turbine (id);  
 
 --------------------------------------- Commit ---------------------------------------
 

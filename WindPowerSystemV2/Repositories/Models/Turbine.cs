@@ -1,4 +1,6 @@
-﻿namespace WindPowerSystemV2.Repositories.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace WindPowerSystemV2.Repositories.Models
 {
 	public class Turbine
 	{
@@ -9,6 +11,8 @@
 		public virtual int ProdMW { get; set; }
 
 		public virtual int TurbineTypeId { get; set; }
+
+		[ForeignKey("TurbineTypeId")]
 		public virtual TurbineType TurbineType { get; set; }
 	}
 }
