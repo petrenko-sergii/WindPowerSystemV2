@@ -24,6 +24,7 @@ namespace WindPowerSystemV2.DI
 			//Registration Services
 			builder.RegisterType<TurbineTypeService>().As<ITurbineTypeService>().PropertiesAutowired();
 			builder.RegisterType<TurbineService>().As<ITurbineService>().PropertiesAutowired();
+			builder.RegisterType<ShareService>().As<IShareService>().PropertiesAutowired();
 
 			//Registration NHibernate (connected to Oracle DB) 
 			var cfg = (Configuration)builder.Properties[Constants.NHibernateConfiguration];

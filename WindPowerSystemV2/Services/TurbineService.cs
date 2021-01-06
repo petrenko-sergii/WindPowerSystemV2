@@ -34,7 +34,7 @@ namespace WindPowerSystemV2.Services
 			var turbine = _turbineRepository.FindById(id);
 
 			if (turbine == null)
-				throw new Exception("TurbineType was not found");
+				throw new Exception("Turbine was not found");
 
 			return Mapper.Map<Turbine, TurbineDto>(turbine);
 		}

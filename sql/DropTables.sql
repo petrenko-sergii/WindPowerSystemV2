@@ -49,6 +49,27 @@ EXCEPTION
 END;
 /
 
+------------------------------- Drop table, sequence for table: STOCKSHARE ---------------------------------
+BEGIN
+   EXECUTE IMMEDIATE 'DROP TABLE ' || 'STOCKSHARE';
+EXCEPTION
+   WHEN OTHERS THEN
+      IF SQLCODE != -942 THEN
+         RAISE;
+      END IF;
+END;
+/
+
+BEGIN
+  EXECUTE IMMEDIATE 'DROP SEQUENCE ' || 'STOCKSHARE_SEQ';
+EXCEPTION
+  WHEN OTHERS THEN
+    IF SQLCODE != -2289 THEN
+      RAISE;
+    END IF;
+END;
+/
+
 ----------------------------------------------- Commit ------------------------------------------------
 
 commit;

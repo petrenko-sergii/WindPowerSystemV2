@@ -17,6 +17,12 @@ namespace WindPowerSystemV2.Mapper
 				.ForMember(t => t.SerialNum, opt => opt.MapFrom(expression => expression.SerialNum))
 				.ForMember(t => t.ProdMW, opt => opt.MapFrom(expression => expression.ProdMW))
 				.IncludeAllDerived().ReverseMap();
+
+			CreateMap<Share, ShareDto>()
+				.ForMember(t => t.SerialNum, opt => opt.MapFrom(expression => expression.SerialNum))
+				.ForMember(t => t.Percent, opt => opt.MapFrom(expression => expression.Percent))
+				.ForMember(t => t.Price, opt => opt.MapFrom(expression => expression.Price))
+				.IncludeAllDerived().ReverseMap();
 		}
 	}
 }

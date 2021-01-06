@@ -13,5 +13,11 @@ insert into turbine (serialnum, prodmw, turbinetypeid) values ('ser#-2', 200, 2)
 insert into turbine (serialnum, prodmw, turbinetypeid) values ('ser#-3', 300, 2);
 insert into turbine (serialnum, prodmw, turbinetypeid) values ('ser#-4', 400, 4);
 
+------------------------------------- Fill table STOCKSHARES ---------------------------------
+insert into stockshare (serialnum, percent, price) values ('ser#-1.1', 25, 25000);
+insert into stockshare (serialnum, percent, price) values ('ser#-1.2', 75, 75000);
+insert into stockshare (serialnum, percent, price) values ('ser#-2.1', 33, 33000);
+insert into stockshare (serialnum, percent, price) values ('ser#-2.2', 67, 25000);
+
 -------------------------------------------- Commit ------------------------------------------------
 commit;

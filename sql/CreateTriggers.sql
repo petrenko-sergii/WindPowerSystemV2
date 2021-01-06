@@ -26,6 +26,19 @@ begin
 end;
 /
 
+------------------------------------- Create trigger for STOCKSHARE ---------------------------------------
+create or replace trigger trg_stockshare
+   before insert on stockshare for each row
+declare
+   v_id number;
+begin
+   if (:new.id is null or :new.id = 0) then
+      select stockshare_seq.nextval into v_id from dual;
+      :new.id := v_id;
+   end if;
+end;
+/
+
 ---------------------------------------------------- Commit -----------------------------------------------
 
 commit;
