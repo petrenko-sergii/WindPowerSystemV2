@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using WindPowerSystemV2.DTOs;
+using WindPowerSystemV2.DTOs.UpdateDtos;
 using WindPowerSystemV2.Repositories.Interfaces;
 using WindPowerSystemV2.Repositories.Models;
 using WindPowerSystemV2.Services.Interfaces;
@@ -48,12 +49,15 @@ namespace WindPowerSystemV2.Services
 			return Mapper.Map<Share, ShareDto>(_shareRepository.FindById(share.Id));
 		}
 
-		public void Update(int id, ShareDto dto)
+		public void Update(int id, UpdateShareDto dto)
 		{
 			var share = _shareRepository.FindById(id);
 
 			if (share == null)
 				throw new Exception("Share was not found");
+
+			if (dto.SerialNum != null)
+				share.SerialNum = dto.SerialNum;
 
 			if (dto.Percent != 0)
 				share.Percent = dto.Percent;

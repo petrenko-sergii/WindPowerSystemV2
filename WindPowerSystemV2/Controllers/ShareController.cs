@@ -2,6 +2,7 @@
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using WindPowerSystemV2.DTOs;
+using WindPowerSystemV2.DTOs.UpdateDtos;
 using WindPowerSystemV2.Services.Interfaces;
 
 namespace WindPowerSystemV2.Controllers
@@ -34,14 +35,14 @@ namespace WindPowerSystemV2.Controllers
 
 		//POST: api/Share
 		[HttpPost]
-		public ActionResult<ShareDto> Post([FromBody] ShareDto dto) //TODO: create and use UpdateShareDto without Id-property
+		public ActionResult<ShareDto> Post([FromBody] ShareDto dto)
 		{
 			return _shareService.Create(dto);
 		}
 
 		// PUT: api/Share/5
 		[HttpPut("{id}")]
-		public void Put(int id, [FromBody] ShareDto dto)
+		public void Put(int id, [FromBody] UpdateShareDto dto)
 		{
 			_shareService.Update(id, dto);
 		}

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using WindPowerSystemV2.DTOs;
+using WindPowerSystemV2.DTOs.UpdateDtos;
 using WindPowerSystemV2.Repositories.Interfaces;
 using WindPowerSystemV2.Repositories.Models;
 using WindPowerSystemV2.Services.Interfaces;
@@ -48,7 +49,7 @@ namespace WindPowerSystemV2.Services
 			return Mapper.Map<Turbine, TurbineDto>(_turbineRepository.FindById(turbine.Id));
 		}
 
-		public void Update(int id, TurbineDto dto)
+		public void Update(int id, UpdateTurbineDto dto)
 		{
 			var turbine = _turbineRepository.FindById(id);
 

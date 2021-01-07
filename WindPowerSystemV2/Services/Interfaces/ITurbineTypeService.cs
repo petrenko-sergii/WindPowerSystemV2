@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using WindPowerSystemV2.DTOs;
+using WindPowerSystemV2.DTOs.UpdateDtos;
 
 namespace WindPowerSystemV2.Services.Interfaces
 {
@@ -8,7 +9,7 @@ namespace WindPowerSystemV2.Services.Interfaces
 		IEnumerable<TurbineTypeDto> GetAllTurbineTypes();
 		TurbineTypeDto GetTurbineTypeById(int id);
 		TurbineTypeDto Create(TurbineTypeDto dto);
-		void Update(int id, TurbineTypeDto dto);
+		void Update(int id, UpdateTurbineTypeDto dto);
 		void Remove(int id);
 	}
 }

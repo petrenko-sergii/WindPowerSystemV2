@@ -2,6 +2,7 @@
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using WindPowerSystemV2.DTOs;
+using WindPowerSystemV2.DTOs.UpdateDtos;
 using WindPowerSystemV2.Services.Interfaces;
 
 namespace WindPowerSystemV2.Controllers
@@ -35,14 +36,14 @@ namespace WindPowerSystemV2.Controllers
 		//POST: api/TurbineType
 		[HttpPost]
 		//[ProducesResponseType(typeof(TurbineTypeDto), StatusCodes.Status201Created)]
-		public ActionResult<TurbineTypeDto> Post([FromBody] TurbineTypeDto dto) //TODO: create and use UpdateTurbineTypeDto without Id-property
+		public ActionResult<TurbineTypeDto> Post([FromBody] TurbineTypeDto dto)
 		{
 			return _turbineTypeService.Create(dto);
 		}
 
 		// PUT: api/TurbineType/5
 		[HttpPut("{id}")]
-		public void Put(int id, [FromBody] TurbineTypeDto dto)
+		public void Put(int id, [FromBody] UpdateTurbineTypeDto dto)
 		{
 			_turbineTypeService.Update(id, dto);
 		}
