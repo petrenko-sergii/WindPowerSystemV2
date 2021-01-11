@@ -12,10 +12,12 @@ namespace WindPowerSystemV2.Services
 	public class ShareService : BaseService, IShareService
 	{
 		private readonly IShareRepository _shareRepository;
+		private readonly ITurbineRepository _turbineRepository;
 
-		public ShareService(IShareRepository shareRepository)
+		public ShareService(IShareRepository shareRepository, ITurbineRepository turbineRepository)
 		{
-			this._shareRepository = shareRepository;
+			_shareRepository = shareRepository;
+			_turbineRepository = turbineRepository;
 		}
 
 		public IEnumerable<ShareDto> GetAllShares()
@@ -64,6 +66,14 @@ namespace WindPowerSystemV2.Services
 
 			if (dto.Price != 0)
 				share.Price = dto.Price;
+
+			if(dto.TurbineId != share.Turbine.Id)
+			{
+				var turbine = _turbineRepository.FindById(dto.TurbineId);
+
+				if (turbine != null)
+					share.Turbine = turbine;
+			}
 
 			_shareRepository.Update(share);
 		}

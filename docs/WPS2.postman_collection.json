@@ -161,7 +161,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"SerialNum\": \"Ser#-5\",\r\n    \"ProdMW\": 500,\r\n    \"TurbineType\" : {\r\n        \"Id\":4\r\n    }  \r\n\r\n}",
+							"raw": "{\r\n    \"SerialNum\": \"Ser#-5\",\r\n    \"ProdMW\": 500,\r\n    \"TurbineType\" : {\r\n        \"Id\":4\r\n    }  \r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -187,7 +187,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"SerialNum\": \"Ser#-111\",\r\n    \"ProdMW\": 122    \r\n}",
+							"raw": "{\r\n    \"SerialNum\": \"Ser#-555\",\r\n    \"ProdMW\": 555,\r\n    \"TurbineTypeId\": 3\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -195,13 +195,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseUrl}}/turbine/1",
+							"raw": "{{baseUrl}}/turbine/5",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
 								"turbine",
-								"1"
+								"5"
 							]
 						}
 					},
@@ -253,13 +253,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/share/5",
+							"raw": "{{baseUrl}}/share/1",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
 								"share",
-								"5"
+								"1"
 							]
 						}
 					},
@@ -272,7 +272,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"SerialNum\": \"Ser#-7\",\r\n    \"Percent\": 50,\r\n    \"Price\": 5000\r\n}",
+							"raw": "{\r\n    \"SerialNum\": \"Ser#-3.1\",\r\n    \"Percent\": 50,\r\n    \"Price\": 5000,\r\n    \"Turbine\" : {\r\n        \"Id\":3\r\n    }\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -298,7 +298,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"SerialNum\": \"Ser#-5\",\r\n    \"Percent\": 3,\r\n    \"Price\": 300\r\n}",
+							"raw": "{\r\n    \"SerialNum\": \"Ser#-5.1\",\r\n    \"Percent\": 5,\r\n    \"Price\": 500,\r\n    \"TurbineId\": 3\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -324,13 +324,13 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/share/7",
+							"raw": "{{baseUrl}}/share/5",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
 								"share",
-								"7"
+								"5"
 							]
 						}
 					},

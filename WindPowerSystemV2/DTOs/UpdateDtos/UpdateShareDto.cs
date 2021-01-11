@@ -8,5 +8,7 @@ namespace WindPowerSystemV2.DTOs.UpdateDtos
 		public string SerialNum { get; set; }
 		public decimal Percent { get; set; }
 		public decimal Price { get; set; }
+
+		public int TurbineId { get; set; }
 	}
 }

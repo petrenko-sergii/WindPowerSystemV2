@@ -57,6 +57,9 @@ comment on column TURBINE.turbinetypeid is 'Type id';
 -- Create primary, unique and foreign key constraints 
 create unique index pk_turbine on turbine (id);
 
+alter table turbine
+    add constraint uk_turbine_serialnum unique (serialnum); 
+
 alter table turbine 
   add constraint pk_turbine primary key (id) using index pk_turbine;
   

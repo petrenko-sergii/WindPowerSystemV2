@@ -7,5 +7,7 @@ namespace WindPowerSystemV2.DTOs.UpdateDtos
 	{
 		public string SerialNum { get; set; }
 		public int ProdMW { get; set; }
+
+		public int TurbineTypeId { get; set; }
 	}
 }
