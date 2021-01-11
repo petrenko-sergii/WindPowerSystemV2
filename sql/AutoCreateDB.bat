@@ -19,7 +19,9 @@ if exist %result_file% (
 echo @%wps_folder%CreateTables.sql
 echo @%wps_folder%CreateSequences.sql
 echo @%wps_folder%CreateTriggers.sql
+echo @%wps_folder%CreateFunctions.sql
 echo @%wps_folder%FillTables.sql
+echo @%wps_folder%FillTable_Shareholder.sql
 
 echo exit
 ) | sqlplus %user_name%/%password%@%oracle_sid% >> %result_file%

@@ -66,6 +66,58 @@ alter table turbine
 alter table turbine
   add constraint fk_turbine_turbinetype foreign key (turbinetypeid) references turbinetype (id);
   
+------------------------------------- Create table SHAREHOLDERTYPE ---------------------------------------
+create table SHAREHOLDERTYPE                                                                                  
+(                                                                                                          
+   id         	NUMBER not null,  
+   name         VARCHAR2(200 CHAR) not null
+);                                                                                                          
+                                                                                                           
+-- Add comment to the table                                                                                
+comment on table SHAREHOLDERTYPE is 'Share holder type: private or legal pesron';                                                    
+                                                                                                     
+-- Add comments to the columns                                                                             
+comment on column SHAREHOLDERTYPE.id is 'Id';                                                                
+comment on column SHAREHOLDERTYPE.name is 'Name';                                                                   
+                                                                                                            
+-- Create primary, unique key constraints                                                       
+create unique index pk_shareholdertype on shareholdertype (id);                                             
+                                                                                                     
+alter table shareholdertype                                                                                
+  add constraint pk_shareholdertype primary key (id) using index pk_shareholdertype; 
+  
+------------------------------------- Create table SHAREHOLDER ---------------------------------------
+
+create table SHAREHOLDER                                                                                  
+(                                                                                                          
+   id         	NUMBER not null,  
+   firstname    VARCHAR2(200 CHAR) not null,
+   lastname     VARCHAR2(200 CHAR),
+   email  		VARCHAR2(200 CHAR) not null,
+   phone  		VARCHAR2(200 CHAR) not null,
+   typeid   	NUMBER not null
+);                                                                                                          
+                                                                                                           
+-- Add comment to the table                                                                                
+comment on table SHAREHOLDER is 'Share holder table';                                                        
+                                                                                                          
+-- Add comments to the columns                                                                             
+comment on column SHAREHOLDER.id is 'Id';                                                                  
+comment on column SHAREHOLDER.firstname is 'First name';                                                                   
+comment on column SHAREHOLDER.lastname is 'Last name';                                                                   
+comment on column SHAREHOLDER.email is 'Email';                                                                   
+comment on column SHAREHOLDER.phone is 'Phone number';                                                                   
+comment on column SHAREHOLDER.typeid is 'Type id';                                                                   
+                                                                                                           
+-- Create primary, unique and foreign key constraints                                                      
+create unique index pk_shareholder on shareholder (id);                                             
+                                                                                                       
+alter table shareholder                                                                                
+  add constraint pk_shareholder primary key (id) using index pk_shareholder;                            
+
+alter table shareholder
+  add constraint fk_shareholder_type foreign key (typeid) references shareholdertype (id);
+  
 ------------------------------------- Create table STOCKSHARE ---------------------------------------
 
 create table STOCKSHARE                                                                                  

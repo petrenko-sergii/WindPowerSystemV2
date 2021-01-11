@@ -13,6 +13,10 @@ insert into turbine (serialnum, prodmw, turbinetypeid) values ('ser#-2', 200, 2)
 insert into turbine (serialnum, prodmw, turbinetypeid) values ('ser#-3', 300, 2);
 insert into turbine (serialnum, prodmw, turbinetypeid) values ('ser#-4', 400, 4);
 
+------------------------------------- Fill table SHAREHOLDERTYPE ---------------------------------
+insert into shareholdertype (name) values ('Legal person');
+insert into shareholdertype (name) values ('Private person');
+
 ------------------------------------- Fill table STOCKSHARES ---------------------------------
 insert into stockshare (serialnum, percent, price, turbineid) values ('ser#-1.1', 25, 25000,1);
 insert into stockshare (serialnum, percent, price, turbineid) values ('ser#-1.2', 75, 75000,1);
