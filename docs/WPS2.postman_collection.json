@@ -228,6 +228,117 @@
 			]
 		},
 		{
+			"name": "ShareHolder",
+			"item": [
+				{
+					"name": "GetAllShareHolders",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/shareholder",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"shareholder"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetShareHolderById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/shareholder/2",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"shareholder",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateShareHolder",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"FirstName\": \"FirstName1\",\r\n    \"LastName\": \"LastName1\",\r\n    \"Email\": \"test1@com.dk\",\r\n    \"Phone\": \"+4558769823\",\r\n    \"ShareHolderType\" : {\r\n        \"Id\":2\r\n    }  \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/shareholder",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"shareholder"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateShareHolder",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"FirstName\": \"FirstName1\",\r\n    \"LastName\": \"LastName2\",\r\n    \"Email\": \"test2@com.dk\",\r\n    \"Phone\": \"+4558769823\",\r\n    \"ShareHolderTypeId\" : 1  \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/shareholder/5",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"shareholder",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteShareHolder",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/shareholder/5",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"shareholder",
+								"5"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "Share",
 			"item": [
 				{
