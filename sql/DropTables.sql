@@ -5,6 +5,68 @@ SET HEADING ON
 SET HEADSEP OFF
 SET WRAP OFF
 
+------------------------------- Drop table, sequence for table: ADDRESSIMAGE ---------------------------------
+BEGIN
+   EXECUTE IMMEDIATE 'DROP TABLE ' || 'ADDRESSIMAGE';
+EXCEPTION
+   WHEN OTHERS THEN
+      IF SQLCODE != -942 THEN
+         RAISE;
+      END IF;
+END;
+/
+
+BEGIN
+  EXECUTE IMMEDIATE 'DROP SEQUENCE ' || 'ADDRESSIMAGE_SEQ';
+EXCEPTION
+  WHEN OTHERS THEN
+    IF SQLCODE != -2289 THEN
+      RAISE;
+    END IF;
+END;
+/
+
+------------------------------- Drop table, sequence for table: FLAGIMAGE ---------------------------------
+BEGIN
+   EXECUTE IMMEDIATE 'DROP TABLE ' || 'FLAGIMAGE';
+EXCEPTION
+   WHEN OTHERS THEN
+      IF SQLCODE != -942 THEN
+         RAISE;
+      END IF;
+END;
+/
+
+BEGIN
+  EXECUTE IMMEDIATE 'DROP SEQUENCE ' || 'FLAGIMAGE_SEQ';
+EXCEPTION
+  WHEN OTHERS THEN
+    IF SQLCODE != -2289 THEN
+      RAISE;
+    END IF;
+END;
+/
+
+------------------------------- Drop table, sequence for table: APPIMAGE ---------------------------------
+BEGIN
+   EXECUTE IMMEDIATE 'DROP TABLE ' || 'APPIMAGE';
+EXCEPTION
+   WHEN OTHERS THEN
+      IF SQLCODE != -942 THEN
+         RAISE;
+      END IF;
+END;
+/
+
+BEGIN
+  EXECUTE IMMEDIATE 'DROP SEQUENCE ' || 'APPIMAGE_SEQ';
+EXCEPTION
+  WHEN OTHERS THEN
+    IF SQLCODE != -2289 THEN
+      RAISE;
+    END IF;
+END;
+/
 
 ------------------------------- Drop table, sequence for table: TURBINE ---------------------------------
 

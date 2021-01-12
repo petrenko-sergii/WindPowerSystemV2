@@ -5,6 +5,67 @@ SET HEADING ON
 SET HEADSEP OFF
 SET WRAP OFF
 
+------------------------------------- Create table ADDRESSIMAGE ---------------------------------------
+create table ADDRESSIMAGE                                                                                 
+(                                                                                                          
+   id         	NUMBER not null,  
+   path         VARCHAR2(500 CHAR) not null
+);                                                                                                          
+                                                                                                           
+-- Add comment to the table                                                                                
+comment on table ADDRESSIMAGE is 'Address image pathes';                                                        
+                                                                                                          
+-- Add comments to the columns                                                                             
+comment on column ADDRESSIMAGE.id is 'Id';                                                                   
+comment on column ADDRESSIMAGE.path is 'Path';                                                                   
+                                                                                                           
+-- Create primary, unique and foreign key constraints                                                      
+create unique index pk_addressimage on addressimage (id);                                             
+
+alter table addressimage                                                                                
+  add constraint pk_addressimage primary key (id) using index pk_addressimage; 
+  
+
+------------------------------------- Create table FLAGIMAGE ---------------------------------------
+create table FLAGIMAGE                                                                                 
+(                                                                                                          
+   id         	NUMBER not null,  
+   path         VARCHAR2(500 CHAR) not null
+);                                                                                                          
+                                                                                                           
+-- Add comment to the table                                                                                
+comment on table FLAGIMAGE is 'Country flag image pathes';                                                        
+                                                                                                          
+-- Add comments to the columns                                                                             
+comment on column FLAGIMAGE.id is 'Id';                                                                   
+comment on column FLAGIMAGE.path is 'Path';                                                                   
+                                                                                                           
+-- Create primary, unique and foreign key constraints                                                      
+create unique index pk_flagimage on flagimage (id);                                             
+
+alter table flagimage                                                                                
+  add constraint pk_flagimage primary key (id) using index pk_flagimage;   
+ 
+ 
+------------------------------------- Create table APPIMAGE ---------------------------------------
+create table APPIMAGE                                                                                 
+(                                                                                                          
+   id         	NUMBER not null,  
+   path         VARCHAR2(500 CHAR) not null
+);                                                                                                          
+                                                                                                           
+-- Add comment to the table                                                                                
+comment on table APPIMAGE is 'APP image pathes';                                                        
+                                                                                                          
+-- Add comments to the columns                                                                             
+comment on column APPIMAGE.id is 'Id';                                                                   
+comment on column APPIMAGE.path is 'Path';                                                                   
+                                                                                                           
+-- Create primary, unique and foreign key constraints                                                      
+create unique index pk_appimage on appimage (id);                                             
+
+alter table appimage                                                                                
+  add constraint pk_appimage primary key (id) using index pk_appimage; 
 
   
 ------------------------------------- Create table TURBINETYPE --------------------------------------------

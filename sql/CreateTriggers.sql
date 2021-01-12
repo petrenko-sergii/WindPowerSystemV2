@@ -1,4 +1,41 @@
+------------------------------------- Create trigger for ADDRESSIMAGE ---------------------------------------
+create or replace trigger trg_addressimage
+   before insert on addressimage for each row
+declare
+   v_id number;
+begin
+   if (:new.id is null or :new.id = 0) then
+      select addressimage_seq.nextval into v_id from dual;
+      :new.id := v_id;
+   end if;
+end;
+/
 
+------------------------------------- Create trigger for FLAGIMAGE ---------------------------------------
+create or replace trigger trg_flagimage
+   before insert on flagimage for each row
+declare
+   v_id number;
+begin
+   if (:new.id is null or :new.id = 0) then
+      select flagimage_seq.nextval into v_id from dual;
+      :new.id := v_id;
+   end if;
+end;
+/
+
+------------------------------------- Create trigger for APPIMAGE ---------------------------------------
+create or replace trigger trg_appimage
+   before insert on appimage for each row
+declare
+   v_id number;
+begin
+   if (:new.id is null or :new.id = 0) then
+      select appimage_seq.nextval into v_id from dual;
+      :new.id := v_id;
+   end if;
+end;
+/
 
 ------------------------------------- Create trigger for TURBINETYPE ---------------------------------------
 create or replace trigger trg_turbinetype
