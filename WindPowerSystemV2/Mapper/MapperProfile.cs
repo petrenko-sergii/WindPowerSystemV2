@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using WindPowerSystemV2.DTOs;
+using WindPowerSystemV2.DTOs.ImageDtos;
 using WindPowerSystemV2.Repositories.Models;
+using WindPowerSystemV2.Repositories.Models.ImageModels;
 
 namespace WindPowerSystemV2.Mapper
 {
@@ -33,6 +35,18 @@ namespace WindPowerSystemV2.Mapper
 				.ForMember(t => t.SerialNum, opt => opt.MapFrom(expression => expression.SerialNum))
 				.ForMember(t => t.Percent, opt => opt.MapFrom(expression => expression.Percent))
 				.ForMember(t => t.Price, opt => opt.MapFrom(expression => expression.Price))
+				.IncludeAllDerived().ReverseMap();
+
+			CreateMap<AddressImage, AddressImageDto>()
+				.ForMember(t => t.Path, opt => opt.MapFrom(expression => expression.Path))
+				.IncludeAllDerived().ReverseMap();
+
+			CreateMap<FlagImage, FlagImageDto>()
+				.ForMember(t => t.Path, opt => opt.MapFrom(expression => expression.Path))
+				.IncludeAllDerived().ReverseMap();
+
+			CreateMap<AppImage, AppImageDto>()
+				.ForMember(t => t.Path, opt => opt.MapFrom(expression => expression.Path))
 				.IncludeAllDerived().ReverseMap();
 		}
 	}
