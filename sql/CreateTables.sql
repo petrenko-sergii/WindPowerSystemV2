@@ -136,6 +136,146 @@ create unique index pk_postcode on postcode (id);
                                                                                                        
 alter table postcode                                                                                
   add constraint pk_postcode primary key (id) using index pk_postcode;
+  
+------------------------------------- Create table STREET ---------------------------------------
+create table STREET                                                                                  
+(                                                                                                          
+   id         	NUMBER not null,  
+   name         VARCHAR2(200 CHAR) not null,
+   townid   	NUMBER not null,
+   postcodeid   NUMBER not null
+);                                                                                                          
+                                                                                                           
+-- Add comment to the table                                                                                
+comment on table STREET is 'STREET table';                                                        
+                                                                                                          
+-- Add comments to the columns                                                                             
+comment on column STREET.id is 'Id';                                                                   
+comment on column STREET.name is 'Name';                                                                   
+comment on column STREET.townid is 'Town id';                                                                   
+comment on column STREET.postcodeid is 'Index id';                                                                   
+                                                                                                           
+-- Create primary, unique and foreign key constraints                                                      
+create unique index pk_street on street (id); 
+                                            
+alter table street                                                                                
+  add constraint pk_street primary key (id) using index pk_street;                            
+
+alter table street
+  add constraint fk_street_town foreign key (townid) references town (id);
+
+alter table street
+  add constraint fk_street_postcode foreign key (postcodeid) references postcode (id);
+
+  
+------------------------------------- Create table STREET NUMBER ---------------------------------------
+create table SNUMBER                                                                                  
+(                                                                                                          
+   id         	NUMBER not null,  
+   value        VARCHAR2(200 CHAR) not null,
+   latitude     NUMBER(9,6),
+   longitude    NUMBER(9,6),
+   streetid   	NUMBER not null,
+   imageid    	NUMBER
+);                                                                                                          
+                                                                                                           
+-- Add comment to the table                                                                                
+comment on table SNUMBER is 'Street number table';                                                        
+                                                                                                          
+-- Add comments to the columns                                                                             
+comment on column SNUMBER.id is 'Id';                                                                   
+comment on column SNUMBER.value is 'Value';                                                                   
+comment on column SNUMBER.latitude is 'Latitude';
+comment on column SNUMBER.latitude is 'Longitude';                                                                    
+comment on column SNUMBER.streetid is 'Street id';                                                                   
+comment on column SNUMBER.imageid is 'Image id';                                                                   
+                                                                                                           
+-- Create primary, unique and foreign key constraints                                                      
+create unique index pk_snumber on snumber (id);                                             
+                                                                                                       
+alter table snumber                                                                                
+  add constraint pk_snumber primary key (id) using index pk_snumber;                            
+
+alter table snumber
+  add constraint fk_snumber_street foreign key (streetid) references street (id);
+
+alter table snumber
+  add constraint fk_snumber_addressimage foreign key (imageid) references addressimage (id);
+  
+------------------------------------- Create table FLATPART ---------------------------------------
+create table FLATPART                                                                                  
+(                                                                                                          
+   id         	NUMBER not null,  
+   fnumber      NUMBER(10) not null, 
+   name         VARCHAR2(200 CHAR),
+   numberid   	NUMBER not null
+);                                                                                                          
+                                                                                                           
+-- Add comment to the table                                                                                
+comment on table FLATPART is 'FLATPART table';                                                        
+                                                                                                          
+-- Add comments to the columns                                                                             
+comment on column FLATPART.id is 'Id';  
+comment on column FLATPART.fnumber is 'Flat number';                                                         
+comment on column FLATPART.name is 'Part name';                                                                   
+comment on column FLATPART.numberid is 'Street number id';                                                                   
+                                                                                                           
+-- Create primary, unique and foreign key constraints                                                      
+create unique index pk_flatpart on flatpart (id); 
+                                            
+alter table flatpart                                                                                
+  add constraint pk_flatpart primary key (id) using index pk_flatpart;                            
+
+alter table flatpart
+  add constraint fk_flatpart_number foreign key (numberid) references snumber (id);
+  
+------------------------------------- Create table ADDRESS ---------------------------------------
+create table ADDRESS                                                                                  
+(                                                                                                          
+   id         	NUMBER not null, 
+   countryid   	NUMBER not null,   
+   postcodeid   NUMBER not null,
+   townid   	NUMBER not null,
+   streetid   	NUMBER not null,
+   numberid   	NUMBER not null,
+   flatpartid   NUMBER 
+);                                                                                                          
+                                                                                                           
+-- Add comment to the table                                                                                
+comment on table ADDRESS is 'ADDRESS table';                                                        
+                                                                                                          
+-- Add comments to the columns                                                                             
+comment on column ADDRESS.id is 'Id';                                                                   
+comment on column ADDRESS.countryid is 'Country id';                                                                   
+comment on column ADDRESS.postcodeid is 'Index id';                                                                   
+comment on column ADDRESS.townid is 'Town id';
+comment on column ADDRESS.streetid is 'Street id';
+comment on column ADDRESS.numberid is 'Number id'; 
+comment on column ADDRESS.flatpartid is 'Flat/Part id';                                                                   
+                                                                                                           
+-- Create primary, unique and foreign key constraints                                                      
+create unique index pk_address on address (id); 
+                                            
+alter table address                                                                                
+  add constraint pk_address primary key (id) using index pk_address;                            
+
+alter table address
+  add constraint fk_address_country foreign key (countryid) references country (id);
+  
+alter table address
+  add constraint fk_address_postcode foreign key (postcodeid) references postcode (id);
+
+alter table address
+  add constraint fk_address_town foreign key (townid) references town (id);
+
+alter table address
+  add constraint fk_address_street foreign key (streetid) references street (id);
+
+alter table address
+  add constraint fk_address_number foreign key (numberid) references snumber (id);
+  
+alter table address
+  add constraint fk_address_flatpart foreign key (flatpartid) references flatpart (id);
 
   
 ------------------------------------- Create table TURBINETYPE --------------------------------------------

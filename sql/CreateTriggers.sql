@@ -76,6 +76,58 @@ begin
 end;
 /
 
+------------------------------------- Create trigger for STREET ---------------------------------------
+create or replace trigger trg_street
+   before insert on street for each row
+declare
+   v_id number;
+begin
+   if (:new.id is null or :new.id = 0) then
+      select street_seq.nextval into v_id from dual;
+      :new.id := v_id;
+   end if;
+end;
+/
+
+------------------------------------- Create trigger for SNUMBER ---------------------------------------
+create or replace trigger trg_snumber
+   before insert on snumber for each row
+declare
+   v_id number;
+begin
+   if (:new.id is null or :new.id = 0) then
+      select snumber_seq.nextval into v_id from dual;
+      :new.id := v_id;
+   end if;
+end;
+/
+
+------------------------------------- Create trigger for FLATPART ---------------------------------------
+create or replace trigger trg_flatpart
+   before insert on flatpart for each row
+declare
+   v_id number;
+begin
+   if (:new.id is null or :new.id = 0) then
+      select flatpart_seq.nextval into v_id from dual;
+      :new.id := v_id;
+   end if;
+end;
+/
+
+------------------------------------- Create trigger for ADDRESS ---------------------------------------
+create or replace trigger trg_address
+   before insert on address for each row
+declare
+   v_id number;
+begin
+   if (:new.id is null or :new.id = 0) then
+      select address_seq.nextval into v_id from dual;
+      :new.id := v_id;
+   end if;
+end;
+/
+
 ------------------------------------- Create trigger for TURBINETYPE ---------------------------------------
 create or replace trigger trg_turbinetype
    before insert on turbinetype for each row

@@ -58,6 +58,46 @@ nocache
 nocycle 
 noorder;
 
+------------------------------------- Create sequence for STREET ID ---------------------------------------
+create sequence street_seq
+start with 1
+increment by 1
+minvalue 1
+maxvalue 9223372036854775807
+nocache
+nocycle 
+noorder;
+
+------------------------------------- Create sequence for SNUMBER ID ---------------------------------------
+create sequence snumber_seq
+start with 1
+increment by 1
+minvalue 1
+maxvalue 9223372036854775807
+nocache
+nocycle 
+noorder;
+
+------------------------------------- Create sequence for FLATPART ID ---------------------------------------
+create sequence flatpart_seq
+start with 1
+increment by 1
+minvalue 1
+maxvalue 9223372036854775807
+nocache
+nocycle 
+noorder;
+
+------------------------------------- Create sequence for ADDRESS ID ---------------------------------------
+create sequence address_seq
+start with 1
+increment by 1
+minvalue 1
+maxvalue 9223372036854775807
+nocache
+nocycle 
+noorder;
+
 ------------------------------------- Create sequence for TURBINETYPE ID ---------------------------------------
 create sequence turbinetype_seq
 start with 1
