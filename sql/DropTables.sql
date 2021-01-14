@@ -110,6 +110,27 @@ EXCEPTION
 END;
 /
 
+------------------------------- Drop table, sequence for table: POSTCODE ---------------------------------
+BEGIN
+   EXECUTE IMMEDIATE 'DROP TABLE ' || 'POSTCODE';
+EXCEPTION
+   WHEN OTHERS THEN
+      IF SQLCODE != -942 THEN
+         RAISE;
+      END IF;
+END;
+/
+
+BEGIN
+  EXECUTE IMMEDIATE 'DROP SEQUENCE ' || 'POSTCODE_SEQ';
+EXCEPTION
+  WHEN OTHERS THEN
+    IF SQLCODE != -2289 THEN
+      RAISE;
+    END IF;
+END;
+/
+
 ------------------------------- Drop table, sequence for table: TURBINE ---------------------------------
 
 BEGIN

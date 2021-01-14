@@ -158,6 +158,34 @@ insert into town (name, countryid) values ('Munich',5);
 insert into town (name, countryid) values ('Nuremberg',5);
 insert into town (name, countryid) values ('Stuttgart',5);
 
+------------------------------------- Fill table POSTCODE ---------------------------------------
+
+insert into postcode (value) values ('1107');
+insert into postcode (value) values ('1864');
+insert into postcode (value) values ('2100');
+insert into postcode (value) values ('2200');
+insert into postcode (value) values ('2300');
+insert into postcode (value) values ('2400');
+insert into postcode (value) values ('2500');
+insert into postcode (value) values ('5000');
+insert into postcode (value) values ('5200');
+insert into postcode (value) values ('5250');
+insert into postcode (value) values ('5270');
+insert into postcode (value) values ('6000');
+insert into postcode (value) values ('7100');
+insert into postcode (value) values ('7700');
+insert into postcode (value) values ('8000');
+insert into postcode (value) values ('8200');
+insert into postcode (value) values ('8210');
+insert into postcode (value) values ('8230');
+insert into postcode (value) values ('8260');
+insert into postcode (value) values ('8800');
+insert into postcode (value) values ('8840');
+insert into postcode (value) values ('8900');
+insert into postcode (value) values ('8920');
+insert into postcode (value) values ('8930');
+insert into postcode (value) values ('8960');
+
 ------------------------------------- Fill table TURBINETYPE ---------------------------------
 
 ---- Vestas

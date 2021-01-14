@@ -116,6 +116,26 @@ alter table town
 
 alter table town
   add constraint fk_town_country foreign key (countryid) references country (id);
+  
+------------------------------------- Create table POSTCODE ---------------------------------------
+create table POSTCODE                                                                                  
+(                                                                                                          
+   id         	NUMBER not null,  
+   value        VARCHAR2(100 CHAR) not null
+);                                                                                                          
+                                                                                                           
+-- Add comment to the table                                                                                
+comment on table POSTCODE is 'Index table';                                                    
+                                                                                                          
+-- Add comments to the columns                                                                             
+comment on column POSTCODE.id is 'Id';                                                                   
+comment on column POSTCODE.value is 'Value';                                                                   
+                                                                                                           
+-- Create primary, unique key constraints                                                      
+create unique index pk_postcode on postcode (id);                                             
+                                                                                                       
+alter table postcode                                                                                
+  add constraint pk_postcode primary key (id) using index pk_postcode;
 
   
 ------------------------------------- Create table TURBINETYPE --------------------------------------------
