@@ -66,6 +66,56 @@ create unique index pk_appimage on appimage (id);
 
 alter table appimage                                                                                
   add constraint pk_appimage primary key (id) using index pk_appimage; 
+  
+  ------------------------------------- Create table COUNTRY ---------------------------------------
+create table COUNTRY                                                                                  
+(                                                                                                          
+   id         	NUMBER not null,  
+   name         VARCHAR2(200 CHAR) not null,
+   flagimageid  NUMBER
+);                                                                                                          
+                                                                                                           
+-- Add comment to the table                                                                                
+comment on table COUNTRY is 'COUNTRY table' ;                                                       
+                                                                                                     
+-- Add comments to the columns                                                                             
+comment on column COUNTRY.id is 'Id';                                                         
+comment on column COUNTRY.name is 'Name';  
+comment on column COUNTRY.flagimageid is 'Flag image id';                                                                 
+                                                                                                          
+-- Create primary, unique key constraints                                                     
+create unique index PK_COUNTRY ON COUNTRY (ID);
+
+alter table country                                                                                
+  add constraint PK_COUNTRY primary key (ID) using index PK_COUNTRY; 
+  
+alter table country
+  add constraint fk_country_flagimage foreign key (flagimageid) references flagimage (id);
+
+------------------------------------- Create table TOWN ---------------------------------------
+create table TOWN                                                                                  
+(                                                                                                          
+   id         	NUMBER not null,  
+   name         VARCHAR2(200 CHAR) not null,
+   countryid   	NUMBER not null
+);                                                                                                          
+                                                                                                           
+-- Add comment to the table                                                                                
+comment on table TOWN is 'TOWN table';                                                        
+                                                                                                         
+-- Add comments to the columns                                                                             
+comment on column TOWN.id is 'Id';                                                                   
+comment on column TOWN.name is 'Name';                                                                   
+comment on column TOWN.countryid is 'Country id';                                                                   
+                                                                                                           
+-- Create primary, unique and foreign key constraints                                                       
+create unique index pk_town on town (id);                                             
+                                                                                                       
+alter table town                                                                                
+  add constraint pk_town primary key (id) using index pk_town;                            
+
+alter table town
+  add constraint fk_town_country foreign key (countryid) references country (id);
 
   
 ------------------------------------- Create table TURBINETYPE --------------------------------------------

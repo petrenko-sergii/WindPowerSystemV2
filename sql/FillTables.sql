@@ -117,6 +117,47 @@ begin
 end;
 /
 
+------------------------------------- Fill table COUNTRY ---------------------------------------
+insert into country (name, flagimageid) values ('Austria', 1);
+insert into country (name, flagimageid) values ('Belgium', 2);
+insert into country (name, flagimageid) values ('Denmark', 3);
+insert into country (name, flagimageid) values ('Finland', 4);
+insert into country (name, flagimageid) values ('Germany', 5);
+insert into country (name, flagimageid) values ('France', 6);
+insert into country (name, flagimageid) values ('Netherlands', 7);
+insert into country (name, flagimageid) values ('Norway', 8);
+insert into country (name, flagimageid) values ('Poland', 9);
+insert into country (name, flagimageid) values ('Sweden', 10);
+insert into country (name, flagimageid) values ('United Kingdom', 11);
+
+
+------------------------------------- Fill table TOWN ---------------------------------------
+-------For Denmark
+insert into town (name, countryid) values ('Aarhus',3);
+insert into town (name, countryid) values ('Copenhagen',3);
+insert into town (name, countryid) values ('Esbjerg',3);
+insert into town (name, countryid) values ('Kolding',3);
+insert into town (name, countryid) values ('Odense',3);
+insert into town (name, countryid) values ('Randers',3);
+insert into town (name, countryid) values ('Thisted',3);
+insert into town (name, countryid) values ('Vejle',3);
+insert into town (name, countryid) values ('Viborg',3);
+
+-------For Germany
+insert into town (name, countryid) values ('Berlin',5);
+insert into town (name, countryid) values ('Bremen',5);
+insert into town (name, countryid) values ('Cologne',5);
+insert into town (name, countryid) values ('Dortmund',5);
+insert into town (name, countryid) values ('Dresden',5);
+insert into town (name, countryid) values ('Dusseldorf',5);
+insert into town (name, countryid) values ('Hamburg',5);
+insert into town (name, countryid) values ('Hanover',5);
+insert into town (name, countryid) values ('Frankfurt am Main',5);
+insert into town (name, countryid) values ('Leipzig',5);
+insert into town (name, countryid) values ('Munich',5);
+insert into town (name, countryid) values ('Nuremberg',5);
+insert into town (name, countryid) values ('Stuttgart',5);
+
 ------------------------------------- Fill table TURBINETYPE ---------------------------------
 
 ---- Vestas

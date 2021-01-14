@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
 using WindPowerSystemV2.DTOs;
+using WindPowerSystemV2.DTOs.AddressDtos;
 using WindPowerSystemV2.DTOs.ImageDtos;
 using WindPowerSystemV2.Repositories.Models;
+using WindPowerSystemV2.Repositories.Models.AddressModels;
 using WindPowerSystemV2.Repositories.Models.ImageModels;
 
 namespace WindPowerSystemV2.Mapper
@@ -47,6 +49,14 @@ namespace WindPowerSystemV2.Mapper
 
 			CreateMap<AppImage, AppImageDto>()
 				.ForMember(t => t.Path, opt => opt.MapFrom(expression => expression.Path))
+				.IncludeAllDerived().ReverseMap();
+
+			CreateMap<Country, CountryDto>()
+				.ForMember(t => t.Name, opt => opt.MapFrom(expression => expression.Name))
+				.IncludeAllDerived().ReverseMap();
+
+			CreateMap<Town, TownDto>()
+				.ForMember(t => t.Name, opt => opt.MapFrom(expression => expression.Name))
 				.IncludeAllDerived().ReverseMap();
 		}
 	}

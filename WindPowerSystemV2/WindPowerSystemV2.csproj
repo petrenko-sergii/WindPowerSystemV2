@@ -8,10 +8,12 @@
   <ItemGroup>
     <None Remove="Mappings\AddressImage.hbm.xml" />
     <None Remove="Mappings\AppImage.hbm.xml" />
+    <None Remove="Mappings\Country.hbm.xml" />
     <None Remove="Mappings\FlagImage.hbm.xml" />
     <None Remove="Mappings\Share.hbm.xml" />
     <None Remove="Mappings\ShareHolder.hbm.xml" />
     <None Remove="Mappings\ShareHolderType.hbm.xml" />
+    <None Remove="Mappings\Town.hbm.xml" />
     <None Remove="Mappings\Turbine.hbm.xml" />
     <None Remove="Mappings\TurbineType.hbm.xml" />
   </ItemGroup>
@@ -35,7 +37,10 @@
     <EmbeddedResource Include="Mappings\AppImage.hbm.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Mappings\FlagImage.hbm.xml">
+    <EmbeddedResource Include="Mappings\AddressMappings\Town.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mappings\AddressMappings\FlagImage.hbm.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Mappings\ShareHolder.hbm.xml">
@@ -47,7 +52,10 @@
     <EmbeddedResource Include="Mappings\Share.hbm.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Mappings\AddressImage.hbm.xml">
+    <EmbeddedResource Include="Mappings\AddressMappings\AddressImage.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mappings\AddressMappings\Country.hbm.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Mappings\Turbine.hbm.xml">

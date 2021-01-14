@@ -1,10 +1,9 @@
-﻿namespace WindPowerSystemV2.Repositories.Models
-{
-	public class ShareHolderType
-	{
-		public ShareHolderType() { }
+﻿using WindPowerSystemV2.Repositories.Models.BaseModels;
 
-		public virtual int Id { get; set; }
-		public virtual string Name { get; set; }
+namespace WindPowerSystemV2.Repositories.Models
+{
+	public class ShareHolderType : ModelWithName
+	{
+		public ShareHolderType() { } //TODO: check to delete
 	}
 }

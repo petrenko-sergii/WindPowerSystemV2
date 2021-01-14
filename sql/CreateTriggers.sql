@@ -37,6 +37,32 @@ begin
 end;
 /
 
+------------------------------------- Create trigger for COUNTRY ---------------------------------------
+create or replace trigger trg_country
+   before insert on country for each row
+declare
+   v_id number;
+begin
+   if (:new.id is null or :new.id = 0) then
+      select country_seq.nextval into v_id from dual;
+      :new.id := v_id;
+   end if;
+end;
+/
+
+------------------------------------- Create trigger for TOWN ---------------------------------------
+create or replace trigger trg_town
+   before insert on town for each row
+declare
+   v_id number;
+begin
+   if (:new.id is null or :new.id = 0) then
+      select town_seq.nextval into v_id from dual;
+      :new.id := v_id;
+   end if;
+end;
+/
+
 ------------------------------------- Create trigger for TURBINETYPE ---------------------------------------
 create or replace trigger trg_turbinetype
    before insert on turbinetype for each row
