@@ -7,7 +7,11 @@
 
   <ItemGroup>
     <None Remove="Mappings\AddressImage.hbm.xml" />
+    <None Remove="Mappings\AddressMappings\Address.hbm.xml" />
+    <None Remove="Mappings\AddressMappings\BuildingNumber.hbm.xml" />
+    <None Remove="Mappings\AddressMappings\FlatPart.hbm.xml" />
     <None Remove="Mappings\AddressMappings\Index.hbm.xml" />
+    <None Remove="Mappings\AddressMappings\Street.hbm.xml" />
     <None Remove="Mappings\AppImage.hbm.xml" />
     <None Remove="Mappings\Country.hbm.xml" />
     <None Remove="Mappings\FlagImage.hbm.xml" />
@@ -35,7 +39,19 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Mappings\AddressMappings\FlatPart.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mappings\AddressMappings\BuildingNumber.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="Mappings\AddressMappings\Index.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mappings\AddressMappings\Address.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mappings\AddressMappings\Street.hbm.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Mappings\AppImage.hbm.xml">

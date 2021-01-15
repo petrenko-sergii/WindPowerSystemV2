@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<hibernate-mapping xmlns = "urn:nhibernate-mapping-2.2"
+   assembly = "WindPowerSystemV2" namespace = "WindPowerSystemV2.Repositories.Models.AddressModels">
+
+	<class name = "Address">
+
+		<id name="Id">
+			<generator class="sequence">
+				<param name="sequence">ADDRESS_SEQ</param>
+			</generator>
+		</id>
+
+		<many-to-one name="Country" column="COUNTRYID"/>
+		<many-to-one name="Index" column="POSTCODEID"/>
+		<many-to-one name="Town" column="TOWNID"/>
+		<many-to-one name="Street" column="STREETID"/>
+		<many-to-one name="BuildingNumber" column="NUMBERID"/>
+		<many-to-one name="FlatPart" column="FLATPARTID"/>
+	</class>
+
+</hibernate-mapping>

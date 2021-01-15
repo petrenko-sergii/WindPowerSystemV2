@@ -62,6 +62,23 @@ namespace WindPowerSystemV2.Mapper
 			CreateMap<Index, IndexDto>()
 				.ForMember(t => t.Value, opt => opt.MapFrom(expression => expression.Value))
 				.IncludeAllDerived().ReverseMap();
+
+			CreateMap<Street, StreetDto>()
+				.ForMember(t => t.Name, opt => opt.MapFrom(expression => expression.Name))
+				.IncludeAllDerived().ReverseMap();
+
+			CreateMap<BuildingNumber, BuildingNumberDto>()
+				.ForMember(t => t.Value, opt => opt.MapFrom(expression => expression.Value))
+				.ForMember(t => t.Latitude, opt => opt.MapFrom(expression => expression.Latitude))
+				.ForMember(t => t.Longitude, opt => opt.MapFrom(expression => expression.Longitude))
+				.IncludeAllDerived().ReverseMap();
+
+			CreateMap<FlatPart, FlatPartDto>()
+				.ForMember(t => t.Value, opt => opt.MapFrom(expression => expression.Value))
+				.ForMember(t => t.Name, opt => opt.MapFrom(expression => expression.Name))
+				.IncludeAllDerived().ReverseMap();
+
+			CreateMap<Address, AddressDto>().IncludeAllDerived().ReverseMap();
 		}
 	}
 }
