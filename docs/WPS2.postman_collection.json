@@ -228,6 +228,46 @@
 			]
 		},
 		{
+			"name": "Address",
+			"item": [
+				{
+					"name": "GetAllAddresses",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/address",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"address"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAddressById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/address/26",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"address",
+								"26"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "ShareHolder",
 			"item": [
 				{
