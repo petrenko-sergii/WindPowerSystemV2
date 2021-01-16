@@ -78,7 +78,20 @@ namespace WindPowerSystemV2.Mapper
 				.ForMember(t => t.Name, opt => opt.MapFrom(expression => expression.Name))
 				.IncludeAllDerived().ReverseMap();
 
-			CreateMap<Address, AddressDto>().IncludeAllDerived().ReverseMap();
+			CreateMap<Address, AddressDto>()
+				.ForMember(t => t.CountryId, opt => opt.MapFrom(expression => expression.Country.Id))
+				.ForMember(t => t.CountryName, opt => opt.MapFrom(expression => expression.Country.Name))
+				.ForMember(t => t.IndexId, opt => opt.MapFrom(expression => expression.Index.Id))
+				.ForMember(t => t.IndexValue, opt => opt.MapFrom(expression => expression.Index.Value))
+				.ForMember(t => t.TownId, opt => opt.MapFrom(expression => expression.Town.Id))
+				.ForMember(t => t.TownName, opt => opt.MapFrom(expression => expression.Town.Name))
+				.ForMember(t => t.StreetId, opt => opt.MapFrom(expression => expression.Street.Id))
+				.ForMember(t => t.StreetName, opt => opt.MapFrom(expression => expression.Street.Name))
+				.ForMember(t => t.BuildingNumberId, opt => opt.MapFrom(expression => expression.BuildingNumber.Id))
+				.ForMember(t => t.BuildingNumberValue, opt => opt.MapFrom(expression => expression.BuildingNumber.Value))
+				.ForMember(t => t.FlatPartId, opt => opt.MapFrom(expression => expression.FlatPart.Id))
+				.ForMember(t => t.FlatPartName, opt => opt.MapFrom(expression => expression.FlatPart.Name))
+				.IncludeAllDerived().ReverseMap();
 		}
 	}
 }

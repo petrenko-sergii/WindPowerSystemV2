@@ -7,11 +7,22 @@ namespace WindPowerSystemV2.DTOs.AddressDtos
 	{
 		public int Id { get; set; }
 
-		public CountryDto Country { get; set; }
-		public IndexDto Index { get; set; }
-		public TownDto Town { get; set; }
-		public StreetDto Street { get; set; }
-		public BuildingNumberDto BuildingNumber { get; set; }
-		public FlatPartDto FlatPart { get; set; }
+		public int CountryId { get; set; }
+		public string CountryName { get; set; }
+
+		public int IndexId { get; set; }
+		public string IndexValue { get; set; }
+
+		public int TownId { get; set; }
+		public string TownName { get; set; }
+
+		public int StreetId { get; set; }
+		public string StreetName { get; set; }
+
+		public int BuildingNumberId { get; set; }
+		public string BuildingNumberValue { get; set; }
+
+		public int FlatPartId { get; set; }
+		public string FlatPartName { get; set; }
 	}
 }
