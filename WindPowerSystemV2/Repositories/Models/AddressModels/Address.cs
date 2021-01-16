@@ -4,8 +4,6 @@ namespace WindPowerSystemV2.Repositories.Models.AddressModels
 {
 	public class Address
 	{
-		public Address() {}
-
 		public virtual int Id { get; set; }
 
 		public virtual int CountryId { get; set; }

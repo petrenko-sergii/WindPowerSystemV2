@@ -2,6 +2,5 @@
 {
 	public class AppImage : BaseImage
 	{
-		public AppImage() { }
 	}
 }

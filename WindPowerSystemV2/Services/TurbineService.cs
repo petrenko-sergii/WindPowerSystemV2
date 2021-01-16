@@ -13,11 +13,13 @@ namespace WindPowerSystemV2.Services
 	{
 		private readonly ITurbineRepository _turbineRepository;
 		private readonly ITurbineTypeRepository _turbineTypeRepository;
+		private readonly IAddressRepository _addressRepository;
 
-		public TurbineService(ITurbineRepository turbineRepository, ITurbineTypeRepository turbineTypeRepository)
+		public TurbineService(ITurbineRepository turbineRepository, ITurbineTypeRepository turbineTypeRepository, IAddressRepository addressRepository)
 		{
 			_turbineRepository = turbineRepository;
 			_turbineTypeRepository = turbineTypeRepository;
+			_addressRepository = addressRepository;
 		}
 
 		public IEnumerable<TurbineDto> GetAllTurbines()
@@ -70,6 +72,14 @@ namespace WindPowerSystemV2.Services
 
 				if(turbineType != null)
 					turbine.TurbineType = turbineType;
+			}
+
+			if (dto.AddressId != turbine.Address.Id)
+			{
+				var address = _addressRepository.FindById(dto.AddressId);
+
+				if (address != null)
+					turbine.Address = address;
 			}
 
 			_turbineRepository.Update(turbine);

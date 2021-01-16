@@ -6,8 +6,6 @@ namespace WindPowerSystemV2.Repositories.Models.AddressModels
 {
 	public class Country : ModelWithName
 	{
-		public Country() {}
-
 		public virtual int? FlagImageId { get; set; }
 
 		[ForeignKey("FlagImageId")]

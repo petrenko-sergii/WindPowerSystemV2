@@ -9,5 +9,6 @@ namespace WindPowerSystemV2.DTOs.UpdateDtos
 		public int ProdMW { get; set; }
 
 		public int TurbineTypeId { get; set; }
+		public int AddressId { get; set; }
 	}
 }

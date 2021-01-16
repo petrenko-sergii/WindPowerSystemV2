@@ -313,7 +313,8 @@ create table TURBINE
    id         		NUMBER not null,
    serialnum        VARCHAR2(40 CHAR),
    prodmw       	NUMBER not null,
-   turbinetypeid    NUMBER not null
+   turbinetypeid    NUMBER not null,
+   addressid   		NUMBER not null
 );
 
 -- Add comment to the table 
@@ -324,6 +325,7 @@ comment on column TURBINE.id is 'Id';
 comment on column TURBINE.serialnum is 'Serial number';
 comment on column TURBINE.prodmw is 'Produced energy (MW)';
 comment on column TURBINE.turbinetypeid is 'Type id';
+comment on column TURBINE.addressid is 'Address id';
 
 -- Create primary, unique and foreign key constraints 
 create unique index pk_turbine on turbine (id);
@@ -336,6 +338,9 @@ alter table turbine
   
 alter table turbine
   add constraint fk_turbine_turbinetype foreign key (turbinetypeid) references turbinetype (id);
+  
+alter table turbine
+  add constraint fk_turbine_address foreign key (addressid) references address (id);
   
 ------------------------------------- Create table SHAREHOLDERTYPE ---------------------------------------
 create table SHAREHOLDERTYPE                                                                                  

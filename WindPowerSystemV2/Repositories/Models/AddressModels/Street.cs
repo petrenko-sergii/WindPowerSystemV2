@@ -5,8 +5,6 @@ namespace WindPowerSystemV2.Repositories.Models.AddressModels
 {
 	public class Street : ModelWithName
 	{
-		public Street() {}
-
 		public virtual int TownId { get; set; }
 		public virtual int IndexId { get; set; }
 

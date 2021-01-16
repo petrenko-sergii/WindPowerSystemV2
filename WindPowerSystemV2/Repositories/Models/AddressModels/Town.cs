@@ -5,8 +5,6 @@ namespace WindPowerSystemV2.Repositories.Models.AddressModels
 {
 	public class Town : ModelWithName
 	{
-		public Town() {}
-
 		public virtual int CountryId { get; set; }
 
 		[ForeignKey("CountryId")]

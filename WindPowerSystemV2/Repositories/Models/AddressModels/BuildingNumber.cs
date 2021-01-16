@@ -6,8 +6,6 @@ namespace WindPowerSystemV2.Repositories.Models.AddressModels
 {
 	public class BuildingNumber : ModelWithValue
 	{
-		public BuildingNumber() {}
-
 		public virtual float Latitude { get; set; }
 		public virtual float Longitude { get; set; }
 

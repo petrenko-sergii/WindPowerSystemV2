@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using WindPowerSystemV2.DTOs.AddressDtos;
 
 namespace WindPowerSystemV2.DTOs
 {
@@ -10,5 +11,6 @@ namespace WindPowerSystemV2.DTOs
 		public int ProdMW { get; set; }
 
 		public TurbineTypeDto TurbineType { get; set; }
+		public AddressDto Address { get; set; }
 	}
 }

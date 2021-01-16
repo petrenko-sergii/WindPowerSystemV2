@@ -4,8 +4,6 @@ namespace WindPowerSystemV2.Repositories.Models
 {
 	public class ShareHolder
 	{
-		public ShareHolder() { }
-
 		public virtual int Id { get; set; }
 		public virtual string FirstName { get; set; }
 		public virtual string LastName { get; set; }

@@ -161,7 +161,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"SerialNum\": \"Ser#-5\",\r\n    \"ProdMW\": 500,\r\n    \"TurbineType\" : {\r\n        \"Id\":4\r\n    }  \r\n}",
+							"raw": "{\r\n    \"SerialNum\": \"Ser#-5\",\r\n    \"ProdMW\": 500,\r\n    \"TurbineType\" : {\r\n        \"Id\":1\r\n    },\r\n    \"Address\" : {\r\n        \"Id\":5\r\n    }    \r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -187,7 +187,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"SerialNum\": \"Ser#-555\",\r\n    \"ProdMW\": 555,\r\n    \"TurbineTypeId\": 3\r\n}",
+							"raw": "{\r\n    \"SerialNum\": \"Ser#-552\",\r\n    \"ProdMW\": 552,\r\n    \"TurbineTypeId\": 3,\r\n    \"AddressId\" : 552\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"

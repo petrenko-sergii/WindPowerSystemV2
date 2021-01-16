@@ -2,6 +2,5 @@
 {
 	public class AddressImage : BaseImage
 	{
-		public AddressImage() { }
 	}
 }

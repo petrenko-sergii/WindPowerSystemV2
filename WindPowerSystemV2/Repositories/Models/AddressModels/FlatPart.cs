@@ -5,8 +5,6 @@ namespace WindPowerSystemV2.Repositories.Models.AddressModels
 {
 	public class FlatPart : ModelWithName
 	{
-		public FlatPart() {}
-
 		public virtual int Value { get; set; }
 
 		public virtual int BuildingNumberId { get; set; }

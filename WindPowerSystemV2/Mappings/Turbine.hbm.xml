@@ -13,7 +13,8 @@
 
 		<property name = "SerialNum"/>
 		<property name = "ProdMW"/>
-		<many-to-one name="TurbineType" column="TurbineTypeId"/>
+		<many-to-one name="TurbineType" column="TURBINETYPEID"/>
+		<many-to-one name="Address" column="ADDRESSID"/>
 	</class>
 
 </hibernate-mapping>

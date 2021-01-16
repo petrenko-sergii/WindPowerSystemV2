@@ -2,6 +2,5 @@
 {
 	public class FlagImage : BaseImage
 	{
-		public FlagImage() { }
 	}
 }
