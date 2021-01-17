@@ -280,6 +280,111 @@ EXCEPTION
 END;
 /
 
+------------------------------- Drop table, sequence for table: FARM ---------------------------------
+BEGIN
+   EXECUTE IMMEDIATE 'DROP TABLE ' || 'FARM';
+EXCEPTION
+   WHEN OTHERS THEN
+      IF SQLCODE != -942 THEN
+         RAISE;
+      END IF;
+END;
+/
+
+BEGIN
+  EXECUTE IMMEDIATE 'DROP SEQUENCE ' || 'FARM_SEQ';
+EXCEPTION
+  WHEN OTHERS THEN
+    IF SQLCODE != -2289 THEN
+      RAISE;
+    END IF;
+END;
+/
+
+------------------------------- Drop table, sequence for table: UNIT ---------------------------------
+BEGIN
+   EXECUTE IMMEDIATE 'DROP TABLE ' || 'UNIT';
+EXCEPTION
+   WHEN OTHERS THEN
+      IF SQLCODE != -942 THEN
+         RAISE;
+      END IF;
+END;
+/
+
+BEGIN
+  EXECUTE IMMEDIATE 'DROP SEQUENCE ' || 'UNIT_SEQ';
+EXCEPTION
+  WHEN OTHERS THEN
+    IF SQLCODE != -2289 THEN
+      RAISE;
+    END IF;
+END;
+/
+
+------------------------------- Drop table, sequence for table: WORKSTATE ---------------------------------
+BEGIN
+   EXECUTE IMMEDIATE 'DROP TABLE ' || 'WORKSTATE';
+EXCEPTION
+   WHEN OTHERS THEN
+      IF SQLCODE != -942 THEN
+         RAISE;
+      END IF;
+END;
+/
+
+BEGIN
+  EXECUTE IMMEDIATE 'DROP SEQUENCE ' || 'WORKSTATE_SEQ';
+EXCEPTION
+  WHEN OTHERS THEN
+    IF SQLCODE != -2289 THEN
+      RAISE;
+    END IF;
+END;
+/
+
+------------------------------- Drop table, sequence for table: OPERATOR ---------------------------------
+BEGIN
+   EXECUTE IMMEDIATE 'DROP TABLE ' || 'OPERATOR';
+EXCEPTION
+   WHEN OTHERS THEN
+      IF SQLCODE != -942 THEN
+         RAISE;
+      END IF;
+END;
+/
+
+BEGIN
+  EXECUTE IMMEDIATE 'DROP SEQUENCE ' || 'OPERATOR_SEQ';
+EXCEPTION
+  WHEN OTHERS THEN
+    IF SQLCODE != -2289 THEN
+      RAISE;
+    END IF;
+END;
+/
+
+------------------------------- Drop table, sequence for table: MANUFACTURER ---------------------------------
+BEGIN
+   EXECUTE IMMEDIATE 'DROP TABLE ' || 'MANUFACTURER';
+EXCEPTION
+   WHEN OTHERS THEN
+      IF SQLCODE != -942 THEN
+         RAISE;
+      END IF;
+END;
+/
+
+BEGIN
+  EXECUTE IMMEDIATE 'DROP SEQUENCE ' || 'MANUFACTURER_SEQ';
+EXCEPTION
+  WHEN OTHERS THEN
+    IF SQLCODE != -2289 THEN
+      RAISE;
+    END IF;
+END;
+/
+
 ------------------------------- Drop table, sequence for table: SHAREHOLDERTYPE ---------------------------------
 BEGIN
    EXECUTE IMMEDIATE 'DROP TABLE ' || 'SHAREHOLDERTYPE';

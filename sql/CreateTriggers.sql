@@ -180,6 +180,71 @@ begin
 end;
 /
 
+------------------------------------- Create trigger for FARM ---------------------------------------
+create or replace trigger trg_farm
+   before insert on farm for each row
+declare
+   v_id number;
+begin
+   if (:new.id is null or :new.id = 0) then
+      select farm_seq.nextval into v_id from dual;
+      :new.id := v_id;
+   end if;
+end;
+/
+
+------------------------------------- Create trigger for UNIT ---------------------------------------
+create or replace trigger trg_unit
+   before insert on unit for each row
+declare
+   v_id number;
+begin
+   if (:new.id is null or :new.id = 0) then
+      select unit_seq.nextval into v_id from dual;
+      :new.id := v_id;
+   end if;
+end;
+/
+
+------------------------------------- Create trigger for WORKSTATE ---------------------------------------
+create or replace trigger trg_workstate
+   before insert on workstate for each row
+declare
+   v_id number;
+begin
+   if (:new.id is null or :new.id = 0) then
+      select workstate_seq.nextval into v_id from dual;
+      :new.id := v_id;
+   end if;
+end;
+/
+
+------------------------------------- Create trigger for OPERATOR ---------------------------------------
+create or replace trigger trg_operator
+   before insert on operator for each row
+declare
+   v_id number;
+begin
+   if (:new.id is null or :new.id = 0) then
+      select operator_seq.nextval into v_id from dual;
+      :new.id := v_id;
+   end if;
+end;
+/
+
+------------------------------------- Create trigger for MANUFACTURER ---------------------------------------
+create or replace trigger trg_manufacturer
+   before insert on manufacturer for each row
+declare
+   v_id number;
+begin
+   if (:new.id is null or :new.id = 0) then
+      select manufacturer_seq.nextval into v_id from dual;
+      :new.id := v_id;
+   end if;
+end;
+/
+
 ------------------------------------- Create trigger for STOCKSHARE ---------------------------------------
 create or replace trigger trg_stockshare
    before insert on stockshare for each row

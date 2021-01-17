@@ -138,6 +138,56 @@ nocache
 nocycle 
 noorder;
 
+------------------------------------- Create sequence for FARM ID ---------------------------------------
+create sequence farm_seq
+start with 1
+increment by 1
+minvalue 1
+maxvalue 9223372036854775807
+nocache
+nocycle 
+noorder;
+
+------------------------------------- Create sequence for UNIT ID ---------------------------------------
+create sequence unit_seq
+start with 1
+increment by 1
+minvalue 1
+maxvalue 9223372036854775807
+nocache
+nocycle 
+noorder;
+
+------------------------------------- Create sequence for WORKSTATE ID ---------------------------------------
+create sequence workstate_seq
+start with 1
+increment by 1
+minvalue 1
+maxvalue 9223372036854775807
+nocache
+nocycle 
+noorder;
+
+------------------------------------- Create sequence for OPERATOR ID ---------------------------------------
+create sequence operator_seq
+start with 1
+increment by 1
+minvalue 1
+maxvalue 9223372036854775807
+nocache
+nocycle 
+noorder;
+
+------------------------------------- Create sequence for MANUFACTURER ID ---------------------------------------
+create sequence manufacturer_seq
+start with 1
+increment by 1
+minvalue 1
+maxvalue 9223372036854775807
+nocache
+nocycle 
+noorder;
+
 ------------------------------------- Create sequence for STOCKSHARE ID ---------------------------------------
 create sequence stockshare_seq
 start with 1

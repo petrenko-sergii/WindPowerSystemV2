@@ -394,6 +394,143 @@ alter table shareholder
 alter table shareholder
   add constraint fk_shareholder_type foreign key (typeid) references shareholdertype (id);
   
+ 
+ ------------------------------------- Create table FARM ---------------------------------------
+
+create table FARM                                                                                  
+(                                                                                                          
+   id         	NUMBER not null,  
+   name         VARCHAR2(200 CHAR) not null,
+   addressid   	NUMBER not null,
+   imageid    	NUMBER
+);                                                                                                          
+                                                                                                           
+-- Add comment to the table                                                                                
+comment on table FARM is 'Wind turbine farm';                                                       
+                                                                                                       
+-- Add comments to the columns                                                                             
+comment on column FARM.id is 'Id' ;                                                                  
+comment on column FARM.name is 'Name';                                                                   
+comment on column FARM.addressid is 'Address id';                                                                   
+comment on column FARM.imageid is 'Image id';                                                                   
+                                                                                                           
+-- Create primary, unique and foreign key constraints                                                      
+create unique index pk_farm on farm (id);                                             
+
+alter table farm                                                                                
+  add constraint pk_farm primary key (id) using index pk_farm;                           
+
+alter table farm
+  add constraint fk_farm_address foreign key (addressid) references address (id);
+
+alter table farm
+  add constraint fk_farm_image foreign key (imageid) references appimage(id);
+    
+  
+------------------------------------- Create table UNIT ---------------------------------------
+create table UNIT                                                                                  
+(                                                                                                          
+   id         	NUMBER not null,  
+   name         VARCHAR2(200 CHAR) not null
+);                                                                                                          
+                                                                                                           
+-- Add comment to the table                                                                                
+comment on table UNIT is 'UNIT table';                                                        
+                                                                                                        
+-- Add comments to the columns                                                                             
+comment on column UNIT.id is 'Id';                                                                   
+comment on column UNIT.name is 'Name';                                                                   
+                                                                                                           
+-- Create primary, unique key constraints                                                       
+create unique index pk_unit on unit (id);                                             
+                                                                                                      
+alter table unit                                                                                
+  add constraint pk_unit primary key (id) using index pk_unit;   
+
+------------------------------------- Create table WORKSTATE ---------------------------------------
+create table WORKSTATE                                                                                  
+(                                                                                                          
+   id         	NUMBER not null,   
+   name         VARCHAR2(100 CHAR) not null      
+); 
+commit;
+                                                                                                           
+-- Add comment to the table                                                                                
+comment on table WORKSTATE is 'Turbine working state table';                                                        
+                                                                                                          
+-- Add comments to the columns                                                                             
+comment on column WORKSTATE.id is 'Id';                                                                   
+comment on column WORKSTATE.name is 'Turbine working status state';                                                                  
+                                                                                                           
+-- Create primary, unique and foreign key constraints                                                      
+create unique index pk_state on workstate (id);                                             
+                                                                                                       
+alter table workstate                                                                                
+  add constraint pk_state primary key (id) using index pk_state;   
+
+------------------------------------- Create table OPERATOR ---------------------------------------
+create table OPERATOR                                                                                  
+(                                                                                                          
+   id         	NUMBER not null,  
+   name         VARCHAR2(200 CHAR) not null,
+   email  		VARCHAR2(200 CHAR),
+   phone  		VARCHAR2(200 CHAR),
+   website 		VARCHAR2(200 CHAR),
+   addressid   	NUMBER not null
+);                                                                                                          
+                                                                                                           
+-- Add comment to the table                                                                                
+comment on table OPERATOR is 'Operator company table';                                                        
+                                                                                                          
+-- Add comments to the columns                                                                             
+comment on column OPERATOR.id is 'Id';                                                                   
+comment on column OPERATOR.name is 'Name';                                                                   
+comment on column OPERATOR.email is 'Email';                                                                   
+comment on column OPERATOR.phone is 'Phone number'; 
+comment on column OPERATOR.website is 'Web site';                                                                   
+comment on column OPERATOR.addressid is 'Address id';                                                                   
+                                                                                                           
+-- Create primary, unique and foreign key constraints                                                      
+create unique index pk_operator on operator (id);                                             
+                                                                                                       
+alter table operator                                                                                
+  add constraint pk_operator primary key (id) using index pk_operator;                            
+
+alter table operator
+  add constraint fk_operator_address foreign key (addressid) references address (id); 
+  
+  
+------------------------------------- Create table MANUFACTURER ---------------------------------------
+create table MANUFACTURER                                                                                  
+(                                                                                                          
+   id         	NUMBER not null,  
+   name         VARCHAR2(200 CHAR) not null,
+   email  		VARCHAR2(200 CHAR),
+   phone  		VARCHAR2(200 CHAR),
+   website 		VARCHAR2(200 CHAR),
+   addressid   	NUMBER not null
+);                                                                                                          
+                                                                                                           
+-- Add comment to the table                                                                                
+comment on table MANUFACTURER is 'Manufacturer company table';                                                        
+                                                                                                          
+-- Add comments to the columns                                                                             
+comment on column MANUFACTURER.id is 'Id';                                                                   
+comment on column MANUFACTURER.name is 'Name';                                                                   
+comment on column MANUFACTURER.email is 'Email';                                                                   
+comment on column MANUFACTURER.phone is 'Phone number'; 
+comment on column MANUFACTURER.website is 'Web site';                                                                   
+comment on column MANUFACTURER.addressid is 'Address id';                                                                   
+                                                                                                           
+-- Create primary, unique and foreign key constraints                                                      
+create unique index pk_manufacturer on manufacturer (id);                                             
+                                                                                                       
+alter table manufacturer                                                                                
+  add constraint pk_manufacturer primary key (id) using index pk_manufacturer;                            
+
+alter table manufacturer
+  add constraint fk_manufacturer_address foreign key (addressid) references address (id);
+  
 ------------------------------------- Create table STOCKSHARE ---------------------------------------
 
 create table STOCKSHARE                                                                                  

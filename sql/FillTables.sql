@@ -1082,6 +1082,68 @@ insert into turbine (serialnum, prodmw, turbinetypeid, addressid) values ('ser#-
 insert into shareholdertype (name) values ('Legal person');
 insert into shareholdertype (name) values ('Private person');
 
+------------------------------------- Fill table FARM ---------------------------------
+
+insert into farm (name, addressid, imageid) values ('Anholt', 1, 1);
+insert into farm (name, addressid, imageid) values ('Samso', 67, 2);
+insert into farm (name, addressid, imageid) values ('Frederikshavn', 100, 3);
+insert into farm (name, addressid, imageid) values ('Middelgrunden', 101, 4);
+insert into farm (name, addressid, imageid) values ('Vindeby', 102, 5);
+insert into farm (name, addressid, imageid) values ('Dithmarschen', 215, 6);
+insert into farm (name, addressid, imageid) values ('Wesselburen', 311, 7);
+insert into farm (name, addressid, imageid) values ('Jammerland Bugt', 354, 8);
+insert into farm (name, addressid, imageid) values ('Bedburg', 368, 9);
+insert into farm (name, addressid, imageid) values ('Bergheim', 404, 10);
+insert into farm (name, addressid, imageid) values ('Julicher Boerde', 547, 11);
+
+------------------------------------- Fill table UNIT ---------------------------------
+
+insert into unit (name) values ('kWh');
+insert into unit (name) values ('kW');
+insert into unit (name) values ('m');
+insert into unit (name) values ('sq.m');
+insert into unit (name) values ('km/h');
+insert into unit (name) values ('m/s');
+insert into unit (name) values ('°C');
+insert into unit (name) values ('kg/cub.m');
+insert into unit (name) values ('hour');
+
+------------------------------------- Fill table WORKSTATE ---------------------------------
+
+insert into workstate (name) values ('Run');
+insert into workstate (name) values ('Stopped. Service');
+insert into workstate (name) values ('Stopped. Cut-out');
+insert into workstate (name) values ('Failed');
+insert into workstate (name) values ('Ready. No wind');
+
+------------------------------------- Fill table OPERATOR ---------------------------------
+
+insert into operator (name, email, phone, website, addressid) 
+    values ('Vattenfall A/S', 'kolding@vattenfall.com', '+4588275000','corporate.vattenfall.dk', 104);
+    
+insert into operator (name, email, phone, website, addressid) 
+    values ('Orsted', 'info@orsted.com', '+4599551111','orsted.com', 265);
+        
+insert into operator (name, email, phone, website, addressid) 
+    values ('Enercon', 'hamburg@enercon.com', '+4938413042210','enercon.de', 829);    
+    
+insert into operator (name, email, phone, website, addressid) 
+    values ('WPD AG', 'info@wpd.de', '+494211686610','wpd.de', 869);
+	
+------------------------------------- Fill table MANUFACTURER ---------------------------------
+
+insert into manufacturer (name, email, phone, website, addressid) 
+    values ('Vestas', 'vestas@vestas.com', '+4597300000','vestas.com', 288);
+    
+insert into manufacturer (name, email, phone, website, addressid) 
+    values ('Siemens Gamesa', 'info@gamesacorp.com', '+4904028890','siemensgamesa.com', 521 );
+    
+insert into manufacturer (name, email, phone, website, addressid) 
+    values ('Nordex', 'info@nordex-online.com', '+4940300301000','nordex-online.com', 630);
+    
+insert into manufacturer (name, email, phone, website, addressid) 
+    values ('Enercon', 'hamburg@enercon.com', '+4938413042210','enercon.de', 829);
+
 ------------------------------------- Fill table STOCKSHARES ---------------------------------
 insert into stockshare (serialnum, percent, price, turbineid) values ('ser#-1.1', 25, 25000,1);
 insert into stockshare (serialnum, percent, price, turbineid) values ('ser#-1.2', 75, 75000,1);
