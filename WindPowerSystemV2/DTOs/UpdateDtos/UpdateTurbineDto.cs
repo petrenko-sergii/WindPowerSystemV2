@@ -1,13 +1,11 @@
 ﻿using Newtonsoft.Json;
+using WindPowerSystemV2.DTOs.EntityBaseDtos;
 
 namespace WindPowerSystemV2.DTOs.UpdateDtos
 {
 	[JsonObject(MemberSerialization.OptOut)]
-	public class UpdateTurbineDto
+	public class UpdateTurbineDto : TurbineBaseDto
 	{
-		public string SerialNum { get; set; }
-		public int ProdMW { get; set; }
-
 		public int TurbineTypeId { get; set; }
 		public int AddressId { get; set; }
 	}
