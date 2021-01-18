@@ -359,6 +359,137 @@
 			]
 		},
 		{
+			"name": "Manufacturer",
+			"item": [
+				{
+					"name": "GetAllManufacturers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/manufacturer",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"manufacturer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetManufacturerById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/manufacturer/3",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"manufacturer",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateManufacturer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Name\": \"Manufacturer-5\",\r\n    \"Email\": \"test5@com.dk\",\r\n    \"Phone\": \"+4508924776\",\r\n    \"Website\": \"test5.com\",   \r\n    \"Address\" : {\r\n        \"Id\":105\r\n    }    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/manufacturer",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"manufacturer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateManufacturer",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Name\": \"Manufacturer-5_updated\",\r\n    \"Email\": \"test155@com.dk\",\r\n    \"Phone\": \"+4508434000\",\r\n    \"Website\": \"test155.com\",   \r\n    \"AddressId\" : 155\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/manufacturer/5",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"manufacturer",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteManufacturer",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/manufacturer/5",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"manufacturer",
+								"5"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
 			"name": "Address",
 			"item": [
 				{

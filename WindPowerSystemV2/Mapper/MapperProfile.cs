@@ -99,6 +99,13 @@ namespace WindPowerSystemV2.Mapper
 				.ForMember(t => t.Email, opt => opt.MapFrom(expression => expression.Email))
 				.ForMember(t => t.Website, opt => opt.MapFrom(expression => expression.Website))
 				.IncludeAllDerived().ReverseMap();
+
+			CreateMap<Manufacturer, ManufacturerDto>()
+				.ForMember(t => t.Name, opt => opt.MapFrom(expression => expression.Name))
+				.ForMember(t => t.Phone, opt => opt.MapFrom(expression => expression.Phone))
+				.ForMember(t => t.Email, opt => opt.MapFrom(expression => expression.Email))
+				.ForMember(t => t.Website, opt => opt.MapFrom(expression => expression.Website))
+				.IncludeAllDerived().ReverseMap();
 		}
 	}
 }

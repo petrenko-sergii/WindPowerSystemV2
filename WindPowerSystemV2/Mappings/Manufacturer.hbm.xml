@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<hibernate-mapping xmlns = "urn:nhibernate-mapping-2.2"
+   assembly = "WindPowerSystemV2" namespace = "WindPowerSystemV2.Repositories.Models">
+
+	<class name = "Manufacturer">
+
+		<id name="Id">
+			<generator class="sequence">
+				<param name="sequence">MANUFACTURER_SEQ</param>
+			</generator>
+		</id>
+
+		<property name = "Name"/>
+		<property name = "Email"/>
+		<property name = "Phone"/>
+		<property name = "Website"/>
+		<many-to-one name="Address" column="ADDRESSID"/>
+	</class>
+
+</hibernate-mapping>
