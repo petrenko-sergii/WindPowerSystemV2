@@ -228,6 +228,137 @@
 			]
 		},
 		{
+			"name": "Operator",
+			"item": [
+				{
+					"name": "GetAllOperators",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/operator",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"operator"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetOperatorById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/operator/3",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"operator",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateOperator",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Name\": \"Operator-5\",\r\n    \"Email\": \"test5@com.dk\",\r\n    \"Phone\": \"+4508434776\",\r\n    \"Website\": \"test5.com\",   \r\n    \"Address\" : {\r\n        \"Id\":5\r\n    }    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/operator",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"operator"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateOperator",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Name\": \"Operator-5_updated\",\r\n    \"Email\": \"test52@com.dk\",\r\n    \"Phone\": \"+4508434000\",\r\n    \"Website\": \"test52.com\",   \r\n    \"AddressId\" : 52\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/operator/5",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"operator",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteOperator",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/operator/5",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"operator",
+								"5"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
 			"name": "Address",
 			"item": [
 				{
