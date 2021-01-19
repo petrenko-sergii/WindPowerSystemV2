@@ -23,6 +23,8 @@
     <None Remove="Mappings\Town.hbm.xml" />
     <None Remove="Mappings\Turbine.hbm.xml" />
     <None Remove="Mappings\TurbineType.hbm.xml" />
+    <None Remove="Mappings\Unit.hbm.xml" />
+    <None Remove="Mappings\WorkState.hbm.xml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -84,6 +86,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Mappings\Operator.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mappings\WorkState.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mappings\Unit.hbm.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Mappings\Turbine.hbm.xml">
