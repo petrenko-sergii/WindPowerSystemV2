@@ -14,6 +14,7 @@
     <None Remove="Mappings\AddressMappings\Street.hbm.xml" />
     <None Remove="Mappings\AppImage.hbm.xml" />
     <None Remove="Mappings\Country.hbm.xml" />
+    <None Remove="Mappings\Farm.hbm.xml" />
     <None Remove="Mappings\FlagImage.hbm.xml" />
     <None Remove="Mappings\Manufacturer.hbm.xml" />
     <None Remove="Mappings\Operator.hbm.xml" />
@@ -86,6 +87,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Mappings\Operator.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mappings\Farm.hbm.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Mappings\WorkState.hbm.xml">

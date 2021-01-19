@@ -114,6 +114,10 @@ namespace WindPowerSystemV2.Mapper
 			CreateMap<WorkState, WorkStateDto>()
 				.ForMember(t => t.Name, opt => opt.MapFrom(expression => expression.Name))
 				.IncludeAllDerived().ReverseMap();
+
+			CreateMap<Farm, FarmDto>()
+				.ForMember(t => t.Name, opt => opt.MapFrom(expression => expression.Name))
+				.IncludeAllDerived().ReverseMap();
 		}
 	}
 }
