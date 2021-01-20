@@ -563,6 +563,84 @@ alter table stockshare
 
 alter table stockshare
   add constraint fk_stockshare_turbine foreign key (turbineid) references turbine (id);  
+  
+------------------------------------- Create table METERITEM ---------------------------------------
+create table METERITEM                                                                                  
+(                                                                                                          
+   id         	        NUMBER not null, 
+   turbineid   	        NUMBER not null,
+   measuredt	        DATE not null,
+   mvalue               NUMBER not null,
+   curprodcapacity 		NUMBER not null, 
+   hourqty              NUMBER not null,
+   averWind             NUMBER not null,
+   averDensity          NUMBER not null
+);                                                                                                          
+                                                                                                           
+-- Add comment to the table                                                                                
+comment on table METERITEM is 'METERITEM table (stores data about produced energy by a turbine)';                                                        
+                                                                                                          
+-- Add comments to the columns                                                                             
+comment on column METERITEM.id is 'Id';                                                                   
+comment on column METERITEM.turbineid is 'Turbine id';                                                                   
+comment on column METERITEM.measuredt is 'Measure date and time';                                                                   
+comment on column METERITEM.mvalue is 'Total produced energy (kWh)';  
+comment on column METERITEM.curprodcapacity is 'Current produced capacity (kWh)';                                                             
+comment on column METERITEM.hourqty is 'Turbine working hour quantity per day';                                                                   
+comment on column METERITEM.averWind is 'Average wind power per day, m/s';                                                                   
+comment on column METERITEM.averDensity is 'Average air density per day, kg/cub.m';                                                                   
+                                                                                                           
+-- Create primary, unique and foreign key constraints                                                      
+create unique index pk_meteritem on meteritem (id);                                             
+                                                                                                       
+alter table meteritem                                                                                
+  add constraint pk_meteritem primary key (id) using index pk_meteritem ;                           
+
+alter table meteritem
+  add constraint fk_meteritem_turbine foreign key (turbineid) references turbine (id);
+  
+  
+------------------------------------- Create table APPUSER ---------------------------------------
+create table APPUSER                                                                                  
+(                                                                                                          
+   id         	            raw(32) default sys_guid() not null, 
+   email                    VARCHAR2(200 CHAR) not null,
+   passwordhash             VARCHAR2(200 CHAR) not null,
+   securitystamp	        VARCHAR2(200 CHAR) not null,
+   phone  		            VARCHAR2(200 CHAR) not null,
+   registerdt		        DATE not null,
+   lastlogindt		        DATE not null,
+   firstname		        VARCHAR2(200 CHAR) not null,
+   lastname			        VARCHAR2(200 CHAR) not null,
+   wrongpasswordeffort      NUMBER(1) not null,
+   blocked                  NUMBER(1) not null,
+   passwordmustbechanged    NUMBER(1) not null,
+   lifetimeforpassword      NUMBER(1) default 6 not null
+);                                                                                                   
+                                                                                                           
+-- Add comment to the table                                                                                
+comment on table APPUSER is 'User table for logging in';                                                        
+                                                                                                          
+-- Add comments to the columns                                                                             
+comment on column APPUSER.id is 'Id';     
+comment on column APPUSER.email is 'Email';                                                              
+comment on column APPUSER.passwordhash is 'Password and SecurityStamp hash sum';                                                              
+comment on column APPUSER.securitystamp is 'SecurityStamp';                                                              
+comment on column APPUSER.phone is 'Pnone';                                                              
+comment on column APPUSER.registerdt is 'Register date';                                                              
+comment on column APPUSER.lastlogindt is 'Last logged in date';                                                              
+comment on column APPUSER.firstname is 'First name';                                                              
+comment on column APPUSER.lastname is 'Last name'; 
+comment on column APPUSER.wrongpasswordeffort is 'Wrong password effort (quantity)';                                                             
+comment on column APPUSER.blocked is 'User is bloked';                                                             
+comment on column APPUSER.passwordmustbechanged is 'Password must be changed';                                                             
+comment on column APPUSER.lifetimeforpassword is 'Lifetime for password (6 monthes by default)'; 
+
+-- Create primary, unique and foreign key constraints                                                      
+create unique index pk_appuser on appuser (id);                                             
+                                                                                                       
+alter table appuser                                                                                
+  add constraint pk_appuser primary key (id) using index pk_appuser ;       
 
 --------------------------------------- Commit ---------------------------------------
 

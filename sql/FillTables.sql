@@ -1150,5 +1150,15 @@ insert into stockshare (serialnum, percent, price, turbineid) values ('ser#-1.2'
 insert into stockshare (serialnum, percent, price, turbineid) values ('ser#-2.1', 33, 33000,2);
 insert into stockshare (serialnum, percent, price, turbineid) values ('ser#-2.2', 67, 25000,2);
 
+
+-------------------------------------- Fill table APPUSER ------------------------------------ 
+
+insert into appuser (email, passwordhash, securitystamp, phone, 
+                    registerdt, lastlogindt, firstname, lastname,
+                    wrongpasswordeffort, blocked, passwordmustbechanged, lifetimeforpassword)
+    values ('test_email@com.dk', 'passHash', 'salt', '+4500000000', 
+        to_date('01.01.2018', 'dd.mm.yyyy'), to_date('02.02.2018', 'dd.mm.yyyy'), 'firstName', 'lastName', 
+        0,0,0,6);
+
 -------------------------------------------- Commit ------------------------------------------------
 commit;

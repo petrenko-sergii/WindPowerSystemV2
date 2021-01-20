@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<hibernate-mapping xmlns = "urn:nhibernate-mapping-2.2"
+   assembly = "WindPowerSystemV2" namespace = "WindPowerSystemV2.Repositories.Models">
+
+	<class name = "MeterItem" table="METERITEM">
+
+		<id name="Id">
+			<generator class="sequence">
+				<param name="sequence">METERITEM_SEQ</param>
+			</generator>
+		</id>
+
+		<property name = "MeasureDate" column="MEASUREDT"/>
+		<property name = "Value" column="MVALUE"/>
+		<property name = "CurProdCapacity" column="CURPRODCAPACITY"/>
+		<property name = "HourQty" column="HOURQTY"/>
+		<property name = "AverageWind" column="AVERWIND"/>
+		<property name = "AverageDensity" column="AVERDENSITY"/>
+		<many-to-one name="Turbine" column="TURBINEID"/>
+	</class>
+
+</hibernate-mapping>

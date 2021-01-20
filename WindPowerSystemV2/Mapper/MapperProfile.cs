@@ -118,6 +118,15 @@ namespace WindPowerSystemV2.Mapper
 			CreateMap<Farm, FarmDto>()
 				.ForMember(t => t.Name, opt => opt.MapFrom(expression => expression.Name))
 				.IncludeAllDerived().ReverseMap();
+
+			CreateMap<MeterItem, MetreItemDto>()
+				.ForMember(t => t.MeasureDate, opt => opt.MapFrom(expression => expression.MeasureDate))
+				.ForMember(t => t.Value, opt => opt.MapFrom(expression => expression.Value))
+				.ForMember(t => t.CurProdCapacity, opt => opt.MapFrom(expression => expression.CurProdCapacity))
+				.ForMember(t => t.HourQty, opt => opt.MapFrom(expression => expression.HourQty))
+				.ForMember(t => t.AverageWind, opt => opt.MapFrom(expression => expression.AverageWind))
+				.ForMember(t => t.AverageDensity, opt => opt.MapFrom(expression => expression.AverageDensity))			
+				.IncludeAllDerived().ReverseMap();
 		}
 	}
 }

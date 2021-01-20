@@ -258,6 +258,19 @@ begin
 end;
 /
 
+------------------------------------- Create trigger for METERITEM ---------------------------------------
+create or replace trigger trg_meteritem
+   before insert on meteritem for each row
+declare
+   v_id number;
+begin
+   if (:new.id is null or :new.id = 0) then
+      select meteritem_seq.nextval into v_id from dual;
+      :new.id := v_id;
+   end if;
+end;
+/
+
 ---------------------------------------------------- Commit -----------------------------------------------
 
 commit;
