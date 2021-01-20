@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<hibernate-mapping xmlns = "urn:nhibernate-mapping-2.2"
+   assembly = "WindPowerSystemV2" namespace = "WindPowerSystemV2.Repositories.Models">
+
+	<class name = "User" table="APPUSER">
+
+		<id name="Id"></id>
+		<property name = "Email" column="EMAIL"/>
+		<property name = "PasswordHash" column="PASSWORDHASH"/>
+		<property name = "SecurityStamp" column="SECURITYSTAMP"/>
+		<property name = "Phone" column="PHONE"/>
+		<property name = "RegisterDate" column="REGISTERDT"/>
+		<property name = "LastLoginDate" column="LASTLOGINDT"/>
+		<property name = "Firstname" column="FIRSTNAME"/>
+		<property name = "LastName" column="LASTNAME"/>
+		<property name = "WrongPassworDeffort" column="WRONGPASSWORDEFFORT"/>
+		<property name = "Blocked" column="BLOCKED"/>
+		<property name = "PasswordMustBeChanged" column="PASSWORDMUSTBECHANGED"/>
+		<property name = "LifeTimeForPassword" column="LIFETIMEFORPASSWORD"/>
+	</class>
+
+</hibernate-mapping>

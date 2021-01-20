@@ -26,6 +26,7 @@
     <None Remove="Mappings\Turbine.hbm.xml" />
     <None Remove="Mappings\TurbineType.hbm.xml" />
     <None Remove="Mappings\Unit.hbm.xml" />
+    <None Remove="Mappings\User.hbm.xml" />
     <None Remove="Mappings\WorkState.hbm.xml" />
   </ItemGroup>
 
@@ -94,6 +95,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Mappings\Farm.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mappings\User.hbm.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Mappings\WorkState.hbm.xml">

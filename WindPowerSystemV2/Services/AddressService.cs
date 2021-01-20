@@ -41,8 +41,7 @@ namespace WindPowerSystemV2.Services
 
 		public AddressDto Create(AddressDto dto)
 		{
-			//TODO: will be implemented
-			throw new Exception("Method will be implemented");
+			return new AddressDto(); //TODO: will be implemented
 		}
 
 		public void Update(int id, AddressDto dto)

@@ -127,6 +127,21 @@ namespace WindPowerSystemV2.Mapper
 				.ForMember(t => t.AverageWind, opt => opt.MapFrom(expression => expression.AverageWind))
 				.ForMember(t => t.AverageDensity, opt => opt.MapFrom(expression => expression.AverageDensity))			
 				.IncludeAllDerived().ReverseMap();
+
+			CreateMap<User, UserDto>()
+				.ForMember(t => t.Email, opt => opt.MapFrom(expression => expression.Email))
+				.ForMember(t => t.PasswordHash, opt => opt.MapFrom(expression => expression.PasswordHash))
+				.ForMember(t => t.SecurityStamp, opt => opt.MapFrom(expression => expression.SecurityStamp))
+				.ForMember(t => t.Phone, opt => opt.MapFrom(expression => expression.Phone))
+				.ForMember(t => t.RegisterDate, opt => opt.MapFrom(expression => expression.RegisterDate))
+				.ForMember(t => t.LastLoginDate, opt => opt.MapFrom(expression => expression.LastLoginDate))
+				.ForMember(t => t.Firstname, opt => opt.MapFrom(expression => expression.Firstname))
+				.ForMember(t => t.LastName, opt => opt.MapFrom(expression => expression.LastName))
+				.ForMember(t => t.WrongPassworDeffort, opt => opt.MapFrom(expression => expression.WrongPassworDeffort))
+				.ForMember(t => t.Blocked, opt => opt.MapFrom(expression => expression.Blocked))
+				.ForMember(t => t.PasswordMustBeChanged, opt => opt.MapFrom(expression => expression.PasswordMustBeChanged))
+				.ForMember(t => t.LifeTimeForPassword, opt => opt.MapFrom(expression => expression.LifeTimeForPassword))
+				.IncludeAllDerived().ReverseMap();
 		}
 	}
 }

@@ -1153,12 +1153,26 @@ insert into stockshare (serialnum, percent, price, turbineid) values ('ser#-2.2'
 
 -------------------------------------- Fill table APPUSER ------------------------------------ 
 
-insert into appuser (email, passwordhash, securitystamp, phone, 
-                    registerdt, lastlogindt, firstname, lastname,
-                    wrongpasswordeffort, blocked, passwordmustbechanged, lifetimeforpassword)
-    values ('test_email@com.dk', 'passHash', 'salt', '+4500000000', 
-        to_date('01.01.2018', 'dd.mm.yyyy'), to_date('02.02.2018', 'dd.mm.yyyy'), 'firstName', 'lastName', 
-        0,0,0,6);
+insert into appuser (email, passwordhash, securitystamp, phone, registerdt, lastlogindt, firstname, lastname,
+		wrongpasswordeffort, blocked, passwordmustbechanged, lifetimeforpassword)
+	values ('christensenanna@yahoo.dk', 'AQAAAAEAACcQAAAAEDYVl26FpgXJ4mtSHSr5qTvlEhnkPJ+c1QJFc9EeidC8dm0e0aUuOB70F2mynUOe+A==', 'eb482448-839b-455d-830c-59114308a002', '+4537170997', 
+        to_date('07.09.2017', 'dd.mm.yyyy'), to_date('11.01.2021', 'dd.mm.yyyy'), 'Anna', 'Christensen', 0,0,0,6);
+        
+       
+insert into appuser (email, passwordhash, securitystamp, phone, registerdt, lastlogindt, firstname, lastname,
+		wrongpasswordeffort, blocked, passwordmustbechanged, lifetimeforpassword)
+    values ('nissenlea@gmail.com', 'AQAAAAEAACcQAAAAEMzkV1ljAGc9nwxJT1ZcMObTCSh+lV4vT6TfW3F0WESoyswOSWMCj9LY4cV6ScnxTQ==', '631c4226-9957-4a29-9f8b-8e4a3ac35083', '+4516556426', 
+        to_date('12.10.2015', 'dd.mm.yyyy'), to_date('25.08.2020', 'dd.mm.yyyy'), 'Lea', 'Nissen', 0,1,0,6);
+        
+insert into appuser (email, passwordhash, securitystamp, phone, registerdt, lastlogindt, firstname, lastname,
+        wrongpasswordeffort, blocked, passwordmustbechanged, lifetimeforpassword)
+    values ('kochalbert@mail.dk', 'AQAAAAEAACcQAAAAEILrYpax2kJxfqeHxqN59Py1H0ErH9r44U2jGSTRVHvEZIQirv0JmXgMkhIrICk+4Q==', '4ace494a-b779-4771-a506-4b6e625d881e', '+4515794883', 
+        to_date('14.11.2016', 'dd.mm.yyyy'), to_date('08.01.2021', 'dd.mm.yyyy'), 'Albert', 'Koch', 1,0,0,6);
+        
+insert into appuser (email, passwordhash, securitystamp, phone, registerdt, lastlogindt, firstname, lastname,
+        wrongpasswordeffort, blocked, passwordmustbechanged, lifetimeforpassword)
+    values ('hansenwilliam@yahoo.com', 'AQAAAAEAACcQAAAAEAp9U+cpASIi9jRTahhSdt/cfJBv72R7LTKLpvtmbIDKidW6JCW5ZYmKG7ywi7GyAg==', '9f50d49d-952a-4875-8612-7f7e7767bb60', '+4576505123', 
+        to_date('05.06.2018', 'dd.mm.yyyy'), to_date('12.12.2020', 'dd.mm.yyyy'), 'William', 'Hansen', 0,0,0,6);
 
 -------------------------------------------- Commit ------------------------------------------------
 commit;

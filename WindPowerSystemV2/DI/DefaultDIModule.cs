@@ -30,6 +30,7 @@ namespace WindPowerSystemV2.DI
 			builder.RegisterType<OperatorService>().As<IOperatorService>().PropertiesAutowired();
 			builder.RegisterType<ManufacturerService>().As<IManufacturerService>().PropertiesAutowired();
 			builder.RegisterType<FarmService>().As<IFarmService>().PropertiesAutowired();
+			builder.RegisterType<UserService>().As<IUserService>().PropertiesAutowired();
 
 			//Registration NHibernate (connected to Oracle DB) 
 			var cfg = (Configuration)builder.Properties[Constants.NHibernateConfiguration];
