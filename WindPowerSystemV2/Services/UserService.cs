@@ -30,15 +30,15 @@ namespace WindPowerSystemV2.Services
 			return userDtoList.OrderBy(t => t.Id);
 		}
 
-		//public UserDto GetUserById(int id)
-		//{
-		//	var user = _userRepository.FindById(id);
+		public UserDto GetUserById(string id)
+		{
+			var user = _userRepository.FindByGuid(id);
 
-		//	if (user == null)
-		//		throw new Exception("User was not found");
+			if (user == null)
+				throw new Exception("User was not found");
 
-		//	return Mapper.Map<User, UserDto>(user);
-		//}
+			return Mapper.Map<User, UserDto>(user);
+		}
 
 		public UserDto Create(UserDto dto)
 		{

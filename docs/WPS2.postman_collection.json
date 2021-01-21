@@ -659,6 +659,24 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "GetUserByGuid",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/user/569ADE5B7D5649C4B9D4C02E931CE766",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user",
+								"569ADE5B7D5649C4B9D4C02E931CE766"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},

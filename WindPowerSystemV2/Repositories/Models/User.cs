@@ -4,7 +4,7 @@ namespace WindPowerSystemV2.Repositories.Models
 {
 	public class User // TODO: create base-model
 	{
-		public virtual string Id { get; set; }
+		public virtual string Id { get; protected set; }
 		public virtual string Email { get; set; }
 		public virtual string PasswordHash { get; set; }
 		public virtual string SecurityStamp { get; set; }

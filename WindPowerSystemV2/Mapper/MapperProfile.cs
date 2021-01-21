@@ -125,13 +125,11 @@ namespace WindPowerSystemV2.Mapper
 				.ForMember(t => t.CurProdCapacity, opt => opt.MapFrom(expression => expression.CurProdCapacity))
 				.ForMember(t => t.HourQty, opt => opt.MapFrom(expression => expression.HourQty))
 				.ForMember(t => t.AverageWind, opt => opt.MapFrom(expression => expression.AverageWind))
-				.ForMember(t => t.AverageDensity, opt => opt.MapFrom(expression => expression.AverageDensity))			
+				.ForMember(t => t.AverageDensity, opt => opt.MapFrom(expression => expression.AverageDensity))
 				.IncludeAllDerived().ReverseMap();
 
 			CreateMap<User, UserDto>()
 				.ForMember(t => t.Email, opt => opt.MapFrom(expression => expression.Email))
-				.ForMember(t => t.PasswordHash, opt => opt.MapFrom(expression => expression.PasswordHash))
-				.ForMember(t => t.SecurityStamp, opt => opt.MapFrom(expression => expression.SecurityStamp))
 				.ForMember(t => t.Phone, opt => opt.MapFrom(expression => expression.Phone))
 				.ForMember(t => t.RegisterDate, opt => opt.MapFrom(expression => expression.RegisterDate))
 				.ForMember(t => t.LastLoginDate, opt => opt.MapFrom(expression => expression.LastLoginDate))

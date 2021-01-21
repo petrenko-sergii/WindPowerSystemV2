@@ -5,7 +5,10 @@
 
 	<class name = "User" table="APPUSER">
 
-		<id name="Id"></id>
+		<id name="Id" column="ID">
+			<generator class="assigned"/>
+		</id>
+		
 		<property name = "Email" column="EMAIL"/>
 		<property name = "PasswordHash" column="PASSWORDHASH"/>
 		<property name = "SecurityStamp" column="SECURITYSTAMP"/>

@@ -4,5 +4,6 @@ namespace WindPowerSystemV2.Repositories.Interfaces
 {
 	public interface IUserRepository : IBaseRepository<User>
 	{
+		User FindByGuid(string id);
 	}
 }

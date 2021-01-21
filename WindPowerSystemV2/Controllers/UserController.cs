@@ -25,33 +25,32 @@ namespace WindPowerSystemV2.Controllers
 			return userDtos.ToList();
 		}
 
-		//GET: api/User/5
-		[HttpGet("{id}")]
-		public ActionResult<UserDto> Get(int id)
+		//GET: api/User/guid
+		[HttpGet("{guid}")]
+		public ActionResult<UserDto> Get(string guid)
 		{
-			//return _userService.GetUserById(id);  //TODO: will be implemented
-			return null;
+			return _userService.GetUserById(guid);
 		}
 
 		//POST: api/User
 		[HttpPost]
 		public ActionResult<UserDto> Post([FromBody] UserDto dto)
 		{
-			return _userService.Create(dto);
+			return _userService.Create(dto); //TODO: will be implemented
 		}
 
 		// PUT: api/User/5
 		[HttpPut("{id}")]
 		public void Put(int id, [FromBody] UserDto dto)
 		{
-			_userService.Update(id, dto);
+			_userService.Update(id, dto); //TODO: will be implemented
 		}
 
 		// DELETE: api/User/5
 		[HttpDelete("{id}")]
 		public void Delete(int id)
 		{
-			_userService.Remove(id);
+			_userService.Remove(id); //TODO: will be implemented
 		}
 	}
 }

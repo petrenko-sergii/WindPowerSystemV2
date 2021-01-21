@@ -8,8 +8,6 @@ namespace WindPowerSystemV2.DTOs
 	{
 		public string Id { get; set; }
 		public string Email { get; set; }
-		public string PasswordHash { get; set; }
-		public string SecurityStamp { get; set; }
 		public string Phone { get; set; }
 		public DateTime RegisterDate { get; set; }
 		public DateTime LastLoginDate { get; set; }
