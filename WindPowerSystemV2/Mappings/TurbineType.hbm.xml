@@ -16,6 +16,7 @@
 		<property name = "TowerHeight"/>
 		<property name = "RotorDiameter"/>
 		<property name = "SweptArea"/>
+		<many-to-one name="Manufacturer" column="MANUFACTURERID"/>
 	</class>
 
 </hibernate-mapping>

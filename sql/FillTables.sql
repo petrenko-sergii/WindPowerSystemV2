@@ -1067,10 +1067,10 @@ END;
 ------------------------------------- Fill table TURBINETYPE ---------------------------------
 
 ---- Vestas
-insert into turbinetype (model, capacity, towerheight, rotordiameter, sweptarea) values ('test1', 100, 101, 102, 103);
-insert into turbinetype (model, capacity, towerheight, rotordiameter, sweptarea) values ('test2', 200, 201, 202, 203);
-insert into turbinetype (model, capacity, towerheight, rotordiameter, sweptarea) values ('test3', 300, 301, 302, 303);
-insert into turbinetype (model, capacity, towerheight, rotordiameter, sweptarea) values ('test4', 400, 401, 402, 403);
+insert into turbinetype (model, capacity, towerheight, rotordiameter, sweptarea, manufacturerid) values ('test1', 100, 101, 102, 103, 1);
+insert into turbinetype (model, capacity, towerheight, rotordiameter, sweptarea, manufacturerid) values ('test2', 200, 201, 202, 203, 2);
+insert into turbinetype (model, capacity, towerheight, rotordiameter, sweptarea, manufacturerid) values ('test3', 300, 301, 302, 303, 3);
+insert into turbinetype (model, capacity, towerheight, rotordiameter, sweptarea, manufacturerid) values ('test4', 400, 401, 402, 403, 4);
 
 ------------------------------------- Fill table TURBINE ---------------------------------
 insert into turbine (serialnum, prodmw, turbinetypeid, addressid) values ('ser#-1', 100, 1, 1);

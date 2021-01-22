@@ -12,10 +12,12 @@ namespace WindPowerSystemV2.Services
 	public class TurbineTypeService : BaseService, ITurbineTypeService
 	{
 		private readonly ITurbineTypeRepository _turbineTypeRepository;
+		private readonly IManufacturerRepository _manufacturerRepository;
 
-		public TurbineTypeService(ITurbineTypeRepository turbineTypeRepository)
+		public TurbineTypeService(ITurbineTypeRepository turbineTypeRepository, IManufacturerRepository manufacturerRepository)
 		{
-			this._turbineTypeRepository = turbineTypeRepository;
+			_turbineTypeRepository = turbineTypeRepository;
+			_manufacturerRepository = manufacturerRepository;
 		}
 
 		public IEnumerable<TurbineTypeDto> GetAllTurbineTypes()
@@ -70,6 +72,14 @@ namespace WindPowerSystemV2.Services
 
 			if (dto.SweptArea != 0)
 				turbineType.SweptArea = dto.SweptArea;
+
+			if (dto.ManufacturerId != turbineType.Manufacturer.Id)
+			{
+				var manufacturer = _manufacturerRepository.FindById(dto.ManufacturerId);
+
+				if (manufacturer != null)
+					turbineType.Manufacturer = manufacturer;
+			}
 
 			_turbineTypeRepository.Update(turbineType);
 		}

@@ -286,7 +286,8 @@ create table TURBINETYPE
    capacity 		NUMBER(10) not null,
    towerheight     	NUMBER(10)not null,                                                                            
    rotordiameter    NUMBER(10) not null,
-   sweptarea   		NUMBER(10) not null   
+   sweptarea   		NUMBER(10) not null,
+   manufacturerid   NUMBER not null
 );                                                                                                          
                                                                                                            
 -- Add comment to the table                                                                                
@@ -298,13 +299,17 @@ comment on column TURBINETYPE.model is 'Model';
 comment on column TURBINETYPE.capacity is 'Capacity, kW';   
 comment on column TURBINETYPE.towerheight is 'Tower height, m';                                                
 comment on column TURBINETYPE.rotordiameter is 'Rotor diameter, m'; 
-comment on column TURBINETYPE.sweptarea is 'Swept area, sq.m';                                                         
+comment on column TURBINETYPE.sweptarea is 'Swept area, sq.m';    
+comment on column TURBINETYPE.manufacturerid is 'Manufacturer id';                                                       
                                                                                                            
 -- Create primary, unique key constraints                                                      
 create unique index pk_turbinetype on turbinetype (id);                                             
                                                                                                        
 alter table turbinetype                                                                                
-  add constraint pk_turbinetype primary key (id) using index pk_turbinetype; 
+  add constraint pk_turbinetype primary key (id) using index pk_turbinetype;
+
+alter table turbinetype
+  add constraint fk_turbinetype_manufacturer foreign key (manufacturerid) references manufacturer(id);  
   
 ------------------------------------- Create table TURBINE ------------------------------------------------
 
