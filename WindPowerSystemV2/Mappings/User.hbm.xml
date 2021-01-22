@@ -15,7 +15,7 @@
 		<property name = "Phone" column="PHONE"/>
 		<property name = "RegisterDate" column="REGISTERDT"/>
 		<property name = "LastLoginDate" column="LASTLOGINDT"/>
-		<property name = "Firstname" column="FIRSTNAME"/>
+		<property name = "FirstName" column="FIRSTNAME"/>
 		<property name = "LastName" column="LASTNAME"/>
 		<property name = "WrongPassworDeffort" column="WRONGPASSWORDEFFORT"/>
 		<property name = "Blocked" column="BLOCKED"/>

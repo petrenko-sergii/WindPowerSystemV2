@@ -133,7 +133,7 @@ namespace WindPowerSystemV2.Mapper
 				.ForMember(t => t.Phone, opt => opt.MapFrom(expression => expression.Phone))
 				.ForMember(t => t.RegisterDate, opt => opt.MapFrom(expression => expression.RegisterDate))
 				.ForMember(t => t.LastLoginDate, opt => opt.MapFrom(expression => expression.LastLoginDate))
-				.ForMember(t => t.Firstname, opt => opt.MapFrom(expression => expression.Firstname))
+				.ForMember(t => t.FirstName, opt => opt.MapFrom(expression => expression.FirstName))
 				.ForMember(t => t.LastName, opt => opt.MapFrom(expression => expression.LastName))
 				.ForMember(t => t.WrongPassworDeffort, opt => opt.MapFrom(expression => expression.WrongPassworDeffort))
 				.ForMember(t => t.Blocked, opt => opt.MapFrom(expression => expression.Blocked))
