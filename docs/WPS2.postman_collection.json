@@ -50,7 +50,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"Model\": \"Test5\",\r\n    \"Capacity\": 500,\r\n    \"TowerHeight\": 501,\r\n    \"RotorDiameter\": 502,\r\n    \"SweptArea\": 503\r\n}",
+							"raw": "{\r\n    \"Model\": \"Test5\",\r\n    \"Capacity\": 500,\r\n    \"TowerHeight\": 501,\r\n    \"RotorDiameter\": 502,\r\n    \"SweptArea\": 503,\r\n    \"Manufacturer\" : {\r\n        \"Id\":1\r\n    } \r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -76,7 +76,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"Model\": \"Test111\",\r\n    \"Capacity\": 111\r\n}",
+							"raw": "{\r\n    \"Model\": \"Test111\",\r\n    \"Capacity\": 111,\r\n    \"ManufacturerId\": 2\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -725,7 +725,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"FirstName\": \"FirstName1\",\r\n    \"LastName\": \"LastName1\",\r\n    \"Email\": \"test1@com.dk\",\r\n    \"Phone\": \"+4558769823\",\r\n    \"ShareHolderType\" : {\r\n        \"Id\":2\r\n    }  \r\n}",
+							"raw": "{\r\n    \"FirstName\": \"FirstName1\",\r\n    \"LastName\": \"LastName1\",\r\n    \"Email\": \"test1@com.dk\",\r\n    \"Phone\": \"+4558769823\",\r\n    \"ShareHolderType\" : {\r\n        \"Id\":2\r\n    },\r\n    \"Address\" : {\r\n        \"Id\":5\r\n    }    \r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -751,7 +751,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"FirstName\": \"FirstName1\",\r\n    \"LastName\": \"LastName2\",\r\n    \"Email\": \"test2@com.dk\",\r\n    \"Phone\": \"+4558769823\",\r\n    \"ShareHolderTypeId\" : 1  \r\n}",
+							"raw": "{\r\n    \"FirstName\": \"FirstName1\",\r\n    \"LastName\": \"LastName2\",\r\n    \"Email\": \"test2@com.dk\",\r\n    \"Phone\": \"+4558769823\",\r\n    \"ShareHolderTypeId\" : 1,\r\n    \"AddressId\" : 7  \r\n}",
 							"options": {
 								"raw": {
 									"language": "json"

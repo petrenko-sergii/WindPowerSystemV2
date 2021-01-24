@@ -15,7 +15,8 @@
 		<property name = "LastName"/>
 		<property name = "Email"/>
 		<property name = "Phone"/>
-		<many-to-one name="ShareHolderType" column="TypeId"/>
+		<many-to-one name="Address" column="ADDRESSID"/>
+		<many-to-one name="ShareHolderType" column="TYPEID"/>
 	</class>
 
 </hibernate-mapping>

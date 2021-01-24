@@ -376,6 +376,7 @@ create table SHAREHOLDER
    lastname     VARCHAR2(200 CHAR),
    email  		VARCHAR2(200 CHAR) not null,
    phone  		VARCHAR2(200 CHAR) not null,
+   addressid   	NUMBER not null,
    typeid   	NUMBER not null
 );                                                                                                          
                                                                                                            
@@ -387,14 +388,18 @@ comment on column SHAREHOLDER.id is 'Id';
 comment on column SHAREHOLDER.firstname is 'First name';                                                                   
 comment on column SHAREHOLDER.lastname is 'Last name';                                                                   
 comment on column SHAREHOLDER.email is 'Email';                                                                   
-comment on column SHAREHOLDER.phone is 'Phone number';                                                                   
+comment on column SHAREHOLDER.phone is 'Phone number';
+comment on column SHAREHOLDER.addressid is 'Address id';                                                                     
 comment on column SHAREHOLDER.typeid is 'Type id';                                                                   
                                                                                                            
 -- Create primary, unique and foreign key constraints                                                      
 create unique index pk_shareholder on shareholder (id);                                             
                                                                                                        
 alter table shareholder                                                                                
-  add constraint pk_shareholder primary key (id) using index pk_shareholder;                            
+  add constraint pk_shareholder primary key (id) using index pk_shareholder;   
+
+alter table shareholder
+  add constraint fk_shareholder_address foreign key (addressid) references address (id);  
 
 alter table shareholder
   add constraint fk_shareholder_type foreign key (typeid) references shareholdertype (id);

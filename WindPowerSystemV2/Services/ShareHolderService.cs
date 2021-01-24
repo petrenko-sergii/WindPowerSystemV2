@@ -13,11 +13,13 @@ namespace WindPowerSystemV2.Services
 	{
 		private readonly IShareHolderRepository _shareHolderRepository;
 		private readonly IShareHolderTypeRepository _shareHolderTypeRepository;
+		private readonly IAddressRepository _addressRepository;
 
-		public ShareHolderService(IShareHolderRepository shareHolderRepository, IShareHolderTypeRepository shareHolderTypeRepository)
+		public ShareHolderService(IShareHolderRepository shareHolderRepository, IShareHolderTypeRepository shareHolderTypeRepository, IAddressRepository addressRepository)
 		{
 			_shareHolderRepository = shareHolderRepository;
 			_shareHolderTypeRepository = shareHolderTypeRepository;
+			_addressRepository = addressRepository;
 		}
 
 		public IEnumerable<ShareHolderDto> GetAllShareHolders()
@@ -76,6 +78,14 @@ namespace WindPowerSystemV2.Services
 
 				if(shareHolderType != null)
 					shareHolder.ShareHolderType = shareHolderType;
+			}
+
+			if (dto.AddressId != shareHolder.Address.Id)
+			{
+				var address = _addressRepository.FindById(dto.AddressId);
+
+				if (address != null)
+					shareHolder.Address = address;
 			}
 
 			_shareHolderRepository.Update(shareHolder);
