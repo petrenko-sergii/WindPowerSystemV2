@@ -14,7 +14,10 @@
 		<property name = "SerialNum"/>
 		<property name = "Percent"/>
 		<property name = "Price"/>
-		<many-to-one name="Turbine" column="TurbineId"/>
+		<property name = "PurchaseDate" column="PURCHASEDT"/>
+		<many-to-one name="Turbine" column="TURBINEID"/>
+		<many-to-one name="Farm" column="FARMID"/>
+		<many-to-one name="ShareHolder" column="SHAREHOLDERID"/>
 	</class>
 
 </hibernate-mapping>

@@ -836,7 +836,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"SerialNum\": \"Ser#-3.1\",\r\n    \"Percent\": 50,\r\n    \"Price\": 5000,\r\n    \"Turbine\" : {\r\n        \"Id\":3\r\n    }\r\n}",
+							"raw": "{\r\n    \"SerialNum\": \"Ser#-3.1\",\r\n    \"Percent\": 50,\r\n    \"Price\": 5000,\r\n    \"PurchaseDate\" : \"2020-03-29\",\r\n    \"Turbine\" : {\r\n        \"Id\":3\r\n    },\r\n    \"ShareHolder\": {\r\n        \"Id\":3\r\n    }\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -862,7 +862,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"SerialNum\": \"Ser#-5.1\",\r\n    \"Percent\": 5,\r\n    \"Price\": 500,\r\n    \"TurbineId\": 3\r\n}",
+							"raw": "{\r\n    \"SerialNum\": \"Ser#-5.1\",\r\n    \"Percent\": 5,\r\n    \"Price\": 500,\r\n    \"TurbineId\": 2,\r\n    \"ShareHolderId\" : 3\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -870,13 +870,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseUrl}}/share/5",
+							"raw": "{{baseUrl}}/share/8",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
 								"share",
-								"5"
+								"8"
 							]
 						}
 					},

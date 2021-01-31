@@ -8,5 +8,7 @@ namespace WindPowerSystemV2.DTOs.UpdateDtos
 	public class UpdateShareDto : ShareBaseDto
 	{
 		public int TurbineId { get; set; }
+		public int FarmId { get; set; }
+		public int ShareHolderId { get; set; }
 	}
 }

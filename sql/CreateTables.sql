@@ -276,7 +276,37 @@ alter table address
   
 alter table address
   add constraint fk_address_flatpart foreign key (flatpartid) references flatpart (id);
+  
+------------------------------------- Create table MANUFACTURER ---------------------------------------
+create table MANUFACTURER                                                                                  
+(                                                                                                          
+   id         	NUMBER not null,  
+   name         VARCHAR2(200 CHAR) not null,
+   email  		VARCHAR2(200 CHAR),
+   phone  		VARCHAR2(200 CHAR),
+   website 		VARCHAR2(200 CHAR),
+   addressid   	NUMBER not null
+);                                                                                                          
+                                                                                                           
+-- Add comment to the table                                                                                
+comment on table MANUFACTURER is 'Manufacturer company table';                                                        
+                                                                                                          
+-- Add comments to the columns                                                                             
+comment on column MANUFACTURER.id is 'Id';                                                                   
+comment on column MANUFACTURER.name is 'Name';                                                                   
+comment on column MANUFACTURER.email is 'Email';                                                                   
+comment on column MANUFACTURER.phone is 'Phone number'; 
+comment on column MANUFACTURER.website is 'Web site';                                                                   
+comment on column MANUFACTURER.addressid is 'Address id';                                                                   
+                                                                                                           
+-- Create primary, unique and foreign key constraints                                                      
+create unique index pk_manufacturer on manufacturer (id);                                             
+                                                                                                       
+alter table manufacturer                                                                                
+  add constraint pk_manufacturer primary key (id) using index pk_manufacturer;                            
 
+alter table manufacturer
+  add constraint fk_manufacturer_address foreign key (addressid) references address (id);
   
 ------------------------------------- Create table TURBINETYPE --------------------------------------------
 create table TURBINETYPE                                                                                   
@@ -510,36 +540,7 @@ alter table operator
   add constraint fk_operator_address foreign key (addressid) references address (id); 
   
   
-------------------------------------- Create table MANUFACTURER ---------------------------------------
-create table MANUFACTURER                                                                                  
-(                                                                                                          
-   id         	NUMBER not null,  
-   name         VARCHAR2(200 CHAR) not null,
-   email  		VARCHAR2(200 CHAR),
-   phone  		VARCHAR2(200 CHAR),
-   website 		VARCHAR2(200 CHAR),
-   addressid   	NUMBER not null
-);                                                                                                          
-                                                                                                           
--- Add comment to the table                                                                                
-comment on table MANUFACTURER is 'Manufacturer company table';                                                        
-                                                                                                          
--- Add comments to the columns                                                                             
-comment on column MANUFACTURER.id is 'Id';                                                                   
-comment on column MANUFACTURER.name is 'Name';                                                                   
-comment on column MANUFACTURER.email is 'Email';                                                                   
-comment on column MANUFACTURER.phone is 'Phone number'; 
-comment on column MANUFACTURER.website is 'Web site';                                                                   
-comment on column MANUFACTURER.addressid is 'Address id';                                                                   
-                                                                                                           
--- Create primary, unique and foreign key constraints                                                      
-create unique index pk_manufacturer on manufacturer (id);                                             
-                                                                                                       
-alter table manufacturer                                                                                
-  add constraint pk_manufacturer primary key (id) using index pk_manufacturer;                            
 
-alter table manufacturer
-  add constraint fk_manufacturer_address foreign key (addressid) references address (id);
   
 ------------------------------------- Create table STOCKSHARE ---------------------------------------
 
@@ -547,9 +548,12 @@ create table STOCKSHARE
 (                                                                                                          
    id         		NUMBER not null, 
    serialnum        VARCHAR2(40 CHAR) not null,
+   turbineid   		NUMBER,
+   farmid   		NUMBER,
+   shareholderid    NUMBER not null,
    percent      	NUMBER(10) not null,
    price        	NUMBER not null,
-   turbineid   		NUMBER
+   purchasedt 		DATE not null
 );                                                                                                          
                                                                                                            
 -- Add comment to the table                                                                                
@@ -558,9 +562,12 @@ comment on table STOCKSHARE is 'Share table (stores data about turbine/farm shar
 -- Add comments to the columns                                                                             
 comment on column STOCKSHARE.id is 'Id'; 
 comment on column STOCKSHARE.serialnum is 'Serial number';                                                                   
+comment on column STOCKSHARE.turbineid is 'Turbine id';                                                                   
+comment on column STOCKSHARE.farmid is 'Turbine farm id';                                                                   
+comment on column STOCKSHARE.shareholderid is 'Share holder id';                                                                   
 comment on column STOCKSHARE.percent is 'Share percent(%)';                                                                   
-comment on column STOCKSHARE.price is 'Price (euro)';      
-comment on column STOCKSHARE.turbineid is 'Turbine id';                                                              
+comment on column STOCKSHARE.price is 'Price (euro)';                                                                   
+comment on column STOCKSHARE.purchasedt is 'Purchase date';                                                                   
                                                                                                            
 -- Create primary, unique and foreign key constraints                                                      
 create unique index pk_stockshare on stockshare (id);  
@@ -569,10 +576,16 @@ alter table stockshare
     add constraint uk_stockshare_serialnum unique (serialnum);                                           
                                                                                                        
 alter table stockshare                                                                                
-  add constraint pk_stockshare primary key (id) using index pk_stockshare;   
+  add constraint pk_stockshare primary key (id) using index pk_stockshare;                            
 
 alter table stockshare
-  add constraint fk_stockshare_turbine foreign key (turbineid) references turbine (id);  
+  add constraint fk_stockshare_turbine foreign key (turbineid) references turbine (id);
+
+alter table stockshare
+  add constraint fk_stockshare_farm foreign key (farmid) references farm (id);
+
+alter table stockshare
+  add constraint fk_stockshare_holder foreign key (shareholderid) references shareholder (id);
   
 ------------------------------------- Create table METERITEM ---------------------------------------
 create table METERITEM                                                                                  

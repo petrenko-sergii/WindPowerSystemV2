@@ -37,6 +37,7 @@ namespace WindPowerSystemV2.Controllers
 		[HttpPost]
 		public ActionResult<ShareDto> Post([FromBody] ShareDto dto)
 		{
+			_shareService.ValidatePostModel(dto);
 			return _shareService.Create(dto);
 		}
 
@@ -44,6 +45,7 @@ namespace WindPowerSystemV2.Controllers
 		[HttpPut("{id}")]
 		public void Put(int id, [FromBody] UpdateShareDto dto)
 		{
+			_shareService.ValidateUpdateModel(dto);
 			_shareService.Update(id, dto);
 		}
 

@@ -22,6 +22,7 @@ echo @%wps_folder%CreateTriggers.sql
 echo @%wps_folder%CreateFunctions.sql
 echo @%wps_folder%FillTables.sql
 echo @%wps_folder%FillTable_Shareholder.sql
+echo @%wps_folder%FillTable_TurbineAndShare.sql
 
 echo exit
 ) | sqlplus %user_name%/%password%@%oracle_sid% >> %result_file%

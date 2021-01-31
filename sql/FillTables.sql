@@ -1064,6 +1064,20 @@ BEGIN
 END;
 /
 
+------------------------------------- Fill table MANUFACTURER ---------------------------------
+
+insert into manufacturer (name, email, phone, website, addressid) 
+    values ('Vestas', 'vestas@vestas.com', '+4597300000','vestas.com', 288);
+    
+insert into manufacturer (name, email, phone, website, addressid) 
+    values ('Siemens Gamesa', 'info@gamesacorp.com', '+4904028890','siemensgamesa.com', 521 );
+    
+insert into manufacturer (name, email, phone, website, addressid) 
+    values ('Nordex', 'info@nordex-online.com', '+4940300301000','nordex-online.com', 630);
+    
+insert into manufacturer (name, email, phone, website, addressid) 
+    values ('Enercon', 'hamburg@enercon.com', '+4938413042210','enercon.de', 829);
+
 ------------------------------------- Fill table TURBINETYPE ---------------------------------
 
 ---- Vestas
@@ -1130,26 +1144,6 @@ insert into operator (name, email, phone, website, addressid)
 insert into operator (name, email, phone, website, addressid) 
     values ('WPD AG', 'info@wpd.de', '+494211686610','wpd.de', 869);
 	
-------------------------------------- Fill table MANUFACTURER ---------------------------------
-
-insert into manufacturer (name, email, phone, website, addressid) 
-    values ('Vestas', 'vestas@vestas.com', '+4597300000','vestas.com', 288);
-    
-insert into manufacturer (name, email, phone, website, addressid) 
-    values ('Siemens Gamesa', 'info@gamesacorp.com', '+4904028890','siemensgamesa.com', 521 );
-    
-insert into manufacturer (name, email, phone, website, addressid) 
-    values ('Nordex', 'info@nordex-online.com', '+4940300301000','nordex-online.com', 630);
-    
-insert into manufacturer (name, email, phone, website, addressid) 
-    values ('Enercon', 'hamburg@enercon.com', '+4938413042210','enercon.de', 829);
-
-------------------------------------- Fill table STOCKSHARES ---------------------------------
-insert into stockshare (serialnum, percent, price, turbineid) values ('ser#-1.1', 25, 25000,1);
-insert into stockshare (serialnum, percent, price, turbineid) values ('ser#-1.2', 75, 75000,1);
-insert into stockshare (serialnum, percent, price, turbineid) values ('ser#-2.1', 33, 33000,2);
-insert into stockshare (serialnum, percent, price, turbineid) values ('ser#-2.2', 67, 25000,2);
-
 
 -------------------------------------- Fill table APPUSER ------------------------------------ 
 

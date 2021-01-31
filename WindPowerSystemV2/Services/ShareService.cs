@@ -13,11 +13,17 @@ namespace WindPowerSystemV2.Services
 	{
 		private readonly IShareRepository _shareRepository;
 		private readonly ITurbineRepository _turbineRepository;
+		private readonly IFarmRepository _farmRepository;
+		private readonly IShareHolderRepository _shareHolderRepository;
 
-		public ShareService(IShareRepository shareRepository, ITurbineRepository turbineRepository)
+		private readonly string _exceptionMsgShareShouldBelongToTurbineOrFarm = "Share should belong to turbine or farm (but not for both).";
+
+		public ShareService(IShareRepository shareRepository, ITurbineRepository turbineRepository, IFarmRepository farmRepository, IShareHolderRepository shareHolderRepository)
 		{
 			_shareRepository = shareRepository;
 			_turbineRepository = turbineRepository;
+			_farmRepository = farmRepository;
+			_shareHolderRepository = shareHolderRepository;
 		}
 
 		public IEnumerable<ShareDto> GetAllShares()
@@ -40,6 +46,23 @@ namespace WindPowerSystemV2.Services
 				throw new Exception("Share was not found");
 
 			return Mapper.Map<Share, ShareDto>(share);
+		}
+
+		public void ValidatePostModel(ShareDto dto)
+		{
+			if(dto.Turbine != null && dto.Farm != null)
+			{
+				throw new Exception(_exceptionMsgShareShouldBelongToTurbineOrFarm);
+			}
+			// TODO: add PurchaseDate and Price validation
+		}
+
+		public void ValidateUpdateModel(UpdateShareDto dto)
+		{
+			if (dto.TurbineId != 0 && dto.FarmId != 0)
+			{
+				throw new Exception(_exceptionMsgShareShouldBelongToTurbineOrFarm);
+			}
 		}
 
 		public ShareDto Create(ShareDto dto)
@@ -67,12 +90,28 @@ namespace WindPowerSystemV2.Services
 			if (dto.Price != 0)
 				share.Price = dto.Price;
 
-			if(dto.TurbineId != share.Turbine.Id)
+			if(dto.TurbineId != 0 && share.Turbine != null && dto.TurbineId != share.Turbine.Id)
 			{
 				var turbine = _turbineRepository.FindById(dto.TurbineId);
 
 				if (turbine != null)
 					share.Turbine = turbine;
+			}
+
+			if (dto.FarmId != 0 && share.Farm != null && dto.FarmId != share.Farm.Id)
+			{
+				var farm = _farmRepository.FindById(dto.TurbineId);
+
+				if (farm != null)
+					share.Farm = farm;
+			}
+
+			if (dto.ShareHolderId != share.ShareHolder.Id)
+			{
+				var shareHolder = _shareHolderRepository.FindById(dto.ShareHolderId);
+
+				if (shareHolder != null)
+					share.ShareHolder = shareHolder;
 			}
 
 			_shareRepository.Update(share);

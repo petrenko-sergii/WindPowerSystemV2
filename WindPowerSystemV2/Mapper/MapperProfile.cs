@@ -37,6 +37,7 @@ namespace WindPowerSystemV2.Mapper
 				.ForMember(t => t.SerialNum, opt => opt.MapFrom(expression => expression.SerialNum))
 				.ForMember(t => t.Percent, opt => opt.MapFrom(expression => expression.Percent))
 				.ForMember(t => t.Price, opt => opt.MapFrom(expression => expression.Price))
+				.ForMember(t => t.PurchaseDate, opt => opt.MapFrom(expression => expression.PurchaseDate))
 				.IncludeAllDerived().ReverseMap();
 
 			CreateMap<AddressImage, AddressImageDto>()

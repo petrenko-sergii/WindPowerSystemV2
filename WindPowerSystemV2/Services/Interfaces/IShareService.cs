@@ -11,5 +11,8 @@ namespace WindPowerSystemV2.Services.Interfaces
 		ShareDto Create(ShareDto dto);
 		void Update(int id, UpdateShareDto dto);
 		void Remove(int id);
+
+		void ValidatePostModel(ShareDto dto);
+		void ValidateUpdateModel(UpdateShareDto dto);
 	}
 }
