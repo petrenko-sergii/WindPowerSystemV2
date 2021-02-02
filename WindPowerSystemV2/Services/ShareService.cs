@@ -17,6 +17,7 @@ namespace WindPowerSystemV2.Services
 		private readonly IShareHolderRepository _shareHolderRepository;
 
 		private readonly string _exceptionMsgShareShouldBelongToTurbineOrFarm = "Share should belong to turbine or farm (but not for both).";
+		private readonly string _exceptionMsgSharePriceCanNotBeZeroOrNegative = "Share price can not be zero or negative.";
 
 		public ShareService(IShareRepository shareRepository, ITurbineRepository turbineRepository, IFarmRepository farmRepository, IShareHolderRepository shareHolderRepository)
 		{
@@ -54,7 +55,13 @@ namespace WindPowerSystemV2.Services
 			{
 				throw new Exception(_exceptionMsgShareShouldBelongToTurbineOrFarm);
 			}
-			// TODO: add PurchaseDate and Price validation
+
+			ValidatePrice(dto.Price);
+
+			if(dto.PurchaseDate == DateTime.MinValue)
+			{
+				dto.PurchaseDate = DateTime.Now;
+			}
 		}
 
 		public void ValidateUpdateModel(UpdateShareDto dto)
@@ -63,6 +70,8 @@ namespace WindPowerSystemV2.Services
 			{
 				throw new Exception(_exceptionMsgShareShouldBelongToTurbineOrFarm);
 			}
+
+			ValidatePrice(dto.Price);
 		}
 
 		public ShareDto Create(ShareDto dto)
@@ -125,6 +134,14 @@ namespace WindPowerSystemV2.Services
 				throw new Exception("Share was not found");
 
 			_shareRepository.Remove(share);
+		}
+
+		private void ValidatePrice(decimal price)
+		{
+			if (price <= 0)
+			{
+				throw new Exception(_exceptionMsgSharePriceCanNotBeZeroOrNegative);
+			}
 		}
 	}
 }
