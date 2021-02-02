@@ -52,24 +52,18 @@ namespace WindPowerSystemV2.Services
 		public void ValidatePostModel(ShareDto dto)
 		{
 			if(dto.Turbine != null && dto.Farm != null)
-			{
 				throw new Exception(_exceptionMsgShareShouldBelongToTurbineOrFarm);
-			}
 
 			ValidatePrice(dto.Price);
 
 			if(dto.PurchaseDate == DateTime.MinValue)
-			{
 				dto.PurchaseDate = DateTime.Now;
-			}
 		}
 
 		public void ValidateUpdateModel(UpdateShareDto dto)
 		{
 			if (dto.TurbineId != 0 && dto.FarmId != 0)
-			{
 				throw new Exception(_exceptionMsgShareShouldBelongToTurbineOrFarm);
-			}
 
 			ValidatePrice(dto.Price);
 		}
@@ -139,9 +133,7 @@ namespace WindPowerSystemV2.Services
 		private void ValidatePrice(decimal price)
 		{
 			if (price <= 0)
-			{
 				throw new Exception(_exceptionMsgSharePriceCanNotBeZeroOrNegative);
-			}
 		}
 	}
 }

@@ -12,9 +12,19 @@
 		</id>
 
 		<property name = "SerialNum"/>
+		<property name = "InstallDate" column="INSTALLDT"/>
 		<property name = "ProdMW"/>
+		<property name = "Cost" column="COST"/>
+		<property name = "InstallCost" column="INSTALLCOST"/>
 		<many-to-one name="TurbineType" column="TURBINETYPEID"/>
+		<many-to-one name="Operator" column="OPERATORID"/>
+		<many-to-one name="Farm" column="FARMID"/>
 		<many-to-one name="Address" column="ADDRESSID"/>
+		<many-to-one name="Image" column="IMAGEID"/>
+		<property name = "LastServDate" column="LASTSERVDT"/>
+		<property name = "NextServDate" column="NEXTSERVDT"/>
+		<property name = "LastYearServDate" column="LASTYEARSERVDT"/>
+		<property name = "NextYearServDate" column="NEXTYEARSERVDT"/>
 	</class>
 
 </hibernate-mapping>

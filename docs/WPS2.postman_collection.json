@@ -142,13 +142,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/turbine/3",
+							"raw": "{{baseUrl}}/turbine/5",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
 								"turbine",
-								"3"
+								"5"
 							]
 						}
 					},
@@ -161,7 +161,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"SerialNum\": \"Ser#-5\",\r\n    \"ProdMW\": 500,\r\n    \"TurbineType\" : {\r\n        \"Id\":1\r\n    },\r\n    \"Address\" : {\r\n        \"Id\":5\r\n    }    \r\n}",
+							"raw": "{\r\n    \"SerialNum\": \"Ser#-5\",\r\n    \"ProdMW\": 500,\r\n    \"InstallDate\": \"2017-06-05\",\r\n    \"Cost\": 608000,\r\n    \"InstallCost\": 275000,\r\n    \"LastServDate\" : \"2020-12-05\",\r\n    \"NextServDate\" : \"2021-06-05\",\r\n    \"LastYearServDate\": \"2020-04-17\",\r\n    \"NextYearServDate\": \"2021-04-17\",\r\n    \"TurbineType\" : {\r\n        \"Id\":1\r\n    },\r\n     \"Operator\" : {\r\n        \"Id\":3\r\n    },\r\n    \"Address\" : {\r\n        \"Id\":15\r\n    }    \r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -187,7 +187,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"SerialNum\": \"Ser#-552\",\r\n    \"ProdMW\": 552,\r\n    \"TurbineTypeId\": 3,\r\n    \"AddressId\" : 552\r\n}",
+							"raw": "{\r\n    \"SerialNum\": \"Ser#-552\",\r\n    \"InstallDate\": \"2016-06-05\",\r\n    \"ProdMW\": 552,\r\n    \"TurbineTypeId\": 2,\r\n    \"AddressId\" : 552\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -195,13 +195,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseUrl}}/turbine/5",
+							"raw": "{{baseUrl}}/turbine/1005",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
 								"turbine",
-								"5"
+								"1005"
 							]
 						}
 					},
@@ -213,13 +213,13 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/turbine/5",
+							"raw": "{{baseUrl}}/turbine/1005",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
 								"turbine",
-								"5"
+								"1005"
 							]
 						}
 					},
@@ -836,7 +836,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"SerialNum\": \"Ser#-3.1\",\r\n    \"Percent\": 50,\r\n    \"Price\": 5000,\r\n    \"PurchaseDate\" : \"2020-03-29\",\r\n    \"Turbine\" : {\r\n        \"Id\":3\r\n    },\r\n    \"ShareHolder\": {\r\n        \"Id\":3\r\n    }\r\n}",
+							"raw": "{\r\n    \"SerialNum\": \"Ser#-3.1\",\r\n    \"Percent\": 50,\r\n    \"Price\": 5000,\r\n    \"PurchaseDate\" : \"2020-03-29\",\r\n    \"Turbine\" : {\r\n        \"Id\":3\r\n    },    \r\n    \"ShareHolder\": {\r\n        \"Id\":3\r\n    }\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"

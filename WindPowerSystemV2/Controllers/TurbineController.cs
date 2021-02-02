@@ -37,6 +37,7 @@ namespace WindPowerSystemV2.Controllers
 		[HttpPost]
 		public ActionResult<TurbineDto> Post([FromBody] TurbineDto dto)
 		{
+			_turbineService.ValidatePostModel(dto);
 			return _turbineService.Create(dto);
 		}
 

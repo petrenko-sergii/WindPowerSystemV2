@@ -7,6 +7,9 @@ namespace WindPowerSystemV2.DTOs.UpdateDtos
 	public class UpdateTurbineDto : TurbineBaseDto
 	{
 		public int TurbineTypeId { get; set; }
+		public int OperatorId { get; set; }
+		public int FarmId { get; set; }
 		public int AddressId { get; set; }
+		public int ImageId { get; set; }
 	}
 }

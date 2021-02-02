@@ -1081,16 +1081,102 @@ insert into manufacturer (name, email, phone, website, addressid)
 ------------------------------------- Fill table TURBINETYPE ---------------------------------
 
 ---- Vestas
-insert into turbinetype (model, capacity, towerheight, rotordiameter, sweptarea, manufacturerid) values ('test1', 100, 101, 102, 103, 1);
-insert into turbinetype (model, capacity, towerheight, rotordiameter, sweptarea, manufacturerid) values ('test2', 200, 201, 202, 203, 2);
-insert into turbinetype (model, capacity, towerheight, rotordiameter, sweptarea, manufacturerid) values ('test3', 300, 301, 302, 303, 3);
-insert into turbinetype (model, capacity, towerheight, rotordiameter, sweptarea, manufacturerid) values ('test4', 400, 401, 402, 403, 4);
+insert into turbinetype (manufacturerid, model, capacity, towerheight, rotordiameter, sweptarea) 
+    values (1, 'V39/600', 600, 40.5, 39, 1195);
+    
+insert into turbinetype (manufacturerid, model, capacity, towerheight, rotordiameter, sweptarea) 
+    values (1, 'V39/600', 600, 53, 39, 1195);
 
-------------------------------------- Fill table TURBINE ---------------------------------
-insert into turbine (serialnum, prodmw, turbinetypeid, addressid) values ('ser#-1', 100, 1, 1);
-insert into turbine (serialnum, prodmw, turbinetypeid, addressid) values ('ser#-2', 200, 2, 2);
-insert into turbine (serialnum, prodmw, turbinetypeid, addressid) values ('ser#-3', 300, 2, 3);
-insert into turbine (serialnum, prodmw, turbinetypeid, addressid) values ('ser#-4', 400, 4, 4);
+insert into turbinetype (manufacturerid, model, capacity, towerheight, rotordiameter, sweptarea) 
+    values (1, 'V47/660', 660, 40, 47, 1735);
+    
+insert into turbinetype (manufacturerid, model, capacity, towerheight, rotordiameter, sweptarea) 
+    values (1, 'V47/660', 660, 55, 47, 1735);
+    
+insert into turbinetype (manufacturerid, model, capacity, towerheight, rotordiameter, sweptarea) 
+    values (1, 'V52/850', 850, 49, 52, 2124);
+    
+insert into turbinetype (manufacturerid, model, capacity, towerheight, rotordiameter, sweptarea) 
+    values (1, 'V80/2000', 2000, 78, 80, 5027);
+    
+insert into turbinetype (manufacturerid, model, capacity, towerheight, rotordiameter, sweptarea) 
+    values (1, 'V80/2000', 2000, 100, 80, 5027);
+    
+------Siemens Gamesa
+insert into turbinetype (manufacturerid, model, capacity, towerheight, rotordiameter, sweptarea) 
+    values (2, 'SG 2.1-114', 2100, 106, 114, 10207);
+    
+insert into turbinetype (manufacturerid, model, capacity, towerheight, rotordiameter, sweptarea) 
+    values (2, 'SG 2.1-114', 2100, 125, 114, 10207);
+    
+insert into turbinetype (manufacturerid, model, capacity, towerheight, rotordiameter, sweptarea) 
+    values (2, 'SG 2.1-114', 2100, 153, 114, 10207);
+    
+insert into turbinetype (manufacturerid, model, capacity, towerheight, rotordiameter, sweptarea) 
+    values (2, 'SG 2.6-126', 2625, 102, 126, 12469);
+    
+insert into turbinetype (manufacturerid, model, capacity, towerheight, rotordiameter, sweptarea) 
+    values (2, 'SG 2.6-126', 2625, 137, 126, 12469);
+    
+insert into turbinetype (manufacturerid, model, capacity, towerheight, rotordiameter, sweptarea) 
+    values (2, 'SG 2.6-126', 2625, 153, 126, 12469);
+    
+insert into turbinetype (manufacturerid, model, capacity, towerheight, rotordiameter, sweptarea) 
+    values (2, 'SWT-DD-120', 3900, 85, 120, 11300);
+    
+insert into turbinetype (manufacturerid, model, capacity, towerheight, rotordiameter, sweptarea) 
+    values (2, 'SWT-DD-120', 3900, 125, 120, 11300);
+    
+insert into turbinetype (manufacturerid, model, capacity, towerheight, rotordiameter, sweptarea) 
+    values (2, 'SWT-DD-120', 3900, 155, 120, 11300);
+    
+-----Nordex     
+insert into turbinetype (manufacturerid, model, capacity, towerheight, rotordiameter, sweptarea) 
+    values (3, 'N43', 600, 49, 43, 1453);
+    
+insert into turbinetype (manufacturerid, model, capacity, towerheight, rotordiameter, sweptarea) 
+    values (3, 'N43', 600, 78, 43, 1453);
+    
+insert into turbinetype (manufacturerid, model, capacity, towerheight, rotordiameter, sweptarea) 
+    values (3, 'N50', 800, 46, 50, 1964);
+    
+insert into turbinetype (manufacturerid, model, capacity, towerheight, rotordiameter, sweptarea) 
+    values (3, 'N50', 800, 50, 50, 1964);
+
+insert into turbinetype (manufacturerid, model, capacity, towerheight, rotordiameter, sweptarea) 
+    values (3, 'N50', 800, 70, 50, 1964);   
+    
+insert into turbinetype (manufacturerid, model, capacity, towerheight, rotordiameter, sweptarea) 
+    values (3, 'N52', 800, 60, 52, 2125);    
+    
+insert into turbinetype (manufacturerid, model, capacity, towerheight, rotordiameter, sweptarea) 
+    values (3, 'N52', 800, 70, 52, 2125);
+    
+insert into turbinetype (manufacturerid, model, capacity, towerheight, rotordiameter, sweptarea) 
+    values (3, 'N80', 2500, 80, 80, 5026);
+    
+insert into turbinetype (manufacturerid, model, capacity, towerheight, rotordiameter, sweptarea) 
+    values (3, 'N80', 2500, 100, 80, 5026);
+    
+insert into turbinetype (manufacturerid, model, capacity, towerheight, rotordiameter, sweptarea) 
+    values (3, 'N80', 2500, 105, 80, 5026);
+    
+----- Enercon
+insert into turbinetype (manufacturerid, model, capacity, towerheight, rotordiameter, sweptarea) 
+    values (4, 'E-32', 300, 34, 32, 804);
+    
+insert into turbinetype (manufacturerid, model, capacity, towerheight, rotordiameter, sweptarea) 
+    values (4, 'E-44', 900, 45, 44, 1521);
+    
+insert into turbinetype (manufacturerid, model, capacity, towerheight, rotordiameter, sweptarea) 
+    values (4, 'E-44', 900, 55, 44, 1521);
+    
+insert into turbinetype (manufacturerid, model, capacity, towerheight, rotordiameter, sweptarea) 
+    values (4, 'E-66', 1500, 67, 66, 3421.2);
+    
+insert into turbinetype (manufacturerid, model, capacity, towerheight, rotordiameter, sweptarea) 
+    values (4, 'E-66', 1500, 100, 66, 3421.2);
+
 
 ------------------------------------- Fill table SHAREHOLDERTYPE ---------------------------------
 insert into shareholdertype (name) values ('Legal person');

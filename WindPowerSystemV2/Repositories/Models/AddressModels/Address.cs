@@ -11,7 +11,7 @@ namespace WindPowerSystemV2.Repositories.Models.AddressModels
 		public virtual int TownId { get; set; }
 		public virtual int StreetId { get; set; }
 		public virtual int BuildingId { get; set; }
-		public virtual int FlatPartId { get; set; }
+		public virtual int? FlatPartId { get; set; }
 
 		[ForeignKey("CountryId")]
 		public virtual Country Country { get; set; }

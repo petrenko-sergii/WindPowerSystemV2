@@ -341,42 +341,6 @@ alter table turbinetype
 alter table turbinetype
   add constraint fk_turbinetype_manufacturer foreign key (manufacturerid) references manufacturer(id);  
   
-------------------------------------- Create table TURBINE ------------------------------------------------
-
-create table TURBINE
-(
-   id         		NUMBER not null,
-   serialnum        VARCHAR2(40 CHAR),
-   prodmw       	NUMBER not null,
-   turbinetypeid    NUMBER not null,
-   addressid   		NUMBER not null
-);
-
--- Add comment to the table 
-comment on table TURBINE is 'Wind turbine table';
-
--- Add comments to the columns 
-comment on column TURBINE.id is 'Id';
-comment on column TURBINE.serialnum is 'Serial number';
-comment on column TURBINE.prodmw is 'Produced energy (MW)';
-comment on column TURBINE.turbinetypeid is 'Type id';
-comment on column TURBINE.addressid is 'Address id';
-
--- Create primary, unique and foreign key constraints 
-create unique index pk_turbine on turbine (id);
-
-alter table turbine
-    add constraint uk_turbine_serialnum unique (serialnum); 
-
-alter table turbine 
-  add constraint pk_turbine primary key (id) using index pk_turbine;
-  
-alter table turbine
-  add constraint fk_turbine_turbinetype foreign key (turbinetypeid) references turbinetype (id);
-  
-alter table turbine
-  add constraint fk_turbine_address foreign key (addressid) references address (id);
-  
 ------------------------------------- Create table SHAREHOLDERTYPE ---------------------------------------
 create table SHAREHOLDERTYPE                                                                                  
 (                                                                                                          
@@ -540,7 +504,70 @@ alter table operator
   add constraint fk_operator_address foreign key (addressid) references address (id); 
   
   
+------------------------------------- Create table TURBINE ------------------------------------------------
 
+create table TURBINE
+(
+   id         		NUMBER not null,
+   serialnum        VARCHAR2(40 CHAR),
+   installdt    	DATE not null,
+   prodmw       	NUMBER not null,
+   cost         	NUMBER(10) not null,
+   installcost  	NUMBER(10) not null,
+   turbinetypeid    NUMBER not null,
+   operatorid       NUMBER not null,
+   farmid    		NUMBER,
+   addressid   		NUMBER not null,
+   imageid    		NUMBER,
+   lastservdt		DATE not null,
+   nextservdt		DATE not null,
+   lastyearservdt	DATE not null,
+   nextyearservdt	DATE not null
+);
+
+-- Add comment to the table 
+comment on table TURBINE is 'Wind turbine table';
+
+-- Add comments to the columns 
+comment on column TURBINE.id is 'Id';
+comment on column TURBINE.serialnum is 'Serial number';
+comment on column TURBINE.installdt is 'Install date';
+comment on column TURBINE.prodmw is 'Produced energy (MW)';
+comment on column TURBINE.cost is 'Cost';
+comment on column TURBINE.installcost is 'Install cost';
+comment on column TURBINE.turbinetypeid is 'Type id';
+comment on column TURBINE.operatorid is 'Operator company id';
+comment on column TURBINE.farmid is 'Farm id';
+comment on column TURBINE.addressid is 'Address id';
+comment on column TURBINE.imageid is 'Image id';
+comment on column TURBINE.lastservdt is 'Last service date';
+comment on column TURBINE.nextservdt is 'Next service date';
+comment on column TURBINE.lastyearservdt is 'Last year service date';
+comment on column TURBINE.nextyearservdt is 'Next year service date';
+  
+-- Create primary, unique and foreign key constraints 
+create unique index pk_turbine on turbine (id);
+
+alter table turbine
+    add constraint uk_turbine_serialnum unique (serialnum); 
+
+alter table turbine 
+  add constraint pk_turbine primary key (id) using index pk_turbine;
+
+alter table turbine
+  add constraint fk_turbine_turbinetype foreign key (turbinetypeid) references turbinetype (id);
+
+alter table turbine
+  add constraint fk_turbine_operator foreign key (operatorid) references operator (id);
+
+alter table turbine
+  add constraint fk_turbine_farm foreign key (farmid) references farm (id);
+
+alter table turbine
+  add constraint fk_turbine_address foreign key (addressid) references address (id);
+
+alter table turbine
+  add constraint fk_turbine_image foreign key (imageid) references appimage (id);
   
 ------------------------------------- Create table STOCKSHARE ---------------------------------------
 

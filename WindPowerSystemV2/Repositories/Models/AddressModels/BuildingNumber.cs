@@ -10,7 +10,7 @@ namespace WindPowerSystemV2.Repositories.Models.AddressModels
 		public virtual float Longitude { get; set; }
 
 		public virtual int StreetId { get; set; }
-		public virtual int ImageId { get; set; }
+		public virtual int? ImageId { get; set; }
 
 		[ForeignKey("StreetId")]
 		public virtual Street Street { get; set; }

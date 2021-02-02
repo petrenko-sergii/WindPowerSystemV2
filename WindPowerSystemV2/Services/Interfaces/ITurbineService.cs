@@ -11,5 +11,6 @@ namespace WindPowerSystemV2.Services.Interfaces
 		TurbineDto Create(TurbineDto dto);
 		void Update(int id, UpdateTurbineDto dto);
 		void Remove(int id);
+		void ValidatePostModel(TurbineDto dto);
 	}
 }

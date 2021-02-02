@@ -20,6 +20,13 @@ namespace WindPowerSystemV2.Mapper
 			CreateMap<Turbine, TurbineDto>()
 				.ForMember(t => t.SerialNum, opt => opt.MapFrom(expression => expression.SerialNum))
 				.ForMember(t => t.ProdMW, opt => opt.MapFrom(expression => expression.ProdMW))
+				.ForMember(t => t.InstallDate, opt => opt.MapFrom(expression => expression.InstallDate))
+				.ForMember(t => t.Cost, opt => opt.MapFrom(expression => expression.Cost))
+				.ForMember(t => t.InstallCost, opt => opt.MapFrom(expression => expression.InstallCost))
+				.ForMember(t => t.LastServDate, opt => opt.MapFrom(expression => expression.LastServDate))
+				.ForMember(t => t.NextServDate, opt => opt.MapFrom(expression => expression.NextServDate))
+				.ForMember(t => t.LastYearServDate, opt => opt.MapFrom(expression => expression.LastYearServDate))
+				.ForMember(t => t.NextYearServDate, opt => opt.MapFrom(expression => expression.NextYearServDate))
 				.IncludeAllDerived().ReverseMap();
 
 			CreateMap<ShareHolderType, ShareHolderTypeDto>()

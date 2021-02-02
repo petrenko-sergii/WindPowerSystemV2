@@ -9,6 +9,6 @@ namespace WindPowerSystemV2.Repositories.Models.AddressModels
 		public virtual int? FlagImageId { get; set; }
 
 		[ForeignKey("FlagImageId")]
-		public virtual FlagImage FlagImage { get; set; } //TODO: make nullable this property
+		public virtual FlagImage FlagImage { get; set; } 
 	}
 }
