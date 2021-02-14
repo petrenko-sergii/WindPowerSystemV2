@@ -1,13 +1,14 @@
 #Depending on the operating system of the host machines(s) that will build or run the containers, the image specified in the FROM statement may need to be changed.
 #For more information, please see https://aka.ms/containercompat
 
-FROM microsoft/aspnetcore:2.0-nanoserver-1709 AS base
+FROM microsoft/dotnet:2.1-aspnetcore-runtime-nanoserver-1709 AS base
 WORKDIR /app
 EXPOSE 80
+EXPOSE 443
 
-FROM microsoft/aspnetcore-build:2.0-nanoserver-1709 AS build
+FROM microsoft/dotnet:2.1-sdk-nanoserver-1709 AS build
 WORKDIR /src
-COPY ["WindPowerSystemV2/WindPowerSystemV2.csproj", "WindPowerSystemV2/"]
+COPY ["WindPowerSystemV2.csproj", "WindPowerSystemV2/"]
 RUN dotnet restore "WindPowerSystemV2/WindPowerSystemV2.csproj"
 COPY . .
 WORKDIR "/src/WindPowerSystemV2"

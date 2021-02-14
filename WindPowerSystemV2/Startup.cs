@@ -52,9 +52,11 @@ namespace WindPowerSystemV2
 			}
 			else
 			{
+				app.UseHsts();
 				app.UseExceptionHandler("/Home/Error");
 			}
 
+			app.UseHttpsRedirection();
 			app.UseMvc(routes =>
 			{
 				routes.MapRoute(
