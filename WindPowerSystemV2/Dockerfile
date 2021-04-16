@@ -8,7 +8,7 @@ EXPOSE 443
 
 FROM microsoft/dotnet:2.1-sdk-nanoserver-1709 AS build
 WORKDIR /src
-COPY ["WindPowerSystemV2.csproj", "WindPowerSystemV2/"]
+COPY ["WindPowerSystemV2/WindPowerSystemV2.csproj", "WindPowerSystemV2/"]
 RUN dotnet restore "WindPowerSystemV2/WindPowerSystemV2.csproj"
 COPY . .
 WORKDIR "/src/WindPowerSystemV2"
