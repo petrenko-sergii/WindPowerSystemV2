@@ -8,7 +8,7 @@ using WindPowerSystemV2.Services.Interfaces;
 namespace WindPowerSystemV2.Controllers
 {
     [Route("api/Operator")]
-    public class OperatorController
+    public class OperatorController : ControllerBase
 	{
 		private readonly IOperatorService _operatorService;
 

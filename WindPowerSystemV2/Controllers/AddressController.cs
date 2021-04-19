@@ -7,7 +7,7 @@ using WindPowerSystemV2.Services.Interfaces;
 namespace WindPowerSystemV2.Controllers
 {
     [Route("api/Address")]
-    public class AddressController
+    public class AddressController : ControllerBase
 	{
 		private readonly IAddressService _addressService;
 

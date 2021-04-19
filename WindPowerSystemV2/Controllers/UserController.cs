@@ -7,7 +7,7 @@ using WindPowerSystemV2.Services.Interfaces;
 namespace WindPowerSystemV2.Controllers
 {
     [Route("api/User")]
-    public class UserController
+    public class UserController : ControllerBase
 	{
 		private readonly IUserService _userService;
 

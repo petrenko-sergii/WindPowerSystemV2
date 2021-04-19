@@ -8,7 +8,7 @@ using WindPowerSystemV2.Services.Interfaces;
 namespace WindPowerSystemV2.Controllers
 {
     [Route("api/ShareHolder")]
-    public class ShareHolderController
+    public class ShareHolderController : ControllerBase
 	{
 		private readonly IShareHolderService _shareHolderService;
 

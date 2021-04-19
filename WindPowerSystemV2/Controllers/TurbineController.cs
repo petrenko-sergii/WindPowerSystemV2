@@ -8,7 +8,7 @@ using WindPowerSystemV2.Services.Interfaces;
 namespace WindPowerSystemV2.Controllers
 {
     [Route("api/Turbine")]
-    public class TurbineController
+    public class TurbineController : ControllerBase
 	{
 		private readonly ITurbineService _turbineService;
 

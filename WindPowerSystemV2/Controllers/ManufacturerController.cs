@@ -8,7 +8,7 @@ using WindPowerSystemV2.Services.Interfaces;
 namespace WindPowerSystemV2.Controllers
 {
     [Route("api/Manufacturer")]
-    public class ManufacturerController
+    public class ManufacturerController : ControllerBase
 	{
 		private readonly IManufacturerService _manufacturerService;
 

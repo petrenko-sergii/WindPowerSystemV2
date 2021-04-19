@@ -8,7 +8,7 @@ using WindPowerSystemV2.Services.Interfaces;
 namespace WindPowerSystemV2.Controllers
 {
     [Route("api/Farm")]
-    public class FarmController
+    public class FarmController : ControllerBase
 	{
 		private readonly IFarmService _farmService;
 

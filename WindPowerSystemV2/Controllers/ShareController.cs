@@ -8,7 +8,7 @@ using WindPowerSystemV2.Services.Interfaces;
 namespace WindPowerSystemV2.Controllers
 {
     [Route("api/Share")]
-    public class ShareController
+    public class ShareController : ControllerBase
 	{
 		private readonly IShareService _shareService;
 
